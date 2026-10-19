@@ -1,0 +1,36 @@
+{
+  "name": "propulsion-site-template",
+  "version": "1.0.0",
+  "description": "Propulsion master website template: one client.json per client, static output.",
+  "scripts": {
+    "build": "node build.mjs test-roofing",
+    "build:preview": "node build.mjs test-roofing --preview",
+    "build:strict": "node build.mjs test-roofing --strict",
+    "images": "node scripts/gen-placeholders.mjs test-roofing",
+    "serve": "node scripts/serve.mjs dist/test-roofing 4173",
+    "test:guards": "node tests/guards/run.mjs",
+    "test:jsonld": "node scripts/check-jsonld.mjs dist/test-roofing",
+    "qa:gate-a": "node scripts/gate-a.mjs test-roofing",
+    "qa:axe": "node scripts/axe.mjs test-roofing",
+    "qa:lighthouse": "node scripts/lighthouse.mjs test-roofing",
+    "qa:all": "npm run build && npm run build:preview && npm run test:jsonld && npm run qa:axe && npm run qa:gate-a && npm run qa:lighthouse && npm run test:guards"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/inter": "5.2.6",
+    "@fontsource/source-serif-4": "5.2.8",
+    "axe-core": "4.10.2",
+    "exifr": "7.1.3",
+    "playwright-core": "1.56.0",
+    "sharp": "0.34.4"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "lighthouse": "12.8.2"
+  }
+}

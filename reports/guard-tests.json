@@ -1,0 +1,317 @@
+{
+  "ranAt": "2026-10-19T16:04:24.985Z",
+  "rows": [
+    {
+      "id": "G1a",
+      "guard": "G1 Placeholders",
+      "test": "Bracket placeholder left in copy",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: placeholder text \"[LOCATION]\" is visible on the page. Fill it from client.json or remove it."
+    },
+    {
+      "id": "G1b",
+      "guard": "G1 Placeholders",
+      "test": "\"TO BE SUPPLIED\" in a service",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: placeholder text \"TO BE SUPPLIED\" is visible on the page. Fill it from client.json or remove it."
+    },
+    {
+      "id": "G1c",
+      "guard": "G1 Placeholders",
+      "test": "\"TBC\" in a project description",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: placeholder text \"TBC\" is visible on the page. Fill it from client.json or remove it."
+    },
+    {
+      "id": "G2",
+      "guard": "G2 Alt text",
+      "test": "Project image with empty alt",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "The image \"p1-day.jpg\" at projects[0].day has no alt text. Add \"alt\" in client.json, or mark it \"decorative\": true if it carries no information."
+    },
+    {
+      "id": "G3",
+      "guard": "G3 Contrast",
+      "test": "Muted grey #9a9a9a on cream background",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "Colour pair muted #9a9a9a on background #fbfaf7 (secondary text) is 2.7:1. It needs at least 4.5:1. Darken or lighten one of them."
+    },
+    {
+      "id": "G4",
+      "guard": "G4 Privacy",
+      "test": "privacy.formHost empty",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "privacy.formHost is empty. The privacy page cannot be built without it."
+    },
+    {
+      "id": "G5a",
+      "guard": "G5 Funnel URL",
+      "test": "funnelUrl is http://",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "funnelUrl \"http://funnel.example.com/test-roofing\" is not an https:// address."
+    },
+    {
+      "id": "G5b",
+      "guard": "G5 Funnel URL",
+      "test": "funnelUrl missing",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "funnelUrl is missing. Every CTA needs somewhere to go."
+    },
+    {
+      "id": "G6",
+      "guard": "G6 Phone match",
+      "test": "Site phone differs from GBP phone, no approval",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "The site phone \"01632 960123\" does not match the Google Business Profile phone \"01632 960999\". Fix one of them, or add \"phoneMismatchApproved\": \"<reason>\"."
+    },
+    {
+      "id": "G7",
+      "guard": "G7 Image size",
+      "test": "Hero is a noisy photo over the 200 KB cap",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "hero-750x938.webp is 271 KB; the hero cap is 200 KB. Crop tighter, use a cleaner photo or lower images.quality."
+    },
+    {
+      "id": "G8",
+      "guard": "G8 Image metadata",
+      "test": "Metadata stripping disabled: GPS/camera tags reach /dist",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/img/hero-1920x1080.webp still carries Make, Model, GPSVersionID, GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude, GPSLatitude, GPSLongitude, GPSPosition. All metadata, including GPS, must be stripped."
+    },
+    {
+      "id": "G9a",
+      "guard": "G9 Third-party assets",
+      "test": "Google Fonts CSS URL in brand config",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "brand.fontCssUrl loads CSS from \"https://fonts.googleapis.com/css2?family=Inter\". Fonts and CSS must be self-hosted: put the .woff2 files in clients/test-roofing/fonts/ and list them in brand.fontFiles."
+    },
+    {
+      "id": "G9b",
+      "guard": "G9 Third-party assets",
+      "test": "Tailwind Play CDN script injected into output",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: loads the Tailwind CDN. CSS must be compiled at build time."
+    },
+    {
+      "id": "G10",
+      "guard": "G10 Review cuts",
+      "test": "Review marked truncated without \"…\"",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "Review 3 by Chris (DEMO) is marked truncated but its text does not end in \"…\". Mark every cut with \"…\"."
+    },
+    {
+      "id": "G11",
+      "guard": "G11 Owner photo",
+      "test": "Owner photo set but not confirmed",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "owner.photo is set to \"owner.jpg\" but photoConfirmed is not true. Only use the owner's photo once they have confirmed it in writing; otherwise remove \"photo\"."
+    },
+    {
+      "id": "G12a",
+      "guard": "G12 Sitemap/robots domain",
+      "test": "domain is a preview host (*.vercel.app)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "domain \"https://test-roofing-git-main.vercel.app\" must be the live https domain (no path, never a preview host like *.vercel.app). sitemap.xml and robots.txt are built from it."
+    },
+    {
+      "id": "G12b",
+      "guard": "G12 Sitemap/robots domain",
+      "test": "sitemap.xml tampered to a preview URL",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "sitemap.xml lists https://preview.sitedrop.example/, which is not on https://www.test-roofing.example."
+    },
+    {
+      "id": "R1a",
+      "guard": "R1 Unsafe content",
+      "test": "<script> in client copy",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "hero.intro contains an HTML tag (Hello <script>alert(1)</script>). Client text is plain text only."
+    },
+    {
+      "id": "R1b",
+      "guard": "R1 Unsafe content",
+      "test": "javascript: link in client copy",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "services[1].description contains a script link (javascript:alert(1))."
+    },
+    {
+      "id": "R1c",
+      "guard": "R1 Unsafe content",
+      "test": "onclick handler + iframe injected into output",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "about/index.html: an inline event handler (on…=) is in the markup."
+    },
+    {
+      "id": "R2a",
+      "guard": "R2 Cross-client",
+      "test": "Another client's phone (slate-gutters) in copy",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: contains Slate & Gutter Co (DEMO)'s phone number (01632960987). Another client's details must never appear. Site quarantined."
+    },
+    {
+      "id": "R2b",
+      "guard": "R2 Cross-client",
+      "test": "Another client's email as this client's email",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "404.html: contains Slate & Gutter Co (DEMO)'s email (jo@slate-gutters.example). Site quarantined."
+    },
+    {
+      "id": "R2c",
+      "guard": "R2 Cross-client",
+      "test": "Another client's photo reused (file fingerprint)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "One of this client's source images is identical to an image in Slate & Gutter Co (DEMO)'s folder (file fingerprint match). Never reuse another client's photos."
+    },
+    {
+      "id": "R2d",
+      "guard": "R2 Cross-client",
+      "test": "Phone from a --others fixtures folder in copy",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: contains Fixture Roofing Marlow (TEST FIXTURE)'s phone number (01632960555). Another client's details must never appear. Site quarantined."
+    },
+    {
+      "id": "R3a",
+      "guard": "R3 Banned claims",
+      "test": "\"best\" in hero copy, not approved",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "hero.intro uses \"best\" (\"The best roofers in the Chilterns.\"). Remove it, or add it to approvedClaims with a proof note Matt has checked."
+    },
+    {
+      "id": "R3b",
+      "guard": "R3 Banned claims",
+      "test": "\"24/7\" approved without a proof note",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "approvedClaims[0] (\"24/7\") has no \"proof\" note. A claim is only approved with proof on file."
+    },
+    {
+      "id": "R3c",
+      "guard": "R3 Banned claims",
+      "test": "\"Free quotes\" in a process step",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "process[2].title uses \"free quotes\" (\"Free quotes\"). Remove it, or add it to approvedClaims with a proof note Matt has checked."
+    },
+    {
+      "id": "R4",
+      "guard": "R4 PENDING marker",
+      "test": "Strict (Gate B) build with ICO number still pending",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "PENDING: ICO number (privacy.icoNumber). Gate B / live builds fail on any pending item."
+    },
+    {
+      "id": "R5a",
+      "guard": "R5 Preview mode",
+      "test": "Preview build with no test inbox for the form",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "Preview builds need preview.testFormAction (an https Propulsion test inbox). Preview forms never post to the client."
+    },
+    {
+      "id": "R5b",
+      "guard": "R5 Preview mode",
+      "test": "Preview banner removed from output",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: the \"Preview – not live\" banner is missing."
+    },
+    {
+      "id": "R6",
+      "guard": "R6 Layout",
+      "test": "Standard layout with only 5 photos",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "layout \"standard\" needs 8 or more usable photos including a finished job (found 5). Use \"lowPhoto\"."
+    },
+    {
+      "id": "R7",
+      "guard": "R7 Variant",
+      "test": "Same trade, same area, same variant as a fixture client",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "Fixture Roofing Marlow (TEST FIXTURE) is also Roofing in Marlow and already uses variant B. Pick a different variant so the two sites don't look the same."
+    },
+    {
+      "id": "OK1",
+      "guard": "Control",
+      "test": "Demo client, live build (pending ICO = amber only)",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK2",
+      "guard": "Control",
+      "test": "Demo client, preview build",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK3",
+      "guard": "Control",
+      "test": "Approved claim with proof note is allowed",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK4",
+      "guard": "Control",
+      "test": "Phone mismatch with a written approval reason",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: G6 Phone match, R4 PENDING marker)"
+    },
+    {
+      "id": "OK5",
+      "guard": "Control",
+      "test": "Client text with HTML is escaped, never rendered",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK6",
+      "guard": "Control",
+      "test": "Second client (slate-gutters, lowPhoto layout) builds",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok"
+    },
+    {
+      "id": "CLI",
+      "guard": "Control",
+      "test": "node build.mjs exits non-zero on a broken config",
+      "expected": "exit 1",
+      "result": "PASS",
+      "message": "exit 1"
+    }
+  ]
+}

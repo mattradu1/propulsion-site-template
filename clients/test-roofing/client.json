@@ -1,0 +1,168 @@
+{
+  "templateVersion": "1.0.0",
+  "demo": true,
+  "slug": "test-roofing",
+  "businessName": "Test Roofing Ltd (DEMO)",
+  "legalName": "Test Roofing Ltd (DEMO – fictional company)",
+  "companyNumber": "DEMO0001",
+  "trade": "Roofing",
+  "tradeDescription": "Roof repairs and new roofs",
+  "schemaType": "RoofingContractor",
+  "voice": "we",
+  "layout": "standard",
+  "variant": "B",
+
+  "phone": "01632 960123",
+  "phoneE164": "+441632960123",
+  "gbpPhone": "01632 960123",
+  "email": "hello@test-roofing.example",
+
+  "areasServed": ["High Wycombe", "Marlow", "Beaconsfield", "Amersham", "Chesham", "Princes Risborough"],
+  "areasFooterLine": "Covering High Wycombe and the surrounding Chiltern towns (DEMO).",
+  "address": {
+    "streetAddress": "Unit 0, Demo Business Park",
+    "addressLocality": "High Wycombe",
+    "postalCode": "DEMO",
+    "addressCountry": "GB"
+  },
+  "addressPublic": false,
+
+  "gbpUrl": "https://www.example.com/demo-google-business-profile",
+  "reviewUrl": "https://www.example.com/demo-google-business-profile/reviews",
+  "funnelUrl": "https://funnel.example.com/test-roofing",
+  "utm": { "source": "website", "medium": "cta", "campaign": "test-roofing-site" },
+  "domain": "https://www.test-roofing.example",
+
+  "form": {
+    "action": "https://forms.example.com/f/test-roofing-demo",
+    "consentText": "I agree to Test Roofing Ltd (DEMO) using these details to reply to my enquiry."
+  },
+  "preview": {
+    "testFormAction": "https://forms.example.com/f/propulsion-preview-test-inbox"
+  },
+
+  "brand": {
+    "colors": {
+      "text": "#1c1f23",
+      "background": "#fbfaf7",
+      "surface": "#f1eee7",
+      "accent": "#8a3b12",
+      "accentText": "#ffffff",
+      "muted": "#565a60"
+    },
+    "fonts": { "sans": "Inter", "serif": "Source Serif 4" }
+  },
+
+  "pages": { "work": true, "services": true, "about": true, "ideas": false },
+
+  "hero": {
+    "h1": "Roof repairs and new roofs in High Wycombe",
+    "intro": "DEMO copy: a family roofing firm covering the Chiltern towns. Pitched roofs, flat roofs, leadwork and chimneys.",
+    "kind": "photo",
+    "image": { "src": "hero.jpg", "alt": "DEMO placeholder: finished slate roof on a detached house", "focus": "centre" }
+  },
+
+  "trustStrip": [
+    { "text": "DEMO: 10-year written workmanship guarantee", "source": "DEMO fixture – would be the client's signed guarantee terms" },
+    { "text": "DEMO: Roofing since 2009", "source": "DEMO fixture – would be the client's own words on the intake form" },
+    { "text": "DEMO: Fully insured", "source": "DEMO fixture – would be the insurance certificate on file" }
+  ],
+
+  "process": [
+    { "title": "You get in touch", "text": "DEMO: Send a few details and photos of the roof through the enquiry form." },
+    { "title": "We visit and measure", "text": "DEMO: We look at the roof, take photos and talk through options." },
+    { "title": "Written quote", "text": "DEMO: You get a written, itemised quote by email." },
+    { "title": "The work", "text": "DEMO: Scaffold up, roof done, site cleared." }
+  ],
+
+  "projects": [
+    {
+      "title": "Slate re-roof",
+      "town": "Marlow",
+      "description": "DEMO: Full strip and re-slate of a Victorian semi, with new leadwork to the chimney.",
+      "finished": true,
+      "featured": true,
+      "day": { "src": "p1-day.jpg", "alt": "DEMO placeholder: re-slated Victorian roof in daylight" },
+      "evening": { "src": "p1-evening.jpg", "alt": "DEMO placeholder: the same roof at dusk" }
+    },
+    {
+      "title": "Flat roof replacement",
+      "town": "Beaconsfield",
+      "description": "DEMO: Old felt roof on a rear extension replaced with a single-ply membrane.",
+      "finished": true,
+      "featured": true,
+      "day": { "src": "p2-day.jpg", "alt": "DEMO placeholder: new flat roof on a rear extension" },
+      "evening": { "src": "p2-evening.jpg", "alt": "DEMO placeholder: the flat roof extension at dusk" }
+    },
+    {
+      "title": "Chimney rebuild",
+      "town": "Amersham",
+      "description": "DEMO: Chimney stack taken down and rebuilt, with new flashing.",
+      "finished": true,
+      "day": { "src": "p3-day.jpg", "alt": "DEMO placeholder: rebuilt brick chimney stack" },
+      "evening": { "src": "p3-evening.jpg", "alt": "DEMO placeholder: rebuilt chimney stack at dusk" }
+    },
+    {
+      "title": "Ridge and valley repair",
+      "town": "Chesham",
+      "description": "DEMO: Loose ridge tiles re-bedded and a leaking valley relined.",
+      "finished": true,
+      "day": { "src": "p4-day.jpg", "alt": "DEMO placeholder: repaired ridge line on a tiled roof" },
+      "evening": { "src": "p4-evening.jpg", "alt": "DEMO placeholder: repaired ridge line at dusk" }
+    }
+  ],
+
+  "reviews": [
+    {
+      "text": "DEMO review: The team turned up when they said, kept the drive clear and the new roof looks great.",
+      "author": "Sam (DEMO)",
+      "date": "2026-08-14",
+      "source": "https://www.example.com/demo-google-business-profile/reviews#r1",
+      "truncated": false
+    },
+    {
+      "text": "DEMO review: Quote was clear, no surprises on the final bill. They found a problem with the valley and showed me photos before…",
+      "author": "Priya (DEMO)",
+      "date": "2026-06-02",
+      "source": "https://www.example.com/demo-google-business-profile/reviews#r2",
+      "truncated": true
+    },
+    {
+      "text": "DEMO review: Fixed a leak the same week I called. Tidy work.",
+      "author": "Chris (DEMO)",
+      "date": "2026-03-21",
+      "source": "https://www.example.com/demo-google-business-profile/reviews#r3",
+      "truncated": false
+    }
+  ],
+
+  "owner": {
+    "name": "Alex Demo",
+    "role": "Director (DEMO)",
+    "bio": "DEMO bio: Alex started as an apprentice roofer and set up Test Roofing to run jobs the way customers want them run: on time and tidy. This is fictional text for the template demo.",
+    "photo": "owner.jpg",
+    "alt": "DEMO placeholder for the owner's portrait",
+    "photoConfirmed": true
+  },
+
+  "services": [
+    { "name": "Roof repairs", "description": "DEMO: Slipped tiles, leaks, storm damage and small repairs." },
+    { "name": "New roofs", "description": "DEMO: Full strip and re-roof in slate or tile." },
+    { "name": "Flat roofs", "description": "DEMO: Single-ply membrane and GRP flat roofs." },
+    { "name": "Chimneys and leadwork", "description": "DEMO: Rebuilds, repointing, flashing and lead valleys." }
+  ],
+
+  "privacy": {
+    "registeredAddress": "Unit 0, Demo Business Park, High Wycombe (DEMO – not a real address)",
+    "icoNumber": { "pending": "ICO number" },
+    "lastUpdated": "2026-10-19",
+    "formHost": "forms.example.com (DEMO form processor)",
+    "emailHost": "example.com (DEMO email provider)"
+  },
+
+  "approvedClaims": [],
+
+  "seo": {
+    "home": { "title": "Roofing in High Wycombe | Test Roofing Ltd (DEMO)", "description": "DEMO site. Roof repairs, new roofs, flat roofs and chimneys across High Wycombe, Marlow, Beaconsfield and Amersham." }
+  }
+}

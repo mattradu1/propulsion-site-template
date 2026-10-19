@@ -1,0 +1,105 @@
+{
+  "dir": "dist/slate-gutters",
+  "ok": true,
+  "pages": 6,
+  "errors": [],
+  "results": [
+    {
+      "page": "404.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "legalName",
+        "telephone",
+        "email",
+        "url",
+        "areaServed",
+        "sameAs"
+      ]
+    },
+    {
+      "page": "index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "legalName",
+        "telephone",
+        "email",
+        "url",
+        "areaServed",
+        "sameAs"
+      ]
+    },
+    {
+      "page": "about/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "legalName",
+        "telephone",
+        "email",
+        "url",
+        "areaServed",
+        "sameAs"
+      ]
+    },
+    {
+      "page": "privacy/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "legalName",
+        "telephone",
+        "email",
+        "url",
+        "areaServed",
+        "sameAs"
+      ]
+    },
+    {
+      "page": "services/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "legalName",
+        "telephone",
+        "email",
+        "url",
+        "areaServed",
+        "sameAs"
+      ]
+    },
+    {
+      "page": "work/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "legalName",
+        "telephone",
+        "email",
+        "url",
+        "areaServed",
+        "sameAs"
+      ]
+    }
+  ],
+  "note": "Structure check only. Confirm in Google's Rich Results Test once deployed."
+}

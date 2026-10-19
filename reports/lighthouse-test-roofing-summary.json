@@ -1,0 +1,76 @@
+{
+  "ranAt": "2026-10-19T16:01:48.507Z",
+  "url": "local static server (vercel.json headers applied)",
+  "mode": "mobile, simulated throttling (Lighthouse default)",
+  "summary": {
+    "perf": {
+      "performance": 100,
+      "lcp": "1.3 s",
+      "cls": "0",
+      "tbt": "10 ms",
+      "fcp": "0.8 s",
+      "lcpMs": 1266,
+      "clsValue": 0
+    },
+    "full": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": "1.5 s",
+      "cls": "0",
+      "tbt": "0 ms",
+      "fcp": "1.4 s",
+      "lcpMs": 1523,
+      "clsValue": 0
+    },
+    "full /work/": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": "1.6 s",
+      "cls": "0",
+      "tbt": "0 ms",
+      "fcp": "1.2 s",
+      "lcpMs": 1589,
+      "clsValue": 0
+    },
+    "full /services/": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": "1.5 s",
+      "cls": "0",
+      "tbt": "0 ms",
+      "fcp": "1.2 s",
+      "lcpMs": 1509,
+      "clsValue": 0
+    },
+    "full /about/": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": "1.5 s",
+      "cls": "0",
+      "tbt": "0 ms",
+      "fcp": "1.2 s",
+      "lcpMs": 1505,
+      "clsValue": 0
+    },
+    "full /privacy/": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": "1.5 s",
+      "cls": "0",
+      "tbt": "0 ms",
+      "fcp": "1.2 s",
+      "lcpMs": 1518,
+      "clsValue": 0
+    }
+  }
+}

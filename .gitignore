@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.tmp/
+.env
+.env.*
+reports/lighthouse-*-full*.json
+reports/lighthouse-*-perf.json

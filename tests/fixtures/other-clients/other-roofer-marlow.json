@@ -1,0 +1,12 @@
+{
+  "slug": "fixture-other-roofer",
+  "businessName": "Fixture Roofing Marlow (TEST FIXTURE)",
+  "legalName": "Fixture Roofing Marlow Ltd (TEST FIXTURE)",
+  "trade": "Roofing",
+  "areasServed": ["Marlow", "Henley-on-Thames"],
+  "variant": "B",
+  "phone": "01632 960555",
+  "gbpPhone": "01632 960555",
+  "phoneE164": "+441632960555",
+  "email": "office@fixture-roofer.example"
+}

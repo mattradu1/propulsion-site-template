@@ -1,0 +1,249 @@
+{
+  "axeVersion": "4.10.2",
+  "results": {
+    "slate-gutters": {
+      "phone /": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 40
+      },
+      "phone /work/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 35
+      },
+      "phone /services/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 32
+      },
+      "phone /about/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 32
+      },
+      "phone /privacy/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 30
+      },
+      "phone /404.html": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 30
+      },
+      "desktop /": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 40
+      },
+      "desktop /work/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 35
+      },
+      "desktop /services/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 32
+      },
+      "desktop /about/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 32
+      },
+      "desktop /privacy/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 30
+      },
+      "desktop /404.html": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 30
+      }
+    },
+    "slate-gutters--preview": {
+      "phone /": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 41
+      },
+      "phone /work/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 36
+      },
+      "phone /services/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 33
+      },
+      "phone /about/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 33
+      },
+      "phone /privacy/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 31
+      },
+      "phone /404.html": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 31
+      },
+      "desktop /": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 41
+      },
+      "desktop /work/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 36
+      },
+      "desktop /services/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 33
+      },
+      "desktop /about/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 33
+      },
+      "desktop /privacy/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 31
+      },
+      "desktop /404.html": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 31
+      }
+    }
+  }
+}
