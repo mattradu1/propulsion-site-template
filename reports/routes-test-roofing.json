@@ -1,0 +1,101 @@
+{
+  "slug": "test-roofing",
+  "ranAt": "2026-10-19T17:18:53.444Z",
+  "rows": [
+    {
+      "check": "GET /",
+      "result": "PASS",
+      "detail": "status 200, title \"Roofing in High Wycombe | Test Roofing Ltd (DEMO)\", canonical https://www.test-roofing.example/"
+    },
+    {
+      "check": "GET /work/",
+      "result": "PASS",
+      "detail": "status 200, title \"Work | Test Roofing Ltd (DEMO)\", canonical https://www.test-roofing.example/work/"
+    },
+    {
+      "check": "GET /work (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /work/ → 200"
+    },
+    {
+      "check": "GET /services/",
+      "result": "PASS",
+      "detail": "status 200, title \"Services | Test Roofing Ltd (DEMO)\", canonical https://www.test-roofing.example/services/"
+    },
+    {
+      "check": "GET /services (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /services/ → 200"
+    },
+    {
+      "check": "GET /about/",
+      "result": "PASS",
+      "detail": "status 200, title \"About | Test Roofing Ltd (DEMO)\", canonical https://www.test-roofing.example/about/"
+    },
+    {
+      "check": "GET /about (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /about/ → 200"
+    },
+    {
+      "check": "GET /consultation/",
+      "result": "PASS",
+      "detail": "status 200, title \"Start your enquiry | Test Roofing Ltd (DEMO)\", canonical https://www.test-roofing.example/consultation/"
+    },
+    {
+      "check": "GET /consultation (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /consultation/ → 200"
+    },
+    {
+      "check": "GET /privacy/",
+      "result": "PASS",
+      "detail": "status 200, title \"Privacy notice | Test Roofing Ltd (DEMO)\", canonical https://www.test-roofing.example/privacy/"
+    },
+    {
+      "check": "GET /privacy (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /privacy/ → 200"
+    },
+    {
+      "check": "Sitemap https://www.test-roofing.example/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-roofing.example/work/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-roofing.example/services/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-roofing.example/about/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-roofing.example/consultation/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-roofing.example/privacy/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Unknown URL is a real 404",
+      "result": "PASS",
+      "detail": "status 404"
+    },
+    {
+      "check": "Unknown sub-path is a real 404",
+      "result": "PASS",
+      "detail": "status 404"
+    }
+  ]
+}

@@ -10,10 +10,12 @@ const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=
 
 export function serve(dir, port = 0) {
   dir = path.resolve(dir);
-  let rules = [];
-  try { rules = JSON.parse(fs.readFileSync(path.join(dir, 'vercel.json'), 'utf8')).headers || []; } catch {}
+  let rules = [], redirects = [];
+  try { const v = JSON.parse(fs.readFileSync(path.join(dir, 'vercel.json'), 'utf8')); rules = v.headers || []; redirects = v.redirects || []; } catch {}
   const server = http.createServer((req, res) => {
     const url = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+    const rd = redirects.find((r) => r.source === url);
+    if (rd) { res.writeHead(rd.permanent ? 308 : 307, { Location: rd.destination }); return res.end(); }
     let file = path.join(dir, url);
     if (!file.startsWith(dir) || /vercel\.json|build-info\.json/.test(url)) file = '';
     else if (fs.existsSync(file) && fs.statSync(file).isDirectory()) {

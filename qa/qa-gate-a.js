@@ -1,13 +1,17 @@
-// Propulsion OS-09 Gate A — browser QA script (v1.1, 19 Oct 2026; adapted from v1 for headless Playwright)
+// Propulsion OS-09 Gate A — browser QA script (v1.2, 19 Oct 2026; adapted from v1 for headless Playwright)
+// v1.2 (template v2): a PENDING phone is amber, not a fail; claim checks ignore the text of PENDING markers
+// (an open conflict quoted inside a marker is not a claim); CTA wording includes the client's own label.
 // v1.1 changes: axe is injected locally by the runner (no CDN fetch); added rulebook S4/S5 checks:
 // preview banner + noindex, PENDING markers (amber), no unsafe markup, phone-width tap-to-call.
 // Run in the browser pane (javascript_tool) or DevTools console on each page of a preview.
 // Set CFG first: window.QA_CFG = { phone: '07813976959', gbpPhone: '01494582678', routes: ['/','/about'], reviewTexts: ['...verbatim...'] }
 (async () => {
-  const CFG = Object.assign({ phone: null, gbpPhone: null, routes: [location.pathname], reviewTexts: [], preview: false, testFormAction: null, demo: false, domain: null }, window.QA_CFG || {});
+  const CFG = Object.assign({ phonePending: false, ctaLabel: null, phone: null, gbpPhone: null, routes: [location.pathname], reviewTexts: [], preview: false, testFormAction: null, demo: false, domain: null }, window.QA_CFG || {});
   const R = []; const add = (gate, check, pass, detail) => R.push({ gate, check, result: pass === null ? 'NEEDS TESTING' : pass === 'AMBER' ? 'AMBER' : pass ? 'PASS' : 'FAIL', detail });
   const q = s => [...document.querySelectorAll(s)];
   const text = document.body.innerText;
+  const bodyCopy = document.body.cloneNode(true); bodyCopy.querySelectorAll('[data-pending]').forEach(e => e.remove());
+  const claimText = bodyCopy.textContent.replace(/\s+/g, ' ');
 
   // 1 Placeholders
   // Scan visible text + link/image/meta attribute values only (not CSS, which uses [attr] selectors)
@@ -27,19 +31,20 @@
   add('B', 'Unknown URL returns 404', soft === 404, 'status ' + soft);
 
   // 3 Enquiry path
-  const ctas = q('a,button').filter(e => /consultation|enquir|quote|book|contact|map your/i.test(e.innerText));
+  const ctas = q('a,button').filter(e => /consultation|enquir|quote|book|contact|map your/i.test(e.innerText) || (CFG.ctaLabel && e.innerText.trim().toLowerCase() === CFG.ctaLabel.toLowerCase()));
   const ctaBad = ctas.filter(e => e.tagName === 'A' && (!e.getAttribute('href') || /^\[/.test(e.getAttribute('href'))));
   add('A', 'Every CTA goes to a real funnel or form', ctas.length > 0 && ctaBad.length === 0, ctas.length + ' CTAs, ' + ctaBad.length + ' broken');
   add('A', 'Test enquiry lands within 5 minutes', null, 'Manual: submit a test enquiry and time it');
 
   // 4 Phone consistency
   const tels = [...new Set(q('a[href^="tel:"]').map(a => a.getAttribute('href').replace(/\D/g, '').replace(/^44/, '0')))];
-  if (CFG.phone) add('A', 'Phone matches agreed number everywhere', tels.every(t => t === CFG.phone.replace(/\D/g, '')), 'site: ' + tels.join(', ') + ' · agreed: ' + CFG.phone);
-  if (CFG.gbpPhone) add('B', 'Site phone matches Google Business Profile', tels.includes(CFG.gbpPhone.replace(/\D/g, '')), 'GBP: ' + CFG.gbpPhone + ' · site: ' + tels.join(', '));
+  if (CFG.phonePending) add('A', 'Phone matches agreed number everywhere', tels.length ? false : 'AMBER', tels.length ? 'phone is PENDING but the page has tel: links ' + tels.join(', ') : 'phone PENDING: no tel: links shown until it is chosen');
+  if (CFG.phone && !CFG.phonePending) add('A', 'Phone matches agreed number everywhere', tels.every(t => t === CFG.phone.replace(/\D/g, '')), 'site: ' + tels.join(', ') + ' · agreed: ' + CFG.phone);
+  if (CFG.gbpPhone && !CFG.phonePending) add('B', 'Site phone matches Google Business Profile', tels.includes(CFG.gbpPhone.replace(/\D/g, '')), 'GBP: ' + CFG.gbpPhone + ' · site: ' + tels.join(', '));
 
   // 5 Claims vs reviews
-  const solo = /(one pair of hands|fitted by me|fit every bathroom myself|run by me|by myself|i do it all)/i.exec(text);
-  const team = CFG.reviewTexts.join(' ') + ' ' + text;
+  const solo = /(one pair of hands|fitted by me|fit every bathroom myself|run by me|by myself|i do it all)/i.exec(claimText);
+  const team = CFG.reviewTexts.join(' ') + ' ' + claimText;
   const teamHit = /(and (his|the|her) team|his colleagues|team of professionals)/i.exec(team);
   add('A', 'Copy does not contradict reviews (solo vs team)', !(solo && teamHit), solo && teamHit ? `copy: "${solo[0]}" vs review: "${teamHit[0]}"` : 'no conflict found');
   if (CFG.reviewTexts.length) {
@@ -105,8 +110,10 @@
   add('A', 'No script/iframe/on* handler/javascript: link from content', unsafe === 0, unsafe + ' found');
   add('A', 'Content-Security-Policy present', !!document.querySelector('meta[http-equiv=Content-Security-Policy]'), '');
   const telA = q('a[href^="tel:"]')[0];
-  add('A', 'Tap-to-call link present and ≥24px tall at this width', !!telA && telA.getBoundingClientRect().height >= 24, telA ? Math.round(telA.getBoundingClientRect().height) + 'px' : 'none');
+  if (CFG.phonePending) add('A', 'Tap-to-call link present and ≥24px tall at this width', telA ? false : 'AMBER', telA ? 'tel: link present although the phone is PENDING' : 'phone PENDING: tap-to-call waits for the phone choice');
+  else add('A', 'Tap-to-call link present and ≥24px tall at this width', !!telA && telA.getBoundingClientRect().height >= 24, telA ? Math.round(telA.getBoundingClientRect().height) + 'px' : 'none');
   if (CFG.demo) add('A', 'DEMO label visible', /DEMO/.test(text), '');
+  if (CFG.internalReference) add('A', 'INTERNAL REFERENCE marker visible and noindex', /INTERNAL REFERENCE – NOT FOR PUBLICATION/.test(text) && !!document.querySelector('meta[name=robots][content*=noindex]'), '');
 
   const fails = R.filter(r => r.result === 'FAIL').length, needs = R.filter(r => r.result === 'NEEDS TESTING').length, ambers = R.filter(r => r.result === 'AMBER').length;
   return { url: location.href, summary: `${R.length} checks · ${R.length - fails - needs - ambers} pass · ${fails} FAIL · ${ambers} amber · ${needs} needs testing`, results: R };

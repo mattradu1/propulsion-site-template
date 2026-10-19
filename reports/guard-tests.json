@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-19T16:04:24.985Z",
+  "ranAt": "2026-10-19T17:10:21.109Z",
   "rows": [
     {
       "id": "G1a",
@@ -20,10 +20,10 @@
     {
       "id": "G1c",
       "guard": "G1 Placeholders",
-      "test": "\"TBC\" in a project description",
+      "test": "\"Location to be confirmed\" as a project town (Darren's live page)",
       "expected": "build fails",
       "result": "PASS",
-      "message": "index.html: placeholder text \"TBC\" is visible on the page. Fill it from client.json or remove it."
+      "message": "index.html: placeholder text \"Location to be confirmed\" is visible on the page. Fill it from client.json or remove it."
     },
     {
       "id": "G2",
@@ -31,15 +31,23 @@
       "test": "Project image with empty alt",
       "expected": "build fails",
       "result": "PASS",
-      "message": "The image \"p1-day.jpg\" at projects[0].day has no alt text. Add \"alt\" in client.json, or mark it \"decorative\": true if it carries no information."
+      "message": "The image \"p1-day.jpg\" at projects[0].pairs[0].day has no alt text. Add \"alt\" in client.json, or mark it \"decorative\": true if it carries no information."
     },
     {
-      "id": "G3",
+      "id": "G3a",
       "guard": "G3 Contrast",
-      "test": "Muted grey #9a9a9a on cream background",
+      "test": "Muted grey #9a9a9a on the canvas",
       "expected": "build fails",
       "result": "PASS",
-      "message": "Colour pair muted #9a9a9a on background #fbfaf7 (secondary text) is 2.7:1. It needs at least 4.5:1. Darken or lighten one of them."
+      "message": "Colour pair muted #9a9a9a on canvas #FBFAF7 (secondary text, eyebrows, toggle labels) is 2.7:1. It needs at least 4.5:1. Darken or lighten one of them."
+    },
+    {
+      "id": "G3b",
+      "guard": "G3 Contrast",
+      "test": "Accent too dark to read on the dark bands and photo veils",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "Colour pair accent #5a6a7a on dark #1E252B (buttons and tagline on dark) is 2.79:1. It needs at least 4.5:1. Darken or lighten one of them."
     },
     {
       "id": "G4",
@@ -55,7 +63,7 @@
       "test": "funnelUrl is http://",
       "expected": "build fails",
       "result": "PASS",
-      "message": "funnelUrl \"http://funnel.example.com/test-roofing\" is not an https:// address."
+      "message": "funnelUrl \"http://funnel.example.com/test-roofing\" is not a real https:// address."
     },
     {
       "id": "G5b",
@@ -64,6 +72,14 @@
       "expected": "build fails",
       "result": "PASS",
       "message": "funnelUrl is missing. Every CTA needs somewhere to go."
+    },
+    {
+      "id": "G5c",
+      "guard": "G5 Funnel URL",
+      "test": "funnelUrl is the literal [FUNNEL_URL] token (Darren's live CTAs)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "funnelUrl \"[FUNNEL_URL]\" is not a real https:// address."
     },
     {
       "id": "G6",
@@ -79,7 +95,7 @@
       "test": "Hero is a noisy photo over the 200 KB cap",
       "expected": "build fails",
       "result": "PASS",
-      "message": "hero-750x938.webp is 271 KB; the hero cap is 200 KB. Crop tighter, use a cleaner photo or lower images.quality."
+      "message": "hero-heroSplit-750x938.webp is 271 KB; the heroSplit cap is 200 KB. Crop tighter, use a cleaner photo or lower images.quality."
     },
     {
       "id": "G8",
@@ -87,7 +103,7 @@
       "test": "Metadata stripping disabled: GPS/camera tags reach /dist",
       "expected": "build fails",
       "result": "PASS",
-      "message": "assets/img/hero-1920x1080.webp still carries Make, Model, GPSVersionID, GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude, GPSLatitude, GPSLongitude, GPSPosition. All metadata, including GPS, must be stripped."
+      "message": "assets/img/hero-heroSplit-1200x1000.webp still carries Make, Model, GPSVersionID, GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude, GPSLatitude, GPSLongitude, GPSPosition. All metadata, including GPS, must be stripped."
     },
     {
       "id": "G9a",
@@ -106,12 +122,28 @@
       "message": "index.html: loads the Tailwind CDN. CSS must be compiled at build time."
     },
     {
-      "id": "G10",
+      "id": "G9c",
+      "guard": "G9 Third-party assets",
+      "test": "Three font families (Darren's preview had Inter, Space Grotesk, Playfair)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "brand.fonts lists 3 families; the limit is 2."
+    },
+    {
+      "id": "G10a",
       "guard": "G10 Review cuts",
       "test": "Review marked truncated without \"…\"",
       "expected": "build fails",
       "result": "PASS",
       "message": "Review 3 by Chris (DEMO) is marked truncated but its text does not end in \"…\". Mark every cut with \"…\"."
+    },
+    {
+      "id": "G10b",
+      "guard": "G10 Review cuts",
+      "test": "Review cut with a full stop and \"…\" removed (Darren's home page)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "Review 2 by Priya (DEMO) is marked truncated but its text does not end in \"…\". Mark every cut with \"…\"."
     },
     {
       "id": "G11",
@@ -127,7 +159,7 @@
       "test": "domain is a preview host (*.vercel.app)",
       "expected": "build fails",
       "result": "PASS",
-      "message": "domain \"https://test-roofing-git-main.vercel.app\" must be the live https domain (no path, never a preview host like *.vercel.app). sitemap.xml and robots.txt are built from it."
+      "message": "domain \"https://test-roofing-git-main.vercel.app\" must be the final live https domain (no path, never a preview host like *.vercel.app or SiteDrop). Canonicals, sitemap.xml and robots.txt are built from it."
     },
     {
       "id": "G12b",
@@ -160,6 +192,14 @@
       "expected": "build fails",
       "result": "PASS",
       "message": "about/index.html: an inline event handler (on…=) is in the markup."
+    },
+    {
+      "id": "R1d",
+      "guard": "R1 Unsafe content",
+      "test": "Inline style attribute injected (Darren's pages used them)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: an inline style attribute is in the markup. The CSP blocks it; styles live in site.css."
     },
     {
       "id": "R2a",
@@ -215,7 +255,7 @@
       "test": "\"Free quotes\" in a process step",
       "expected": "build fails",
       "result": "PASS",
-      "message": "process[2].title uses \"free quotes\" (\"Free quotes\"). Remove it, or add it to approvedClaims with a proof note Matt has checked."
+      "message": "process.steps[2].title uses \"free quotes\" (\"Free quotes\"). Remove it, or add it to approvedClaims with a proof note Matt has checked."
     },
     {
       "id": "R4",
@@ -247,7 +287,7 @@
       "test": "Standard layout with only 5 photos",
       "expected": "build fails",
       "result": "PASS",
-      "message": "layout \"standard\" needs 8 or more usable photos including a finished job (found 5). Use \"lowPhoto\"."
+      "message": "layout \"standard\" needs 8 or more usable photos of the client's own work including a finished job (found 5). Use \"lowPhoto\"."
     },
     {
       "id": "R7",
@@ -258,9 +298,281 @@
       "message": "Fixture Roofing Marlow (TEST FIXTURE) is also Roofing in Marlow and already uses variant B. Pick a different variant so the two sites don't look the same."
     },
     {
+      "id": "R8a",
+      "guard": "R8 Internal reference",
+      "test": "darren-reference built in Gate B / --strict mode (never deployed)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "This is an INTERNAL REFERENCE build (internalReference: true). It is never deployed, so a Gate B / --strict build is refused."
+    },
+    {
+      "id": "R8b",
+      "guard": "R8 Internal reference",
+      "test": "noindex stripped from an INTERNAL REFERENCE page",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "work/index.html: INTERNAL REFERENCE page is not marked noindex."
+    },
+    {
+      "id": "TS1",
+      "guard": "Type scale",
+      "test": "A seventh font size (13px) added to the CSS",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css sets font-size: 13px. Every size must be one of the six tokens var(--fs-1) … var(--fs-6)."
+    },
+    {
+      "id": "TS2",
+      "guard": "Type scale",
+      "test": "A --fs-7 token added to :root",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: The type scale defines 7 sizes (--fs-7, --fs-1, --fs-2, --fs-3, --fs-4, --fs-5, --fs-6). It must be exactly six: --fs-1 to --fs-6."
+    },
+    {
+      "id": "RS1",
+      "guard": "Restraint tokens",
+      "test": "Rounded corners hard-coded (border-radius:8px)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css rounds corners with border-radius: 8px. Corners only through var(--radius) (0 unless the brand turns it on)."
+    },
+    {
+      "id": "RS2",
+      "guard": "Restraint tokens",
+      "test": "Drop shadow hard-coded on cards",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css adds a shadow (box-shadow: 0 6px 24px rgba(0,0,0,.2)). Shadows only through var(--shadow) (none unless the brand turns it on)."
+    },
+    {
+      "id": "RS3",
+      "guard": "Restraint tokens",
+      "test": "brand.radius set to \"50%\" (not a small px token)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "brand.radius \"50%\" must be 0 or a small px value like \"2px\"."
+    },
+    {
+      "id": "DT1",
+      "guard": "Design tokens",
+      "test": "A colour literal painted outside the tokens",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css paints a colour literal (#ff0000) outside :root. Colours only through the brand tokens."
+    },
+    {
+      "id": "H1a",
+      "guard": "H1 what/where",
+      "test": "H1 says neither trade nor area (\"Beautifully Considered. Expertly Installed.\")",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "hero.h1 \"Beautifully Considered. Expertly Installed.\" does not name the trade (Roofing / roof / roofs / roofer) and does not name an area (High Wycombe, Marlow, Beaconsfield, Amersham, Chesham, Princes Risborough, Buckinghamshire). Use the client's approved line that says what and where; keep a strapline in hero.tagline."
+    },
+    {
+      "id": "H1b",
+      "guard": "H1 what/where",
+      "test": "H1 names the trade but no area",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "hero.h1 \"Roof repairs and new roofs\" does not name an area (High Wycombe, Marlow, Beaconsfield, Amersham, Chesham, Princes Risborough, Buckinghamshire). Use the client's approved line that says what and where; keep a strapline in hero.tagline."
+    },
+    {
+      "id": "H1c",
+      "guard": "H1 what/where",
+      "test": "Rendered H1 tampered after build",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: the H1 \"Quality you can trust\" does not name the trade (Roofing / roof / roofs / roofer) and does not name an area (High Wycombe, Marlow, Beaconsfield, Amersham, Chesham, Princes Risborough, Buckinghamshire)."
+    },
+    {
+      "id": "CP1",
+      "guard": "Copy phrases",
+      "test": "Copy-phrase list holds a line that is not in the client copy",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "copyPhrases[2] \"Unrivalled craftsmanship\" is not in this client's copy. The list holds the client's own approved lines only."
+    },
+    {
+      "id": "CP2",
+      "guard": "Copy phrases",
+      "test": "Approved line drifted on the built page",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "\"DEMO: These are supplier images, not my own projects.\" is missing from /ideas/. An approved line drifted or was dropped."
+    },
+    {
+      "id": "TR1",
+      "guard": "Copy traceability",
+      "test": "Invented sentence in the output (\"Reliable, tidy, family-run.\")",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "about/index.html: \"Reliable, tidy, family-run.\" is on the page but is not in client.json or the approved template lines. No invented copy."
+    },
+    {
+      "id": "VO1",
+      "guard": "Voice",
+      "test": "Brief voice.avoid word (\"luxury\") used in the copy",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: uses \"luxury\", which the brand brief lists under voice.avoid."
+    },
+    {
+      "id": "HD1",
+      "guard": "Headings in order",
+      "test": "An H2 placed before the H1",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "work/index.html: the first heading is H2; the page must open with its H1."
+    },
+    {
+      "id": "HD2",
+      "guard": "Headings in order",
+      "test": "Heading jumps H1 → H3 (Darren's consultation page)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "consultation/index.html: heading jumps from H1 to H3."
+    },
+    {
+      "id": "RT1",
+      "guard": "G13 Routing",
+      "test": "A page deleted while links still point at it (sub-path 404)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "404.html: links to /about/, which does not exist in the build (a direct request would 404)."
+    },
+    {
+      "id": "RT2",
+      "guard": "G13 Routing",
+      "test": "Old-site redirect lands on a page that does not exist",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "Redirect /our-work.html → /portfolio/ lands on a page that does not exist."
+    },
+    {
+      "id": "RT3",
+      "guard": "G13 Routing",
+      "test": "Story links to a page that is switched off",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "stories[0] links to the about page, which is switched off."
+    },
+    {
+      "id": "RT4",
+      "guard": "G13 Routing",
+      "test": "Route replaced by an empty JavaScript shell",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "services/index.html: the server HTML has almost no content (0 characters). Every route must be real HTML, not a JavaScript shell."
+    },
+    {
+      "id": "CA1",
+      "guard": "Canonical",
+      "test": "Inner page canonical points at the home page",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "work/index.html: canonical is https://www.test-roofing.example/; it must be this page on the final domain: https://www.test-roofing.example/work/."
+    },
+    {
+      "id": "CA2",
+      "guard": "Canonical",
+      "test": "Canonical points at a preview host",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "about/index.html: canonical is https://demo.vercel.app/about/; it must be this page on the final domain: https://www.test-roofing.example/about/."
+    },
+    {
+      "id": "BR1",
+      "guard": "Brief",
+      "test": "Buyer-fear quote is not word for word from the review",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "brief.buyerFears[0].quote \"kept everything really clean\" is not word for word from review r1. Buyer fears are written in review words only."
+    },
+    {
+      "id": "BR2",
+      "guard": "Brief",
+      "test": "Buyer fear answered by a section that does not exist",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "brief.buyerFears[0].answeredBy \"faq\" is not a section on this site (intro, story:design, story:fitting, work, process, owner, services, reviews, areas)."
+    },
+    {
+      "id": "BR3",
+      "guard": "Brief",
+      "test": "Archetype not one of the twelve (\"Luxury\")",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "brief.archetype \"Luxury\" uses Luxury, which is not one of: Innocent, Everyman, Hero, Outlaw, Explorer, Creator, Ruler, Magician, Lover, Caregiver, Jester, Sage, Craftsman (combine two with \"+\")."
+    },
+    {
+      "id": "ID1",
+      "guard": "Ideas page",
+      "test": "13 supplier images listed (limit 12)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "pages.ideas.images lists 13 supplier images; the limit is 12 (lazy-loaded). Pick the best 12."
+    },
+    {
+      "id": "ID2",
+      "guard": "Ideas page",
+      "test": "Supplier image label removed from the output",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "ideas/index.html: a supplier image is not labelled \"Supplier image\"."
+    },
+    {
+      "id": "ID3",
+      "guard": "Ideas page",
+      "test": "Supplier image not lazy-loaded",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "ideas/index.html: a supplier image is not lazy-loaded."
+    },
+    {
+      "id": "ID4",
+      "guard": "Ideas page",
+      "test": "Supplier images shown on the home page",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: a supplier image appears outside the Ideas page."
+    },
+    {
+      "id": "ID5",
+      "guard": "Ideas page",
+      "test": "Supplier images listed with no \"not our work\" disclaimer",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "pages.ideas.disclaimer is missing. Supplier images must be labelled as not the client's own work, in the client's words."
+    },
+    {
+      "id": "SO1",
+      "guard": "Supplier as own work",
+      "test": "A supplier image used as a story photo",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "stories[0].image (\"sup-2.jpg\") is the same picture as supplier image \"sup-1.jpg\" (distance 14/256). Supplier images only appear on the Ideas page, labelled. Use the client's own photo."
+    },
+    {
+      "id": "SO2",
+      "guard": "Supplier as own work",
+      "test": "Darren's 21 Sep hero: a resized supplier photo passed off as his own room",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "hero.image (\"darren-hero-922050a4833d.webp\") is the same picture as supplier image \"darren-supplier-4910e08ac598.webp\" (distance 21/256). Supplier images only appear on the Ideas page, labelled. Use the client's own photo."
+    },
+    {
+      "id": "PI1",
+      "guard": "Process image",
+      "test": "Process image shows a finished room, not planning",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "process.image \"process-plan.jpg\" must show planning or setting out (\"shows\": \"planning\" | \"settingOut\"). A finished room belongs in the work section; leave the process image out until the client sends one."
+    },
+    {
       "id": "OK1",
       "guard": "Control",
-      "test": "Demo client, live build (pending ICO = amber only)",
+      "test": "Test Roofing, live build (pending ICO = amber only)",
       "expected": "build passes",
       "result": "PASS",
       "message": "ok (amber: R4 PENDING marker)"
@@ -268,7 +580,7 @@
     {
       "id": "OK2",
       "guard": "Control",
-      "test": "Demo client, preview build",
+      "test": "Test Roofing, preview build",
       "expected": "build passes",
       "result": "PASS",
       "message": "ok (amber: R4 PENDING marker)"
@@ -300,10 +612,50 @@
     {
       "id": "OK6",
       "guard": "Control",
-      "test": "Second client (slate-gutters, lowPhoto layout) builds",
+      "test": "Slate & Gutter (lowPhoto layout, text hero, variant A) builds",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK7",
+      "guard": "Control",
+      "test": "Test Bathrooms (craft C, standard, brief-ordered) live build",
       "expected": "build passes",
       "result": "PASS",
       "message": "ok"
+    },
+    {
+      "id": "OK8",
+      "guard": "Control",
+      "test": "darren-reference live build (internal, PENDING = amber)",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK9",
+      "guard": "Control",
+      "test": "darren-reference preview build",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK10",
+      "guard": "Control",
+      "test": "Buyer fears reorder the home page (process, owner, design story first)",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok"
+    },
+    {
+      "id": "OK11",
+      "guard": "Control",
+      "test": "Supplier images left out (not failed) when permission is false",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: Ideas page)"
     },
     {
       "id": "CLI",

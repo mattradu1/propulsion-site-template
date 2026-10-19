@@ -1,0 +1,146 @@
+{
+  "dir": "dist/test-bathrooms--preview",
+  "ok": true,
+  "pages": 8,
+  "errors": [],
+  "results": [
+    {
+      "page": "404.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "about/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "consultation/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "ideas/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "privacy/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "services/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "work/index.html",
+      "type": "HomeAndConstructionBusiness",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    }
+  ],
+  "note": "Structure check only. Confirm in Google's Rich Results Test once deployed.",
+  "amber": []
+}

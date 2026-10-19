@@ -32,6 +32,12 @@ const pick = (r) => ({
   fcp: r.audits['first-contentful-paint']?.displayValue,
   lcpMs: Math.round(r.audits['largest-contentful-paint']?.numericValue ?? 0),
   clsValue: r.audits['cumulative-layout-shift']?.numericValue,
+  // SEO with the deliberate noindex left out (internal reference and preview builds are noindex on purpose).
+  seoExNoindex: r.categories.seo && (() => {
+    const refs = r.categories.seo.auditRefs.filter((a) => a.weight > 0 && a.id !== 'is-crawlable' && r.audits[a.id]?.score != null);
+    return Math.round(100 * refs.reduce((s, a) => s + a.weight * r.audits[a.id].score, 0) / refs.reduce((s, a) => s + a.weight, 0));
+  })(),
+  failedAudits: Object.values(r.audits).filter((a) => a.score !== null && a.score < 0.9 && a.scoreDisplayMode === 'binary').map((a) => a.id),
 });
 try {
   summary.perf = pick(await run('perf', ['--only-categories=performance']));
@@ -42,6 +48,7 @@ try {
 fs.writeFileSync(`reports/lighthouse-${slug}-summary.json`, JSON.stringify({ ranAt: new Date().toISOString(), url: 'local static server (vercel.json headers applied)', mode: 'mobile, simulated throttling (Lighthouse default)', summary }, null, 2));
 for (const [k, v] of Object.entries(summary)) console.log(k.padEnd(16), JSON.stringify(v));
 const p = summary.perf;
-const ok = p.performance >= 85 && p.lcpMs <= 2500 && p.clsValue <= 0.1 && summary.full.accessibility >= 95;
+const all = Object.values(summary);
+const ok = p.performance >= 85 && p.lcpMs <= 2500 && p.clsValue <= 0.1 && all.every((x) => x.accessibility == null || x.accessibility >= 95);
 console.log(ok ? 'Lighthouse: meets Definition of Done' : 'Lighthouse: BELOW Definition of Done');
 process.exit(ok ? 0 : 1);

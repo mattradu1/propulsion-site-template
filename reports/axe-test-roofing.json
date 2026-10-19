@@ -10,7 +10,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 40
+        "passes": 41
       },
       "phone /work/": {
         "counts": {
@@ -20,7 +20,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 36
+        "passes": 40
       },
       "phone /services/": {
         "counts": {
@@ -30,7 +30,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 32
+        "passes": 37
       },
       "phone /about/": {
         "counts": {
@@ -40,7 +40,17 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 35
+        "passes": 40
+      },
+      "phone /consultation/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 43
       },
       "phone /privacy/": {
         "counts": {
@@ -50,7 +60,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 30
+        "passes": 38
       },
       "phone /404.html": {
         "counts": {
@@ -60,7 +70,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 30
+        "passes": 37
       },
       "desktop /": {
         "counts": {
@@ -70,7 +80,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 40
+        "passes": 41
       },
       "desktop /work/": {
         "counts": {
@@ -80,7 +90,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 36
+        "passes": 40
       },
       "desktop /services/": {
         "counts": {
@@ -90,7 +100,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 32
+        "passes": 33
       },
       "desktop /about/": {
         "counts": {
@@ -100,7 +110,17 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 35
+        "passes": 37
+      },
+      "desktop /consultation/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 40
       },
       "desktop /privacy/": {
         "counts": {
@@ -110,7 +130,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 30
+        "passes": 34
       },
       "desktop /404.html": {
         "counts": {
@@ -120,7 +140,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 30
+        "passes": 33
       }
     },
     "test-roofing--preview": {
@@ -132,7 +152,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 41
+        "passes": 42
       },
       "phone /work/": {
         "counts": {
@@ -142,7 +162,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 37
+        "passes": 41
       },
       "phone /services/": {
         "counts": {
@@ -152,7 +172,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 33
+        "passes": 38
       },
       "phone /about/": {
         "counts": {
@@ -162,7 +182,17 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 36
+        "passes": 41
+      },
+      "phone /consultation/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 44
       },
       "phone /privacy/": {
         "counts": {
@@ -172,7 +202,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 31
+        "passes": 39
       },
       "phone /404.html": {
         "counts": {
@@ -182,7 +212,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 31
+        "passes": 38
       },
       "desktop /": {
         "counts": {
@@ -192,7 +222,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 41
+        "passes": 42
       },
       "desktop /work/": {
         "counts": {
@@ -202,7 +232,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 37
+        "passes": 41
       },
       "desktop /services/": {
         "counts": {
@@ -212,7 +242,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 33
+        "passes": 34
       },
       "desktop /about/": {
         "counts": {
@@ -222,7 +252,17 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 36
+        "passes": 38
+      },
+      "desktop /consultation/": {
+        "counts": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        },
+        "violations": [],
+        "passes": 41
       },
       "desktop /privacy/": {
         "counts": {
@@ -232,7 +272,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 31
+        "passes": 35
       },
       "desktop /404.html": {
         "counts": {
@@ -242,7 +282,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 31
+        "passes": 34
       }
     }
   }

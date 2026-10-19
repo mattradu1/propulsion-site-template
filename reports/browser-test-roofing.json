@@ -1,0 +1,1289 @@
+{
+  "slug": "test-roofing",
+  "ranAt": "2026-10-19T17:22:09.358Z",
+  "pass": 183,
+  "fail": 0,
+  "results": [
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.065px 12px 32.48px 16.105px 28.29px"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Phone menu opens, holds focus, closes on Escape",
+      "result": "PASS",
+      "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Day/evening toggle switches every pair",
+      "result": "PASS",
+      "detail": "2 pairs switched true, aria-pressed true"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.065px 12px 32.48px 28.29px 16.105px"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "Day/evening toggle switches every pair",
+      "result": "PASS",
+      "detail": "4 pairs switched true, aria-pressed true"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/services/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/services/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/services/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/services/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.065px 12px 32.48px 28.29px 16.105px"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/services/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/about/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/about/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/about/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/about/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.065px 12px 32.48px 28.29px 16.105px"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/about/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.065px 12px 32.48px 16.105px 28.29px"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/privacy/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/privacy/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/privacy/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/privacy/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.065px 12px 32.48px 16.105px 28.29px"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/privacy/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/404.html",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/404.html",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/404.html",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/404.html",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "5: 15px 20.065px 12px 32.48px 16.105px"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/404.html",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.144px 12px 44.576px 16.672px 32.448px"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/",
+      "check": "Phone menu opens, holds focus, closes on Escape",
+      "result": "PASS",
+      "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/work/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/work/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/work/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/work/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.144px 12px 44.576px 32.448px 16.672px"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/work/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/services/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/services/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/services/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/services/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.144px 12px 44.576px 32.448px 16.672px"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/services/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/about/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/about/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/about/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/about/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.144px 12px 44.576px 32.448px 16.672px"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/about/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/consultation/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/consultation/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/consultation/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/consultation/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.144px 12px 44.576px 16.672px 32.448px"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/consultation/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/privacy/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/privacy/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/privacy/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/privacy/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.144px 12px 44.576px 16.672px 32.448px"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/privacy/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/404.html",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/404.html",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/404.html",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/404.html",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "5: 15px 22.144px 12px 44.576px 16.672px"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/404.html",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.507px 12px 46.688px 16.771px 33.174px"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/",
+      "check": "Phone menu opens, holds focus, closes on Escape",
+      "result": "PASS",
+      "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/work/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/work/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/work/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/work/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.507px 12px 46.688px 33.174px 16.771px"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/work/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/services/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/services/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/services/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/services/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.507px 12px 46.688px 33.174px 16.771px"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/services/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/about/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/about/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/about/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/about/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.507px 12px 46.688px 33.174px 16.771px"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/about/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/consultation/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/consultation/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/consultation/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/consultation/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.507px 12px 46.688px 16.771px 33.174px"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/consultation/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/privacy/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/privacy/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/privacy/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/privacy/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 22.507px 12px 46.688px 16.771px 33.174px"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/privacy/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/404.html",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/404.html",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/404.html",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/404.html",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "5: 15px 22.507px 12px 46.688px 16.771px"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/404.html",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 23.552px 12px 52.768px 17px 35.264px"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/",
+      "check": "Phone menu opens, holds focus, closes on Escape",
+      "result": "PASS",
+      "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/work/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/work/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/work/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/work/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 23.552px 12px 52.768px 35.264px 17px"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/work/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/services/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/services/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/services/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/services/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 23.552px 12px 52.768px 35.264px 17px"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/services/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/about/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/about/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/about/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/about/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 23.552px 12px 52.768px 35.264px 17px"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/about/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/consultation/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/consultation/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/consultation/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/consultation/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 23.552px 12px 52.768px 17px 35.264px"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/consultation/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/privacy/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/privacy/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/privacy/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/privacy/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 23.552px 12px 52.768px 17px 35.264px"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/privacy/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/404.html",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/404.html",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/404.html",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/404.html",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "5: 15px 23.552px 12px 52.768px 17px"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/404.html",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 24.96px 60.96px 17px 12px 38px"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/work/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/work/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/work/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/work/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 24.96px 60.96px 12px 38px 17px"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/work/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/services/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/services/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/services/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/services/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 24.96px 60.96px 38px 17px 12px"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/services/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/about/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/about/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/about/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/about/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 24.96px 60.96px 38px 12px 17px"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/about/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/consultation/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/consultation/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/consultation/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/consultation/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 24.96px 60.96px 17px 38px 12px"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/consultation/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/privacy/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/privacy/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/privacy/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/privacy/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 24.96px 60.96px 17px 38px 12px"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/privacy/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/404.html",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/404.html",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/404.html",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Inter, h1 Inter, loaded: Inter, Source Serif 4"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/404.html",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "5: 15px 24.96px 60.96px 17px 12px"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/404.html",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "all",
+      "route": "all",
+      "check": "Copy phrase visible: \"Roof repairs and new roofs in High Wycombe\"",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "all",
+      "route": "all",
+      "check": "Copy phrase visible: \"DEMO: Pitched, flat and lead\"",
+      "result": "PASS",
+      "detail": "ok"
+    }
+  ]
+}

@@ -9,6 +9,7 @@ const dir = path.resolve(process.argv[2] || 'dist/test-roofing');
 const info = JSON.parse(fs.readFileSync(path.join(dir, 'build-info.json'), 'utf8'));
 const cfg = JSON.parse(fs.readFileSync(path.resolve(process.argv[3] || `clients/${info.slug}`, 'client.json'), 'utf8'));
 const LOCAL_BUSINESS_TYPES = new Set(['LocalBusiness', 'HomeAndConstructionBusiness', 'RoofingContractor', 'Plumber', 'Electrician', 'HVACBusiness', 'GeneralContractor', 'HousePainter', 'Locksmith', 'MovingCompany', 'AccountingService', 'MedicalClinic', 'Dentist', 'Physiotherapy', 'ProfessionalService']);
+const pend = (v) => v && typeof v === 'object' && typeof v.pending === 'string';
 const errors = [];
 const results = [];
 for (const f of listFiles(dir).filter((x) => x.endsWith('.html'))) {
@@ -21,12 +22,16 @@ for (const f of listFiles(dir).filter((x) => x.endsWith('.html'))) {
   const e = (m) => errors.push(`${page}: ${m}`);
   if (j['@context'] !== 'https://schema.org') e('@context must be https://schema.org');
   if (!j['@type']) e('@type missing'); else if (!LOCAL_BUSINESS_TYPES.has(j['@type'])) e(`@type ${j['@type']} is not a known LocalBusiness subtype`);
-  for (const k of ['name', 'telephone', 'email', 'url', 'areaServed', 'sameAs']) if (j[k] == null || (Array.isArray(j[k]) && !j[k].length)) e(`required field "${k}" missing`);
+  const need = ['name', 'email', 'url', 'areaServed'];
+  if (!pend(cfg.phone)) need.push('telephone'); else if (j.telephone) e('telephone present although the phone is PENDING');
+  if (!pend(cfg.gbpUrl)) need.push('sameAs'); else if (j.sameAs) e('sameAs present although gbpUrl is PENDING');
+  for (const k of need) if (j[k] == null || (Array.isArray(j[k]) && !j[k].length)) e(`required field "${k}" missing`);
   if (j.name !== cfg.businessName) e('name does not match client.json businessName');
-  if (j.telephone !== cfg.phoneE164) e('telephone does not match phoneE164');
+  if (!pend(cfg.phone) && j.telephone !== cfg.phoneE164) e('telephone does not match phoneE164');
   if (j.email !== cfg.email) e('email does not match');
   if (!String(j.url).startsWith(cfg.domain)) e('url is not the live domain');
-  if (!j.sameAs?.includes(cfg.gbpUrl)) e('sameAs must include gbpUrl');
+  if (!pend(cfg.gbpUrl) && !j.sameAs?.includes(cfg.gbpUrl)) e('sameAs must include gbpUrl');
+  if (j.url !== cfg.domain.replace(/\/$/, '') + '/') e('url must be the final domain home page');
   if (cfg.addressPublic !== true && j.address) e('address present although addressPublic is false');
   if (cfg.addressPublic === true && !j.address) e('address missing although addressPublic is true');
   const areas = (j.areaServed || []).map((a) => a.name);
@@ -35,6 +40,8 @@ for (const f of listFiles(dir).filter((x) => x.endsWith('.html'))) {
 }
 const report = { dir: path.relative(process.cwd(), dir), ok: errors.length === 0, pages: results.length, errors, results, note: "Structure check only. Confirm in Google's Rich Results Test once deployed." };
 fs.mkdirSync('reports', { recursive: true });
-fs.writeFileSync(`reports/jsonld-${info.slug}.json`, JSON.stringify(report, null, 2));
-console.log(errors.length ? 'JSON-LD FAIL\n' + errors.join('\n') : `JSON-LD OK: ${results.length} pages, @type ${results[0]?.type}, fields: ${results[0]?.fields.join(', ')}`);
+const pendingNote = [pend(cfg.phone) && 'telephone left out (phone PENDING)', pend(cfg.gbpUrl) && 'sameAs left out (gbpUrl PENDING)'].filter(Boolean);
+report.amber = pendingNote;
+fs.writeFileSync(`reports/jsonld-${info.slug}${info.preview ? '--preview' : ''}.json`, JSON.stringify(report, null, 2));
+console.log(errors.length ? 'JSON-LD FAIL\n' + errors.join('\n') : `JSON-LD OK${pendingNote.length ? ' (amber: ' + pendingNote.join('; ') + ')' : ''}: ${results.length} pages, @type ${results[0]?.type}, fields: ${results[0]?.fields.join(', ')}`);
 process.exit(errors.length ? 1 : 0);

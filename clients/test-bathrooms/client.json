@@ -1,0 +1,209 @@
+{
+  "templateVersion": "2.0.0",
+  "demo": true,
+  "demoScene": "bathroom",
+  "slug": "test-bathrooms",
+  "businessName": "Test Bathrooms Ltd (DEMO)",
+  "legalName": "Test Bathrooms Ltd (DEMO – fictional company)",
+  "companyNumber": "DEMO0003",
+  "trade": "Bathrooms",
+  "tradeKeywords": ["bathroom", "bathrooms", "shower rooms"],
+  "tradeDescription": "Bathroom design and fitting",
+  "schemaType": "HomeAndConstructionBusiness",
+  "theme": "craft",
+  "voice": "I",
+  "layout": "standard",
+  "variant": "C",
+
+  "phone": "01632 960412",
+  "phoneE164": "+441632960412",
+  "gbpPhone": "01632 960412",
+  "email": "hello@test-bathrooms.example",
+
+  "areasServed": ["Guildford", "Godalming", "Farnham", "Cranleigh", "Woking"],
+  "region": "Surrey",
+  "addressPublic": false,
+
+  "gbpUrl": "https://www.example.com/demo-gbp-test-bathrooms",
+  "reviewUrl": "https://www.example.com/demo-gbp-test-bathrooms/reviews",
+  "funnelUrl": "https://funnel.example.com/test-bathrooms",
+  "utm": { "source": "website", "medium": "cta", "campaign": "test-bathrooms-site" },
+  "domain": "https://www.test-bathrooms.example",
+
+  "form": {
+    "action": "https://forms.example.com/f/test-bathrooms-demo",
+    "consentText": "I agree to Test Bathrooms Ltd (DEMO) using these details to reply to my enquiry."
+  },
+  "preview": { "testFormAction": "https://forms.example.com/f/propulsion-preview-test-inbox" },
+
+  "brand": {
+    "colors": {
+      "canvas": "#FBFAF6", "paper": "#EFEDE4", "line": "#DAD6C8", "ink": "#1B2A24", "muted": "#5A6158",
+      "accent": "#DEC48E", "dark": "#15231D", "onDark": "#F4F1E8", "onDarkMuted": "#A9B2A6"
+    },
+    "fonts": { "display": "Source Serif 4", "text": "Montserrat" }
+  },
+
+  "copy": {
+    "ctaLabel": "DEMO: Book a design visit",
+    "workEyebrow": "DEMO: Selected rooms",
+    "workHeading": "DEMO: Daylight and lamplight",
+    "workNote": "DEMO: Each room photographed twice, once by day and once with the lights on.",
+    "day": "Daylight",
+    "evening": "Evening",
+    "ownerEyebrow": "DEMO: The fitter",
+    "reviewsEyebrow": "DEMO: Word for word",
+    "ctaHeading": "DEMO: Tell me about the room",
+    "ctaText": "DEMO: A few questions about the space. I read every answer myself and reply within two working days.",
+    "footerTagline": "DEMO: Drawn first, fitted once"
+  },
+
+  "hero": {
+    "tagline": "DEMO: Drawn first, fitted once.",
+    "h1": "Bathroom design and fitting in Guildford",
+    "intro": "DEMO copy: I draw every bathroom to scale before quoting, then fit it myself, start to finish.",
+    "kind": "photo",
+    "image": { "src": "hero.jpg", "alt": "DEMO placeholder: finished family bathroom with a freestanding bath", "focus": "centre" }
+  },
+
+  "trustStrip": [
+    { "title": "DEMO: Drawn to scale", "text": "DEMO: Every room measured and drawn before a price", "source": "DEMO fixture – would be sample drawings on file" },
+    { "title": "DEMO: Two-year guarantee", "text": "DEMO: Written workmanship guarantee", "source": "DEMO fixture – would be the signed guarantee terms" },
+    { "title": "DEMO: Fully insured", "source": "DEMO fixture – would be the insurance certificate on file" }
+  ],
+
+  "intro": {
+    "eyebrow": "DEMO: Test Bathrooms",
+    "heading": "DEMO: A room that works before it looks good",
+    "text": "DEMO copy: Most bathrooms go wrong at the drawing stage, not the fitting. I measure the room, draw it to scale and show you where every pipe will run before anything is ordered."
+  },
+
+  "stories": [
+    { "id": "design", "eyebrow": "DEMO: The design", "heading": "DEMO: Drawn around the room you have", "text": "DEMO copy: Awkward rooms are the norm. The drawing is where we solve the soil pipe, the window and the door swing.", "link": { "label": "DEMO: How I work", "to": "about" },
+      "image": { "src": "story-design.jpg", "alt": "DEMO placeholder: a compact bathroom with a bath under the window" } },
+    { "id": "fitting", "eyebrow": "DEMO: The fitting", "heading": "DEMO: One fitter from first day to last", "text": "DEMO copy: The same person sets out, tiles and fits the room. You always know who is in the house.", "link": { "label": "DEMO: Book a visit", "to": "consultation" },
+      "image": { "src": "story-fitting.jpg", "alt": "DEMO placeholder: a tiled shower recess with a niche" } }
+  ],
+
+  "process": {
+    "eyebrow": "DEMO: How a job runs",
+    "heading": "DEMO: From drawing to handover",
+    "image": { "src": "process-plan.jpg", "alt": "DEMO placeholder: a scale drawing of a bathroom layout on a desk", "shows": "planning" },
+    "steps": [
+      { "title": "DEMO: Visit and measure", "text": "DEMO: I measure the room and note pipes, joists and windows." },
+      { "title": "DEMO: Drawing and price", "text": "DEMO: You get a scale drawing and a written, itemised price." },
+      { "title": "DEMO: Fitting", "text": "DEMO: Floors covered, dust sheets down, the room finished in one run." },
+      { "title": "DEMO: Handover", "text": "DEMO: A walk-round, the guarantee in writing and the room left clean." }
+    ]
+  },
+
+  "projects": [
+    { "title": "DEMO: Family bathroom", "town": "Guildford", "description": "DEMO: Freestanding bath under the window, twin basins and a walk-in shower, with a herringbone-effect floor.", "finished": true, "featured": true,
+      "pairs": [
+        { "wide": true, "day": { "src": "p1-wide-day.jpg", "alt": "DEMO placeholder: the family bathroom in daylight" }, "evening": { "src": "p1-wide-evening.jpg", "alt": "DEMO placeholder: the same bathroom in the evening with the lights on" } },
+        { "day": { "src": "p1-a-day.jpg", "alt": "DEMO placeholder: twin basins in daylight" }, "evening": { "src": "p1-a-evening.jpg", "alt": "DEMO placeholder: the twin basins in the evening" } },
+        { "day": { "src": "p1-b-day.jpg", "alt": "DEMO placeholder: walk-in shower in daylight" }, "evening": { "src": "p1-b-evening.jpg", "alt": "DEMO placeholder: the walk-in shower in the evening" } }
+      ] },
+    { "title": "DEMO: Shower room", "town": "Godalming", "description": "DEMO: A box room turned into a shower room with a wall-hung basin.", "finished": true, "featured": false,
+      "pairs": [ { "day": { "src": "p2-day.jpg", "alt": "DEMO placeholder: small shower room in daylight" }, "evening": { "src": "p2-evening.jpg", "alt": "DEMO placeholder: the shower room in the evening" } } ] },
+    { "title": "DEMO: En suite", "town": "Farnham", "description": "DEMO: An en suite fitted into the eaves, with a level-access shower.", "finished": true,
+      "pairs": [ { "day": { "src": "p3-day.jpg", "alt": "DEMO placeholder: en suite under the eaves in daylight" } } ] }
+  ],
+
+  "reviews": [
+    { "id": "r1", "text": "DEMO review: He covered every floor from the front door up and kept the house spotless the whole fortnight.", "author": "Helen (DEMO)", "date": "2026-07-09", "source": "https://www.example.com/demo-gbp-test-bathrooms/reviews#r1", "truncated": false },
+    { "id": "r2", "text": "DEMO review: Same face every day, which mattered to us with two small children in the house.", "author": "Tom (DEMO)", "date": "2026-05-18", "source": "https://www.example.com/demo-gbp-test-bathrooms/reviews#r2", "truncated": false },
+    { "id": "r3", "text": "DEMO review: The drawing showed us the bath would fit under the window when two showrooms said it wouldn't. It does, and it looks right…", "author": "Ana (DEMO)", "date": "2026-03-02", "source": "https://www.example.com/demo-gbp-test-bathrooms/reviews#r3", "truncated": true },
+    { "id": "r4", "text": "DEMO review: Turned up when he said he would, every day.", "author": "Gary (DEMO)", "date": "2026-01-22", "source": "https://www.example.com/demo-gbp-test-bathrooms/reviews#r4", "truncated": false }
+  ],
+
+  "owner": {
+    "name": "Sam Demo",
+    "role": "Owner and fitter (DEMO)",
+    "bio": "DEMO bio: Sam trained as a plumber, then spent ten years fitting for a showroom before setting up on his own. Fictional text for the template demo.",
+    "photo": "owner.jpg",
+    "alt": "DEMO placeholder for the owner's portrait",
+    "photoConfirmed": true
+  },
+
+  "services": [
+    { "name": "DEMO: Family bathrooms", "description": "DEMO: Full redesign and refit, from drawing to handover." },
+    { "name": "DEMO: Shower rooms and en suites", "description": "DEMO: Small and awkward rooms, including the eaves." },
+    { "name": "DEMO: Level-access showers", "description": "DEMO: Easier-to-use bathrooms that don't look adapted." }
+  ],
+
+  "cta": { "image": { "src": "cta-evening.jpg", "decorative": true } },
+
+  "pages": {
+    "work": { "h1": "DEMO: Rooms I have fitted", "lede": "DEMO: Bathrooms, shower rooms and en suites across Guildford and nearby.", "image": { "src": "work-head.jpg", "alt": "DEMO placeholder: a finished bathroom seen from the doorway" }, "reviewIds": ["r3"] },
+    "about": { "h1": "DEMO: About Sam", "lede": "DEMO: Plumber first, fitter for ten years, now on his own.", "image": { "src": "about-head.jpg", "alt": "DEMO placeholder: a finished shower room" },
+      "sections": [ { "heading": "DEMO: How it started", "text": "DEMO: Fictional history for the template demo. No real business, dates or people." }, { "heading": "DEMO: How I work", "text": ["DEMO: One room at a time, drawn first.", "DEMO: Every job has a written price and a written guarantee."] } ],
+      "reviewIds": ["r1", "r2"] },
+    "services": true,
+    "ideas": {
+      "eyebrow": "DEMO: Ideas",
+      "h1": "DEMO: Ideas worth borrowing",
+      "intro": "DEMO: Materials, layouts and lighting from the suppliers I buy from.",
+      "disclaimer": "DEMO: These are supplier images, not my own projects.",
+      "workLink": "DEMO: See rooms I have fitted",
+      "images": [
+        { "src": "sup-1.jpg", "alt": "DEMO supplier stand-in: tall window and a round mirror", "supplier": "DEMO Tile Co" },
+        { "src": "sup-2.jpg", "alt": "DEMO supplier stand-in: oval bath below a round mirror", "supplier": "DEMO Bath Co" },
+        { "src": "sup-3.jpg", "alt": "DEMO supplier stand-in: grey wall with a round mirror", "supplier": "DEMO Tile Co" },
+        { "src": "sup-4.jpg", "alt": "DEMO supplier stand-in: green-grey room with a tall window", "supplier": "DEMO Brassware Co" },
+        { "src": "sup-5.jpg", "alt": "DEMO supplier stand-in: stone-coloured room with an oval bath", "supplier": "DEMO Bath Co" },
+        { "src": "sup-6.jpg", "alt": "DEMO supplier stand-in: pale room with a round mirror", "supplier": "DEMO Tile Co" }
+      ]
+    },
+    "consultation": {
+      "eyebrow": "DEMO: Book a design visit",
+      "h1": "DEMO: Tell me about the room",
+      "intro": "DEMO: A few questions about the space and what you want from it. It takes a couple of minutes.",
+      "reassurance": [
+        { "title": "DEMO: No obligation", "text": "DEMO: A visit and a drawing, not a sales call." },
+        { "title": "DEMO: Read by me", "text": "DEMO: I read every enquiry myself." },
+        { "title": "DEMO: Written price", "text": "DEMO: Itemised, so you can compare it fairly." }
+      ]
+    }
+  },
+  "supplierImagesPermission": true,
+  "supplierImagesPermissionSource": "DEMO fixture – would be the suppliers' written permission on file",
+
+  "redirects": [ { "from": "/our-work.html", "to": "/work/" }, { "from": "/contact.html", "to": "/consultation/" } ],
+
+  "privacy": {
+    "registeredAddress": "1 Demo Street, Guildford (DEMO – not a real address)",
+    "icoNumber": "not registered",
+    "lastUpdated": "2026-10-19",
+    "formHost": "forms.example.com (DEMO form processor)",
+    "emailHost": "example.com (DEMO email provider)"
+  },
+
+  "brief": {
+    "idealClient": "DEMO: Families in Guildford replacing a tired 1990s bathroom, worried about disruption with children at home.",
+    "buyerFears": [
+      { "fear": "DEMO: Dust and mess through the house", "quote": "kept the house spotless the whole fortnight", "reviewId": "r1", "answeredBy": "process" },
+      { "fear": "DEMO: Not knowing who will be in the house", "quote": "Same face every day", "reviewId": "r2", "answeredBy": "owner" },
+      { "fear": "DEMO: A showroom design that doesn't fit the room", "quote": "The drawing showed us the bath would fit under the window", "reviewId": "r3", "answeredBy": "story:design" }
+    ],
+    "onliness": "DEMO: The Guildford bathroom fitter who draws every room to scale before quoting and fits it himself.",
+    "archetype": "Craftsman + Caregiver",
+    "voice": { "use": ["drawn", "fitted", "tidy", "written"], "avoid": ["luxury", "stunning", "dream", "cowboys"] },
+    "proofOnFile": ["DEMO: sample drawings", "DEMO: guarantee terms", "DEMO: insurance certificate"],
+    "conflicts": []
+  },
+
+  "copyPhrases": [
+    { "phrase": "Bathroom design and fitting in Guildford", "page": "/" },
+    { "phrase": "DEMO: Drawn first, fitted once.", "page": "/" },
+    "DEMO: Book a design visit",
+    { "phrase": "DEMO: These are supplier images, not my own projects.", "page": "/ideas/" }
+  ],
+
+  "approvedClaims": [],
+
+  "seo": {
+    "home": { "title": "Bathroom fitter in Guildford | Test Bathrooms (DEMO)", "description": "DEMO site. Bathroom design and fitting across Guildford, Godalming, Farnham and Cranleigh. Every room drawn to scale before a price." },
+    "consultation": { "title": "Book a design visit | Test Bathrooms (DEMO)" }
+  }
+}

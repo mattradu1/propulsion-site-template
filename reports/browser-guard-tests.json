@@ -1,0 +1,61 @@
+{
+  "ranAt": "2026-10-19T17:18:20.051Z",
+  "rows": [
+    {
+      "id": "BC1",
+      "check": "Tap targets",
+      "test": "Footer links shrunk below 44px at tablet width (the lesson from Darren's site)",
+      "result": "PASS",
+      "message": "phone-390 /: Test Bathrooms Ltd (DEMO) 263×24 | My work 64×26 | Services 61×26 | Ideas 40×26 | About me 75×26 | Privacy notice 105×26 | DEMO: Book a design visit 197×26 | hello@test-bathrooms.example 237×26 | 01632 960412 97×26"
+    },
+    {
+      "id": "BC2",
+      "check": "No sideways scroll",
+      "test": "A fixed-width element wider than a 390px phone",
+      "result": "PASS",
+      "message": "phone-390 /: 250px wider than the screen"
+    },
+    {
+      "id": "BC3",
+      "check": "Computed fonts",
+      "test": "Self-hosted text font removed, so the browser falls back",
+      "result": "PASS",
+      "message": "phone-390 /: body Montserrat, h1 Source Serif 4, loaded: Source Serif 4"
+    },
+    {
+      "id": "BC4",
+      "check": "Six font sizes",
+      "test": "A seventh size in use",
+      "result": "PASS",
+      "message": "phone-390 /: 7: 15px 20.065px 12px 32.48px 16.105px 13px 28.29px"
+    },
+    {
+      "id": "BC5",
+      "check": "Every image loads",
+      "test": "A lazy-loaded project image missing from the build",
+      "result": "PASS",
+      "message": "phone-390 /work/: /assets/img/p2-day-project-750x1000.webp"
+    },
+    {
+      "id": "BC6",
+      "check": "Phone menu",
+      "test": "Menu script broken",
+      "result": "PASS",
+      "message": "phone-390 /: opens false, closes on Escape with focus back false"
+    },
+    {
+      "id": "BC7",
+      "check": "Copy phrase visible",
+      "test": "Approved line hidden with CSS",
+      "result": "PASS",
+      "message": "all all: not visible on its page"
+    },
+    {
+      "id": "OK",
+      "check": "Control",
+      "test": "Untouched build passes every browser check",
+      "result": "PASS",
+      "message": "88 checks ok"
+    }
+  ]
+}

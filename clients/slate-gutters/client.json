@@ -1,5 +1,5 @@
 {
-  "templateVersion": "1.0.0",
+  "templateVersion": "2.0.0",
   "demo": true,
   "slug": "slate-gutters",
   "businessName": "Slate & Gutter Co (DEMO)",
@@ -15,36 +15,143 @@
   "phoneE164": "+441632960987",
   "gbpPhone": "01632960987",
   "email": "jo@slate-gutters.example",
-  "areasServed": ["Aylesbury", "Tring"],
+  "areasServed": [
+    "Aylesbury",
+    "Tring"
+  ],
   "areasFooterLine": "Working in Aylesbury and Tring (DEMO).",
-  "address": { "addressLocality": "Aylesbury", "addressCountry": "GB" },
+  "address": {
+    "addressLocality": "Aylesbury",
+    "addressCountry": "GB"
+  },
   "addressPublic": false,
   "gbpUrl": "https://www.example.com/demo-gbp-slate-gutters",
   "reviewUrl": "https://www.example.com/demo-gbp-slate-gutters/reviews",
   "funnelUrl": "https://funnel.example.com/slate-gutters",
-  "utm": { "source": "website", "medium": "cta", "campaign": "slate-gutters-site" },
-  "domain": "https://www.slate-gutters.example",
-  "form": { "action": "https://forms.example.com/f/slate-gutters-demo", "consentText": "I agree to Slate & Gutter Co (DEMO) using these details to reply to my enquiry." },
-  "preview": { "testFormAction": "https://forms.example.com/f/propulsion-preview-test-inbox" },
-  "brand": {
-    "colors": { "text": "#14213d", "background": "#ffffff", "surface": "#eef2f7", "accent": "#1d4ed8", "accentText": "#ffffff", "muted": "#4b5563" },
-    "fonts": { "sans": "Inter", "serif": "Source Serif 4" }
+  "utm": {
+    "source": "website",
+    "medium": "cta",
+    "campaign": "slate-gutters-site"
   },
-  "pages": { "work": true, "services": true, "about": true, "ideas": false },
-  "hero": { "h1": "Gutter cleaning and repairs in Aylesbury", "intro": "DEMO copy: one person, one van, gutters cleared and fixed.", "kind": "text" },
-  "trustStrip": [ { "text": "DEMO: Gutters since 2018", "source": "DEMO fixture" } ],
-  "process": [
-    { "title": "Send a photo", "text": "DEMO: Use the enquiry form." },
-    { "title": "I quote", "text": "DEMO: A fixed price by email." },
-    { "title": "I fix it", "text": "DEMO: Usually within a fortnight." }
+  "domain": "https://www.slate-gutters.example",
+  "form": {
+    "action": "https://forms.example.com/f/slate-gutters-demo",
+    "consentText": "I agree to Slate & Gutter Co (DEMO) using these details to reply to my enquiry."
+  },
+  "preview": {
+    "testFormAction": "https://forms.example.com/f/propulsion-preview-test-inbox"
+  },
+  "brand": {
+    "colors": {
+      "canvas": "#FFFFFF",
+      "paper": "#EEF2F7",
+      "line": "#D5DCE6",
+      "ink": "#14213D",
+      "muted": "#4B5563",
+      "accent": "#9CC3F0",
+      "dark": "#14213D",
+      "onDark": "#FFFFFF",
+      "onDarkMuted": "#AFC0D6"
+    },
+    "fonts": {
+      "display": "Inter",
+      "text": "Inter"
+    }
+  },
+  "pages": {
+    "work": true,
+    "services": true,
+    "about": true,
+    "ideas": false,
+    "consultation": true
+  },
+  "hero": {
+    "h1": "Gutter cleaning and repairs in Aylesbury",
+    "intro": "DEMO copy: one person, one van, gutters cleared and fixed.",
+    "kind": "text"
+  },
+  "trustStrip": [
+    {
+      "title": "DEMO: Gutters since 2018",
+      "source": "DEMO fixture"
+    }
   ],
+  "process": {
+    "steps": [
+      {
+        "title": "Send a photo",
+        "text": "DEMO: Use the enquiry form."
+      },
+      {
+        "title": "I quote",
+        "text": "DEMO: A fixed price by email."
+      },
+      {
+        "title": "I fix it",
+        "text": "DEMO: Usually within a fortnight."
+      }
+    ]
+  },
   "projects": [
-    { "title": "Gutter replacement", "town": "Tring", "description": "DEMO: New gutters on a bungalow.", "finished": true, "featured": true,
-      "day": { "src": "g1-day.jpg", "alt": "DEMO placeholder: new gutters on a bungalow" } }
+    {
+      "title": "Gutter replacement",
+      "town": "Tring",
+      "description": "DEMO: New gutters on a bungalow.",
+      "finished": true,
+      "featured": true,
+      "pairs": [
+        {
+          "day": {
+            "src": "g1-day.jpg",
+            "alt": "DEMO placeholder: new gutters on a bungalow"
+          }
+        }
+      ]
+    }
   ],
   "reviews": [],
-  "owner": { "name": "Jo Demo", "role": "Owner (DEMO)", "bio": "DEMO bio: Jo runs the business on her own and does every job herself.", "photoConfirmed": false },
-  "services": [ { "name": "Gutter cleaning", "description": "DEMO: Cleared and flushed." }, { "name": "Gutter repairs", "description": "DEMO: Joints, brackets and downpipes." } ],
-  "privacy": { "registeredAddress": "DEMO address, Aylesbury (not real)", "icoNumber": "not registered", "lastUpdated": "2026-10-19", "formHost": "forms.example.com (DEMO)", "emailHost": "example.com (DEMO)" },
-  "approvedClaims": []
+  "owner": {
+    "name": "Jo Demo",
+    "role": "Owner (DEMO)",
+    "bio": "DEMO bio: Jo runs the business on her own and does every job herself.",
+    "photoConfirmed": false
+  },
+  "services": [
+    {
+      "name": "Gutter cleaning",
+      "description": "DEMO: Cleared and flushed."
+    },
+    {
+      "name": "Gutter repairs",
+      "description": "DEMO: Joints, brackets and downpipes."
+    }
+  ],
+  "privacy": {
+    "registeredAddress": "DEMO address, Aylesbury (not real)",
+    "icoNumber": "not registered",
+    "lastUpdated": "2026-10-19",
+    "formHost": "forms.example.com (DEMO)",
+    "emailHost": "example.com (DEMO)"
+  },
+  "approvedClaims": [],
+  "theme": "craft",
+  "tradeKeywords": [
+    "gutter",
+    "gutters"
+  ],
+  "copyPhrases": [
+    "Gutter cleaning and repairs in Aylesbury"
+  ],
+  "brief": {
+    "idealClient": "DEMO: Bungalow owners in Aylesbury",
+    "buyerFears": {
+      "pending": "buyer fears from the DEMO brief"
+    },
+    "onliness": "DEMO: one person, one van",
+    "archetype": "Everyman",
+    "voice": {
+      "use": [],
+      "avoid": []
+    }
+  }
 }

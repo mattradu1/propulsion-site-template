@@ -1,4 +1,6 @@
-// WCAG 2.x contrast ratio from hex colours.
+// WCAG 2.x contrast from hex colours, for every colour pair the craft theme paints.
+import { overWhite, VEIL_MIN } from '../themes/craft/tokens.mjs';
+
 const lum = (hex) => {
   const m = /^#?([0-9a-f]{6})$/i.exec(String(hex).trim());
   if (!m) throw new Error(`"${hex}" is not a 6-digit hex colour like #1a2b3c`);
@@ -15,26 +17,29 @@ export const ratio = (a, b) => {
   return (x + 0.05) / (y + 0.05);
 };
 
-// The colour pairs the template actually paints, per variant.
-// large: true = text 24px+ (or 19px bold), threshold 3:1; otherwise 4.5:1.
+// min 4.5 = normal text; 3 = focus rings, borders and large text. Darren's audit found 11 contrast failures:
+// every pair below is checked before anything is rendered.
 export const pairsFor = (c, variant) => {
+  const veil = overWhite(c.dark, VEIL_MIN); // the lightest a photo can get under a veil
   const pairs = [
-    { fg: 'text', bg: 'background', where: 'body text' },
-    { fg: 'muted', bg: 'background', where: 'secondary text' },
-    { fg: 'accent', bg: 'background', where: 'links' },
-    { fg: 'accentText', bg: 'accent', where: 'buttons and CTA band' },
-    { fg: 'text', bg: 'surface', where: 'cards and alternate sections' },
-    { fg: 'muted', bg: 'surface', where: 'secondary text on cards' },
-    { fg: 'accent', bg: 'surface', where: 'links on cards' },
+    { fg: 'ink', bg: 'canvas', where: 'body text and headings' },
+    { fg: 'ink', bg: 'paper', where: 'text on alternate sections and the trust strip' },
+    { fg: 'muted', bg: 'canvas', where: 'secondary text, eyebrows, toggle labels' },
+    { fg: 'muted', bg: 'paper', where: 'secondary text on alternate sections and footer' },
+    { fg: 'onDark', bg: 'dark', where: 'text on the dark nav, bands and evening mode' },
+    { fg: 'onDarkMuted', bg: 'dark', where: 'secondary text on dark' },
+    { fg: 'accent', bg: 'dark', where: 'buttons and tagline on dark' },
+    { fg: 'dark', bg: 'accent', where: 'button hover and active day/evening label' },
+    { fg: 'ink', bg: 'accent', where: 'button hover on light sections' },
+    { fg: 'onDark', bg: 'veil', where: `text over a photo (veil ${VEIL_MIN} over a white pixel)`, bgHex: veil },
+    { fg: 'accent', bg: 'veil', where: `tagline and button over a photo (veil ${VEIL_MIN} over a white pixel)`, bgHex: veil },
+    { fg: 'ink', bg: 'canvas', where: 'focus ring on light', min: 3 },
+    { fg: 'onDark', bg: 'dark', where: 'focus ring on dark', min: 3 },
   ];
-  if (variant === 'C') {
-    pairs.push({ fg: 'background', bg: 'text', where: 'variant C dark hero and footer' });
-    pairs.push({ fg: 'surface', bg: 'text', where: 'variant C secondary text on dark' });
-  }
-  if (variant === 'B') pairs.push({ fg: 'accent', bg: 'surface', where: 'variant B large headings', large: true });
+  if (variant === 'B') pairs.push({ fg: 'ink', bg: 'paper', where: 'variant B hero on paper' });
   return pairs.map((p) => {
-    const r = ratio(c[p.fg], c[p.bg]);
-    const min = p.large ? 3 : 4.5;
-    return { ...p, ratio: Math.round(r * 100) / 100, min, ok: r >= min };
+    const r = ratio(c[p.fg], p.bgHex || c[p.bg]);
+    const min = p.min || 4.5;
+    return { ...p, bgValue: p.bgHex || c[p.bg], ratio: Math.round(r * 100) / 100, min, ok: r >= min };
   });
 };

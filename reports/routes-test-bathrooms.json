@@ -1,0 +1,126 @@
+{
+  "slug": "test-bathrooms",
+  "ranAt": "2026-10-19T17:18:53.057Z",
+  "rows": [
+    {
+      "check": "GET /",
+      "result": "PASS",
+      "detail": "status 200, title \"Bathroom fitter in Guildford | Test Bathrooms (DEMO)\", canonical https://www.test-bathrooms.example/"
+    },
+    {
+      "check": "GET /work/",
+      "result": "PASS",
+      "detail": "status 200, title \"Work | Test Bathrooms Ltd (DEMO)\", canonical https://www.test-bathrooms.example/work/"
+    },
+    {
+      "check": "GET /work (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /work/ → 200"
+    },
+    {
+      "check": "GET /services/",
+      "result": "PASS",
+      "detail": "status 200, title \"Services | Test Bathrooms Ltd (DEMO)\", canonical https://www.test-bathrooms.example/services/"
+    },
+    {
+      "check": "GET /services (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /services/ → 200"
+    },
+    {
+      "check": "GET /about/",
+      "result": "PASS",
+      "detail": "status 200, title \"About | Test Bathrooms Ltd (DEMO)\", canonical https://www.test-bathrooms.example/about/"
+    },
+    {
+      "check": "GET /about (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /about/ → 200"
+    },
+    {
+      "check": "GET /ideas/",
+      "result": "PASS",
+      "detail": "status 200, title \"Ideas | Test Bathrooms Ltd (DEMO)\", canonical https://www.test-bathrooms.example/ideas/"
+    },
+    {
+      "check": "GET /ideas (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /ideas/ → 200"
+    },
+    {
+      "check": "GET /consultation/",
+      "result": "PASS",
+      "detail": "status 200, title \"Book a design visit | Test Bathrooms (DEMO)\", canonical https://www.test-bathrooms.example/consultation/"
+    },
+    {
+      "check": "GET /consultation (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /consultation/ → 200"
+    },
+    {
+      "check": "GET /privacy/",
+      "result": "PASS",
+      "detail": "status 200, title \"Privacy notice | Test Bathrooms Ltd (DEMO)\", canonical https://www.test-bathrooms.example/privacy/"
+    },
+    {
+      "check": "GET /privacy (no slash)",
+      "result": "PASS",
+      "detail": "status 308 → /privacy/ → 200"
+    },
+    {
+      "check": "Old URL /our-work.html",
+      "result": "PASS",
+      "detail": "status 308 → /work/ → 200"
+    },
+    {
+      "check": "Old URL /contact.html",
+      "result": "PASS",
+      "detail": "status 308 → /consultation/ → 200"
+    },
+    {
+      "check": "Sitemap https://www.test-bathrooms.example/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-bathrooms.example/work/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-bathrooms.example/services/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-bathrooms.example/about/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-bathrooms.example/ideas/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-bathrooms.example/consultation/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Sitemap https://www.test-bathrooms.example/privacy/",
+      "result": "PASS",
+      "detail": "status 200"
+    },
+    {
+      "check": "Unknown URL is a real 404",
+      "result": "PASS",
+      "detail": "status 404"
+    },
+    {
+      "check": "Unknown sub-path is a real 404",
+      "result": "PASS",
+      "detail": "status 404"
+    }
+  ]
+}

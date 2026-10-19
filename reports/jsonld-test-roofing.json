@@ -1,7 +1,7 @@
 {
   "dir": "dist/test-roofing",
   "ok": true,
-  "pages": 6,
+  "pages": 7,
   "errors": [],
   "results": [
     {
@@ -12,12 +12,13 @@
         "@type",
         "@id",
         "name",
+        "url",
+        "email",
+        "areaServed",
         "legalName",
         "telephone",
-        "email",
-        "url",
-        "areaServed",
-        "sameAs"
+        "sameAs",
+        "image"
       ]
     },
     {
@@ -28,12 +29,13 @@
         "@type",
         "@id",
         "name",
+        "url",
+        "email",
+        "areaServed",
         "legalName",
         "telephone",
-        "email",
-        "url",
-        "areaServed",
-        "sameAs"
+        "sameAs",
+        "image"
       ]
     },
     {
@@ -44,12 +46,30 @@
         "@type",
         "@id",
         "name",
+        "url",
+        "email",
+        "areaServed",
         "legalName",
         "telephone",
-        "email",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "consultation/index.html",
+      "type": "RoofingContractor",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
         "url",
+        "email",
         "areaServed",
-        "sameAs"
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
       ]
     },
     {
@@ -60,12 +80,13 @@
         "@type",
         "@id",
         "name",
+        "url",
+        "email",
+        "areaServed",
         "legalName",
         "telephone",
-        "email",
-        "url",
-        "areaServed",
-        "sameAs"
+        "sameAs",
+        "image"
       ]
     },
     {
@@ -76,12 +97,13 @@
         "@type",
         "@id",
         "name",
+        "url",
+        "email",
+        "areaServed",
         "legalName",
         "telephone",
-        "email",
-        "url",
-        "areaServed",
-        "sameAs"
+        "sameAs",
+        "image"
       ]
     },
     {
@@ -92,14 +114,16 @@
         "@type",
         "@id",
         "name",
+        "url",
+        "email",
+        "areaServed",
         "legalName",
         "telephone",
-        "email",
-        "url",
-        "areaServed",
-        "sameAs"
+        "sameAs",
+        "image"
       ]
     }
   ],
-  "note": "Structure check only. Confirm in Google's Rich Results Test once deployed."
+  "note": "Structure check only. Confirm in Google's Rich Results Test once deployed.",
+  "amber": []
 }

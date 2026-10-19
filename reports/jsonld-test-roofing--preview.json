@@ -1,0 +1,129 @@
+{
+  "dir": "dist/test-roofing--preview",
+  "ok": true,
+  "pages": 7,
+  "errors": [],
+  "results": [
+    {
+      "page": "404.html",
+      "type": "RoofingContractor",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "index.html",
+      "type": "RoofingContractor",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "about/index.html",
+      "type": "RoofingContractor",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "consultation/index.html",
+      "type": "RoofingContractor",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "privacy/index.html",
+      "type": "RoofingContractor",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "services/index.html",
+      "type": "RoofingContractor",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    },
+    {
+      "page": "work/index.html",
+      "type": "RoofingContractor",
+      "fields": [
+        "@context",
+        "@type",
+        "@id",
+        "name",
+        "url",
+        "email",
+        "areaServed",
+        "legalName",
+        "telephone",
+        "sameAs",
+        "image"
+      ]
+    }
+  ],
+  "note": "Structure check only. Confirm in Google's Rich Results Test once deployed.",
+  "amber": []
+}

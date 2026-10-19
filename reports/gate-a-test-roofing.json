@@ -1,12 +1,12 @@
 {
   "summary": {
     "slug": "test-roofing",
-    "ranAt": "2026-10-19T15:55:46.804Z",
-    "pages": 12,
-    "pass": 418,
+    "ranAt": "2026-10-19T17:20:19.709Z",
+    "pages": 14,
+    "pass": 488,
     "fail": 0,
     "amber": 2,
-    "needsTesting": 24,
+    "needsTesting": 28,
     "failures": [],
     "ambers": [
       "PENDING markers (amber at Gate A, fail at Gate B): ICO number"
@@ -20,7 +20,7 @@
     {
       "viewport": "phone",
       "route": "/",
-      "url": "http://127.0.0.1:40223/",
+      "url": "http://127.0.0.1:37079/",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -33,7 +33,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "15 links ok"
+          "detail": "17 links ok"
         },
         {
           "gate": "B",
@@ -75,7 +75,7 @@
           "gate": "A",
           "check": "Review quotes verbatim; cuts marked …",
           "result": "PASS",
-          "detail": "0 of 6 quotes not verbatim or cut without …"
+          "detail": "0 of 3 quotes not verbatim or cut without …"
         },
         {
           "gate": "B",
@@ -105,7 +105,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "13132 bytes HTML"
+          "detail": "14363 bytes HTML"
         },
         {
           "gate": "B",
@@ -141,7 +141,7 @@
           "gate": "A",
           "check": "Below-the-fold images lazy-loaded",
           "result": "PASS",
-          "detail": "0 of 3 not lazy"
+          "detail": "0 of 5 not lazy"
         },
         {
           "gate": "A",
@@ -213,7 +213,7 @@
           "gate": "A",
           "check": "Preview form posts to the test inbox only",
           "result": "PASS",
-          "detail": "https://forms.example.com/f/propulsion-preview-test-inbox"
+          "detail": "no form"
         },
         {
           "gate": "A",
@@ -250,7 +250,7 @@
     {
       "viewport": "phone",
       "route": "/work/",
-      "url": "http://127.0.0.1:40223/work/",
+      "url": "http://127.0.0.1:37079/work/",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -263,7 +263,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "10 links ok"
+          "detail": "12 links ok"
         },
         {
           "gate": "B",
@@ -275,7 +275,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -317,7 +317,7 @@
           "gate": "B",
           "check": "Meta description (≤155 chars)",
           "result": "PASS",
-          "detail": "Roofing jobs by Test Roofing Ltd (DEMO) in High Wycombe, Marlow, Beaconsfield."
+          "detail": "Roofing by Test Roofing Ltd (DEMO) in High Wycombe, Marlow, Beaconsfield."
         },
         {
           "gate": "B",
@@ -335,7 +335,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "9028 bytes HTML"
+          "detail": "10282 bytes HTML"
         },
         {
           "gate": "B",
@@ -371,7 +371,7 @@
           "gate": "A",
           "check": "Below-the-fold images lazy-loaded",
           "result": "PASS",
-          "detail": "0 of 3 not lazy"
+          "detail": "0 of 6 not lazy"
         },
         {
           "gate": "A",
@@ -480,7 +480,7 @@
     {
       "viewport": "phone",
       "route": "/services/",
-      "url": "http://127.0.0.1:40223/services/",
+      "url": "http://127.0.0.1:37079/services/",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -493,7 +493,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "10 links ok"
+          "detail": "12 links ok"
         },
         {
           "gate": "B",
@@ -505,7 +505,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -565,7 +565,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "5396 bytes HTML"
+          "detail": "6446 bytes HTML"
         },
         {
           "gate": "B",
@@ -710,7 +710,7 @@
     {
       "viewport": "phone",
       "route": "/about/",
-      "url": "http://127.0.0.1:40223/about/",
+      "url": "http://127.0.0.1:37079/about/",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -723,7 +723,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "14 links ok"
+          "detail": "16 links ok"
         },
         {
           "gate": "B",
@@ -735,7 +735,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -765,7 +765,7 @@
           "gate": "A",
           "check": "Review quotes verbatim; cuts marked …",
           "result": "PASS",
-          "detail": "0 of 6 quotes not verbatim or cut without …"
+          "detail": "0 of 3 quotes not verbatim or cut without …"
         },
         {
           "gate": "B",
@@ -795,7 +795,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "7700 bytes HTML"
+          "detail": "8866 bytes HTML"
         },
         {
           "gate": "B",
@@ -939,8 +939,238 @@
     },
     {
       "viewport": "phone",
+      "route": "/consultation/",
+      "url": "http://127.0.0.1:37079/consultation/",
+      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "12 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "4 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Start your enquiry | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "Start your enquiry with Test Roofing Ltd (DEMO)."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "6886 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "390px wide"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "https://forms.example.com/f/propulsion-preview-test-inbox"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone",
       "route": "/privacy/",
-      "url": "http://127.0.0.1:40223/privacy/",
+      "url": "http://127.0.0.1:37079/privacy/",
       "summary": "37 checks · 34 pass · 0 FAIL · 1 amber · 2 needs testing",
       "results": [
         {
@@ -953,7 +1183,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "10 links ok"
+          "detail": "12 links ok"
         },
         {
           "gate": "B",
@@ -965,7 +1195,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "1 CTAs, 0 broken"
+          "detail": "2 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -1025,7 +1255,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "5738 bytes HTML"
+          "detail": "6906 bytes HTML"
         },
         {
           "gate": "B",
@@ -1170,7 +1400,7 @@
     {
       "viewport": "phone",
       "route": "/404.html",
-      "url": "http://127.0.0.1:40223/404.html",
+      "url": "http://127.0.0.1:37079/404.html",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -1183,7 +1413,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "10 links ok"
+          "detail": "12 links ok"
         },
         {
           "gate": "B",
@@ -1195,7 +1425,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -1255,7 +1485,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "4366 bytes HTML"
+          "detail": "5411 bytes HTML"
         },
         {
           "gate": "B",
@@ -1400,7 +1630,7 @@
     {
       "viewport": "desktop",
       "route": "/",
-      "url": "http://127.0.0.1:40223/",
+      "url": "http://127.0.0.1:37079/",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -1413,7 +1643,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "15 links ok"
+          "detail": "17 links ok"
         },
         {
           "gate": "B",
@@ -1455,7 +1685,7 @@
           "gate": "A",
           "check": "Review quotes verbatim; cuts marked …",
           "result": "PASS",
-          "detail": "0 of 6 quotes not verbatim or cut without …"
+          "detail": "0 of 3 quotes not verbatim or cut without …"
         },
         {
           "gate": "B",
@@ -1485,7 +1715,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "13132 bytes HTML"
+          "detail": "14363 bytes HTML"
         },
         {
           "gate": "B",
@@ -1521,7 +1751,7 @@
           "gate": "A",
           "check": "Below-the-fold images lazy-loaded",
           "result": "PASS",
-          "detail": "0 of 3 not lazy"
+          "detail": "0 of 5 not lazy"
         },
         {
           "gate": "A",
@@ -1593,7 +1823,7 @@
           "gate": "A",
           "check": "Preview form posts to the test inbox only",
           "result": "PASS",
-          "detail": "https://forms.example.com/f/propulsion-preview-test-inbox"
+          "detail": "no form"
         },
         {
           "gate": "A",
@@ -1630,7 +1860,7 @@
     {
       "viewport": "desktop",
       "route": "/work/",
-      "url": "http://127.0.0.1:40223/work/",
+      "url": "http://127.0.0.1:37079/work/",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -1643,7 +1873,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "10 links ok"
+          "detail": "12 links ok"
         },
         {
           "gate": "B",
@@ -1655,7 +1885,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -1697,7 +1927,7 @@
           "gate": "B",
           "check": "Meta description (≤155 chars)",
           "result": "PASS",
-          "detail": "Roofing jobs by Test Roofing Ltd (DEMO) in High Wycombe, Marlow, Beaconsfield."
+          "detail": "Roofing by Test Roofing Ltd (DEMO) in High Wycombe, Marlow, Beaconsfield."
         },
         {
           "gate": "B",
@@ -1715,7 +1945,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "9028 bytes HTML"
+          "detail": "10282 bytes HTML"
         },
         {
           "gate": "B",
@@ -1751,7 +1981,7 @@
           "gate": "A",
           "check": "Below-the-fold images lazy-loaded",
           "result": "PASS",
-          "detail": "0 of 2 not lazy"
+          "detail": "0 of 6 not lazy"
         },
         {
           "gate": "A",
@@ -1860,7 +2090,7 @@
     {
       "viewport": "desktop",
       "route": "/services/",
-      "url": "http://127.0.0.1:40223/services/",
+      "url": "http://127.0.0.1:37079/services/",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -1873,7 +2103,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "10 links ok"
+          "detail": "12 links ok"
         },
         {
           "gate": "B",
@@ -1885,7 +2115,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -1945,7 +2175,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "5396 bytes HTML"
+          "detail": "6446 bytes HTML"
         },
         {
           "gate": "B",
@@ -2090,7 +2320,7 @@
     {
       "viewport": "desktop",
       "route": "/about/",
-      "url": "http://127.0.0.1:40223/about/",
+      "url": "http://127.0.0.1:37079/about/",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -2103,7 +2333,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "14 links ok"
+          "detail": "16 links ok"
         },
         {
           "gate": "B",
@@ -2115,7 +2345,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -2145,7 +2375,7 @@
           "gate": "A",
           "check": "Review quotes verbatim; cuts marked …",
           "result": "PASS",
-          "detail": "0 of 6 quotes not verbatim or cut without …"
+          "detail": "0 of 3 quotes not verbatim or cut without …"
         },
         {
           "gate": "B",
@@ -2175,7 +2405,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "7700 bytes HTML"
+          "detail": "8866 bytes HTML"
         },
         {
           "gate": "B",
@@ -2319,8 +2549,238 @@
     },
     {
       "viewport": "desktop",
+      "route": "/consultation/",
+      "url": "http://127.0.0.1:37079/consultation/",
+      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "12 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "4 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Start your enquiry | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "Start your enquiry with Test Roofing Ltd (DEMO)."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "6886 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "1280px wide"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "https://forms.example.com/f/propulsion-preview-test-inbox"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "desktop",
       "route": "/privacy/",
-      "url": "http://127.0.0.1:40223/privacy/",
+      "url": "http://127.0.0.1:37079/privacy/",
       "summary": "37 checks · 34 pass · 0 FAIL · 1 amber · 2 needs testing",
       "results": [
         {
@@ -2333,7 +2793,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "10 links ok"
+          "detail": "12 links ok"
         },
         {
           "gate": "B",
@@ -2345,7 +2805,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "1 CTAs, 0 broken"
+          "detail": "2 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -2405,7 +2865,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "5738 bytes HTML"
+          "detail": "6906 bytes HTML"
         },
         {
           "gate": "B",
@@ -2550,7 +3010,7 @@
     {
       "viewport": "desktop",
       "route": "/404.html",
-      "url": "http://127.0.0.1:40223/404.html",
+      "url": "http://127.0.0.1:37079/404.html",
       "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
@@ -2563,7 +3023,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "10 links ok"
+          "detail": "12 links ok"
         },
         {
           "gate": "B",
@@ -2575,7 +3035,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -2635,7 +3095,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "4366 bytes HTML"
+          "detail": "5411 bytes HTML"
         },
         {
           "gate": "B",

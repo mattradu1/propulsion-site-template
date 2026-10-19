@@ -10,7 +10,8 @@ const dir = path.resolve('dist', `${slug}--preview`);
 if (!fs.existsSync(dir)) { console.error(`No preview build at ${dir}. Run: node build.mjs ${slug} --preview`); process.exit(2); }
 const cfg = JSON.parse(fs.readFileSync(`clients/${slug}/client.json`, 'utf8'));
 const routes = [...routesOf(dir), '/404.html'];
-const QA_CFG = { phone: cfg.phone, gbpPhone: cfg.gbpPhone, routes, reviewTexts: (cfg.reviews || []).map((r) => r.text), preview: true, testFormAction: cfg.preview.testFormAction, demo: !!cfg.demo, domain: cfg.domain };
+const pend = (v) => v && typeof v === 'object' && typeof v.pending === 'string';
+const QA_CFG = { phonePending: pend(cfg.phone), ctaLabel: typeof cfg.copy?.ctaLabel === 'string' ? cfg.copy.ctaLabel : null, internalReference: cfg.internalReference === true, phone: pend(cfg.phone) ? null : cfg.phone, gbpPhone: pend(cfg.gbpPhone) ? null : cfg.gbpPhone, routes, reviewTexts: (cfg.reviews || []).map((r) => r.text), preview: true, testFormAction: cfg.preview.testFormAction, demo: !!cfg.demo, domain: cfg.domain };
 const script = fs.readFileSync('qa/qa-gate-a.js', 'utf8');
 const axePath = path.resolve('node_modules/axe-core/axe.min.js');
 const { server, url } = await serve(dir);
