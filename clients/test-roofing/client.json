@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2.0.0",
+  "templateVersion": "3.0.0",
   "demo": true,
   "slug": "test-roofing",
   "businessName": "Test Roofing Ltd (DEMO)",
@@ -54,9 +54,17 @@
   "hero": {
     "tagline": "DEMO: Pitched, flat and lead",
     "h1": "Roof repairs and new roofs in High Wycombe",
+    "emphasis": "new roofs",
     "intro": "DEMO copy: a family roofing firm covering the Chiltern towns. Pitched roofs, flat roofs, leadwork and chimneys.",
     "kind": "photo",
     "image": { "src": "hero.jpg", "alt": "DEMO placeholder: finished slate roof on a detached house", "focus": "centre" }
+  },
+
+  "proofLine": {
+    "items": [
+      { "value": 17, "label": "years in the trade (DEMO figure)", "source": "DEMO fixture – would be the owner's own words on the intake form, checked against Companies House", "confirmed": true },
+      { "text": "DEMO: Member of a demo trade body", "kind": "accreditation", "proof": "DEMO fixture – would be the register entry Matt checked on the trade body's own site", "source": "DEMO fixture – would be the membership certificate on file", "confirmed": true }
+    ]
   },
 
   "trustStrip": [

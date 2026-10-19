@@ -30,6 +30,10 @@ const CASES = [
   ['BC5', 'Every image loads', 'A lazy-loaded project image missing from the build', (d) => { const dir = path.join(d, 'assets/img'); for (const f of fs.readdirSync(dir).filter((x) => /^p2-day-project/.test(x))) fs.rmSync(path.join(dir, f)); }],
   ['BC6', 'Phone menu', 'Menu script broken', (d) => fs.writeFileSync(path.join(d, 'assets/site.js'), '/* broken */')],
   ['BC7', 'Copy phrase visible', 'Approved line hidden with CSS', (d) => css(d, '.hero-copy .tagline{display:none}')],
+  // v3
+  ['BC8', 'Reduced motion', 'Hero words left mid-animation for visitors who asked for less motion', (d) => css(d, '.hero h1 .w{transform:translateY(8px)!important}')],
+  ['BC9', 'No JavaScript', 'Before/after fallback stacks the photos instead of side by side', (d) => css(d, '.ba{grid-template-columns:1fr}')],
+  ['BC10', 'Before/after touch', 'Slider ignores pointer and touch (drag handler removed)', (d) => { const f = path.join(d, 'assets/site.js'); fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("box.addEventListener('pointerdown'", "box.addEventListener('pointerdown-disabled'")); }],
 ];
 const rows = [];
 for (const [id, check, desc, fn] of CASES) {

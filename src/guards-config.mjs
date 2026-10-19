@@ -1,11 +1,12 @@
-// Checks on client.json before anything is rendered (v2).
+// Checks on client.json before anything is rendered (v3).
 // Each problem: { guard, level: 'fail' | 'amber', msg } with a plain-English message.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { pairsFor } from './contrast.mjs';
 import { approvedSet, findClaims } from './claims.mjs';
-import { isPending, has, walk, normalize, imageRefs, IDEAS_MAX } from './config.mjs';
+import { isPending, has, walk, normalize, imageRefs, IDEAS_MAX, isNum } from './config.mjs';
+import { emphasisRange } from './render.mjs';
 import { checkBrief } from './brief.mjs';
 import { COLOR_KEYS, FONT_FILES } from '../themes/craft/tokens.mjs';
 
@@ -69,6 +70,50 @@ export function checkConfig(raw, { clientDir, strict, preview, others = [] }) {
   // H1: trade + area
   if (!has(cfg.hero?.h1) || isPending(cfg.hero?.h1)) fail('H1 what/where', 'hero.h1 is missing. The home page H1 must say the trade and the area, in approved client words.');
   else { const p = h1Problems(cfg, cfg.hero.h1); if (p.length) fail('H1 what/where', `hero.h1 "${cfg.hero.h1}" ${p.join(' and ')}. Use the client's approved line that says what and where; keep a strapline in hero.tagline.`); }
+
+  // v3 hero emphasis: italicises an exact run of the client's own H1 words, never adds any
+  if (cfg.hero?.emphasis != null) {
+    if (typeof cfg.hero.emphasis !== 'string' || !cfg.hero.emphasis.trim()) fail('Hero emphasis', 'hero.emphasis must be a run of words from hero.h1, or left out.');
+    else if (typeof cfg.hero.h1 === 'string' && emphasisRange(cfg.hero.h1, cfg.hero.emphasis).start < 0)
+      fail('Hero emphasis', `hero.emphasis "${cfg.hero.emphasis}" is not an exact run of words in hero.h1 "${cfg.hero.h1}". It can only put the client's own words in italics.`);
+  }
+
+  // v3 proof line under the hero: confirmed facts with a source; accreditations need proof; numbers as given
+  if (cfg.proofLine != null) {
+    const items = cfg.proofLine.items;
+    if (!Array.isArray(items) || !items.length) fail('Proof line', 'proofLine.items must list at least one fact, or leave proofLine out.');
+    else {
+      if (items.length > 4) fail('Proof line', `proofLine lists ${items.length} facts; the limit is 4 (one short line).`);
+      items.forEach((x, i) => {
+        const at = `proofLine.items[${i}]`;
+        if (!x || typeof x !== 'object') return fail('Proof line', `${at} is not an object.`);
+        if (isPending(x.text) || isPending(x.label) || isPending(x.value)) return amber('Proof line', `${at} is pending, so it is left out of the proof line.`);
+        if (!x.source || !String(x.source).trim()) fail('Proof line', `${at} has no "source" note. Every fact under the hero needs its proof noted (intake form, certificate, register entry).`);
+        if (x.value != null && !isNum(x.value)) fail('Proof line', `${at}.value ${JSON.stringify(x.value)} must be a whole number written as a JSON number, exactly as the client gave it. Put any other wording in "text".`);
+        if (isNum(x.value) && (typeof x.label !== 'string' || !x.label.trim())) fail('Proof line', `${at} has a number but no "label" saying what it counts.`);
+        if (x.value == null && (typeof x.text !== 'string' || !x.text.trim())) fail('Proof line', `${at} needs "text" (or "value" + "label").`);
+        if (x.kind === 'accreditation' && !(typeof x.proof === 'string' && x.proof.trim().length >= 5))
+          fail('Proof line', `${at} is an accreditation with no "proof" note. Accreditations show only once the register entry or certificate is on file.`);
+        if (x.confirmed !== true) amber('Proof line', `${at} ("${x.text || x.label}") is not marked "confirmed": true, so it is left out.`);
+      });
+    }
+  }
+
+  // v3 before/after: only the client's own photos of one job, or a labelled DEMO pair on a demo client
+  if (cfg.beforeAfter != null) {
+    const pairs = cfg.beforeAfter.pairs;
+    if (!Array.isArray(pairs) || !pairs.length) fail('Before/after', 'beforeAfter.pairs must list at least one pair, or leave beforeAfter out.');
+    else pairs.forEach((p, i) => {
+      const at = `beforeAfter.pairs[${i}]`;
+      if (!p?.before?.src || !p?.after?.src) return fail('Before/after', `${at} needs both "before" and "after" photos.`);
+      if (p.before.src === p.after.src) fail('Before/after', `${at} uses the same photo for before and after.`);
+      if (p.demoImages === true) {
+        if (cfg.demo !== true) fail('Before/after', `${at} is marked demoImages, but this is not a DEMO client. A real site shows only the client's own before and after photos of one job.`);
+        if (!(typeof p.demoNote === 'string' && /\bDEMO\b/.test(p.demoNote))) fail('Before/after', `${at} uses demo images without a visible "demoNote" containing DEMO.`);
+      } else if (p.sameJob !== true || !(typeof p.source === 'string' && p.source.trim()))
+        fail('Before/after', `${at} is not marked "sameJob": true with a "source" note. Only before and after photos of the same job, supplied by the client, are shown.`);
+    });
+  }
 
   // G2 alt text
   for (const r of imageRefs(cfg)) {
@@ -205,7 +250,7 @@ export function checkConfig(raw, { clientDir, strict, preview, others = [] }) {
   const approved = approvedSet(cfg);
   (cfg.approvedClaims || []).forEach((c, i) => { if (!c?.proof || String(c.proof).trim().length < 5) fail('R3 Banned claims', `approvedClaims[${i}] ("${c?.phrase}") has no "proof" note. A claim is only approved with proof on file.`); });
   walk(cfg, (s, p, pending) => {
-    if (pending || /^(approvedClaims|brief|trustStrip\[\d+\]\.source|.*Url$|domain|.*\.src$|reviews\[\d+\]\.source)/.test(p)) return;
+    if (pending || /^(approvedClaims|brief|trustStrip\[\d+\]\.source|proofLine\.items\[\d+\]\.(source|proof)|beforeAfter\.pairs\[\d+\]\.source|.*Url$|domain|.*\.src$|reviews\[\d+\]\.source)/.test(p)) return;
     for (const b of findClaims(s, approved)) fail('R3 Banned claims', `${p} uses "${b.phrase}" ("${s.slice(0, 70)}"). Remove it, or add it to approvedClaims with a proof note Matt has checked.`);
   });
 

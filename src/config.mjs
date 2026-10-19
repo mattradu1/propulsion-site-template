@@ -1,4 +1,4 @@
-// Reading client.json (v2): pending markers, the string walker, v1 → v2 shorthands, image slots.
+// Reading client.json (v3): pending markers, the string walker, v1 → v2 shorthands, image slots.
 export const isPending = (v) => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.pending === 'string';
 export const has = (v) => isPending(v) || (typeof v === 'string' && v.trim().length > 0);
 export const str = (v) => (typeof v === 'string' ? v : '');
@@ -51,6 +51,10 @@ export function imageRefs(cfg) {
     push(`projects[${i}].pairs[${j}].evening`, pr.evening, kind, { own: true });
   }));
   (cfg.stories || []).forEach((s, i) => push(`stories[${i}].image`, s.image, 'section', { own: true }));
+  (cfg.beforeAfter?.pairs || []).forEach((p, i) => {
+    push(`beforeAfter.pairs[${i}].before`, p.before, 'compare', { own: true });
+    push(`beforeAfter.pairs[${i}].after`, p.after, 'compare', { own: true });
+  });
   push('process.image', cfg.process?.image, 'portrait', { own: true });
   if (cfg.owner?.photo && cfg.owner.photoConfirmed === true) refs.push({ where: 'owner.photo', src: cfg.owner.photo, alt: cfg.owner.alt, kind: 'portrait', own: true });
   for (const k of ['work', 'about', 'services']) push(`pages.${k}.image`, cfg.pages?.[k]?.image, 'section', { own: true });
@@ -67,4 +71,25 @@ export function ideasShown(cfg) {
   const perm = cfg.supplierImagesPermission;
   if (perm === true || (isPending(perm) && cfg.internalReference === true)) return imgs.slice(0, IDEAS_MAX);
   return [];
+}
+
+// v3 proof line: only confirmed facts, each with its source noted; accreditations also need proof on file.
+// A number is a JSON number (never a string), so it is the client's figure as given, and it may count up.
+export const isNum = (v) => typeof v === 'number' && Number.isFinite(v) && v >= 0 && Number.isInteger(v);
+export const fmtNum = (v) => v.toLocaleString('en-GB');
+export function proofShown(cfg) {
+  const items = Array.isArray(cfg.proofLine?.items) ? cfg.proofLine.items : [];
+  return items.filter((x) => x && x.confirmed === true && typeof x.source === 'string' && x.source.trim()
+    && (x.kind !== 'accreditation' || (typeof x.proof === 'string' && x.proof.trim().length >= 5))
+    && (isNum(x.value) ? typeof x.label === 'string' && x.label.trim() : typeof x.text === 'string' && x.text.trim() && x.value == null)).slice(0, 4);
+}
+
+// v3 before/after: real pairs of the same job the client supplied (sameJob + source), or a labelled DEMO pair
+// on a demo client. Anything else is never rendered.
+export function baShown(cfg) {
+  const pairs = Array.isArray(cfg.beforeAfter?.pairs) ? cfg.beforeAfter.pairs : [];
+  const okImg = (im) => im && typeof im.src === 'string' && typeof im.alt === 'string' && im.alt.trim();
+  return pairs.filter((p) => p && okImg(p.before) && okImg(p.after) && p.before.src !== p.after.src
+    && ((p.sameJob === true && typeof p.source === 'string' && p.source.trim())
+      || (p.demoImages === true && cfg.demo === true && typeof p.demoNote === 'string' && /\bDEMO\b/.test(p.demoNote))));
 }

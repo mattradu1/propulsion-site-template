@@ -1,7 +1,7 @@
 {
   "name": "propulsion-site-template",
-  "version": "2.0.0",
-  "description": "Propulsion master website template v2: craft theme, one client.json per client, static output.",
+  "version": "3.0.0",
+  "description": "Propulsion master website template v3: craft theme + motion and proof components, one client.json per client, static output.",
   "scripts": {
     "build": "node build.mjs test-bathrooms",
     "build:all": "for c in test-bathrooms darren-reference test-roofing slate-gutters; do node build.mjs $c --quiet && node build.mjs $c --preview --quiet || exit 1; done",

@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-19T17:10:21.109Z",
+  "ranAt": "2026-10-19T20:08:47.891Z",
   "rows": [
     {
       "id": "G1a",
@@ -495,7 +495,7 @@
       "test": "Buyer fear answered by a section that does not exist",
       "expected": "build fails",
       "result": "PASS",
-      "message": "brief.buyerFears[0].answeredBy \"faq\" is not a section on this site (intro, story:design, story:fitting, work, process, owner, services, reviews, areas)."
+      "message": "brief.buyerFears[0].answeredBy \"faq\" is not a section on this site (intro, story:design, story:fitting, work, beforeAfter, process, owner, services, reviews, areas)."
     },
     {
       "id": "BR3",
@@ -568,6 +568,110 @@
       "expected": "build fails",
       "result": "PASS",
       "message": "process.image \"process-plan.jpg\" must show planning or setting out (\"shows\": \"planning\" | \"settingOut\"). A finished room belongs in the work section; leave the process image out until the client sends one."
+    },
+    {
+      "id": "HE1",
+      "guard": "Hero emphasis",
+      "test": "Italic emphasis phrase that is not in the H1 (\"brand new roofs\")",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "hero.emphasis \"brand new roofs\" is not an exact run of words in hero.h1 \"Roof repairs and new roofs in High Wycombe\". It can only put the client's own words in italics."
+    },
+    {
+      "id": "HS1",
+      "guard": "H1 server text",
+      "test": "H1 words reordered in the HTML (not the approved line word for word)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: the H1 in the HTML reads \"New roofs and roof repairs in High Wycombe\", not the approved \"Roof repairs and new roofs in High Wycombe\". The H1 text must be in the HTML itself, word for word."
+    },
+    {
+      "id": "PL1",
+      "guard": "Proof line",
+      "test": "Years trading written as a string (\"17+\") instead of the figure as given",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "proofLine.items[0].value \"17+\" must be a whole number written as a JSON number, exactly as the client gave it. Put any other wording in \"text\"."
+    },
+    {
+      "id": "PL2",
+      "guard": "Proof line",
+      "test": "Accreditation in the proof line with no proof on file",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "proofLine.items[1] is an accreditation with no \"proof\" note. Accreditations show only once the register entry or certificate is on file."
+    },
+    {
+      "id": "PL3",
+      "guard": "Proof line",
+      "test": "Proof-line fact with no source note",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "proofLine.items[0] has no \"source\" note. Every fact under the hero needs its proof noted (intake form, certificate, register entry)."
+    },
+    {
+      "id": "CU1",
+      "guard": "Count-up",
+      "test": "Counter tampered to count to a number not in client.json (250)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: counts up to 250, which is not a confirmed number in client.json."
+    },
+    {
+      "id": "CU2",
+      "guard": "Count-up",
+      "test": "Counter starts at 0 in the HTML (final figure only written by JavaScript)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: the counter shows \"0\" in the HTML instead of its final figure 17. The real number must be there without JavaScript."
+    },
+    {
+      "id": "BA1",
+      "guard": "Before/after",
+      "test": "Before/after pair not marked as the same job, with no source",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "beforeAfter.pairs[0] is not marked \"sameJob\": true with a \"source\" note. Only before and after photos of the same job, supplied by the client, are shown."
+    },
+    {
+      "id": "BA2",
+      "guard": "Before/after",
+      "test": "Demo images on a client that is not a DEMO client",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "beforeAfter.pairs[0] is marked demoImages, but this is not a DEMO client. A real site shows only the client's own before and after photos of one job."
+    },
+    {
+      "id": "BA3",
+      "guard": "Before/after",
+      "test": "Same photo used for before and after",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "beforeAfter.pairs[0] uses the same photo for before and after."
+    },
+    {
+      "id": "BS1",
+      "guard": "Before/after slider",
+      "test": "Slider loses its keyboard focus and value (tabindex, aria-valuenow removed)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: a slider is missing tabindex=\"0\", aria-valuemin=\", aria-valuemax=\", aria-valuenow=\". It must work from the keyboard and say what it does."
+    },
+    {
+      "id": "RM1",
+      "guard": "Reduced motion",
+      "test": "Reduced-motion block removed from the CSS",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css animates but has no @media (prefers-reduced-motion: reduce) block that sets animation and transition to none. Every motion must jump to its final state when the visitor asks for less motion."
+    },
+    {
+      "id": "RM2",
+      "guard": "Reduced motion",
+      "test": "Smooth-scroll behaviour added to the CSS",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css turns on smooth scrolling. Scrolling stays native (no smooth-scroll libraries or scroll-jacking)."
     },
     {
       "id": "OK1",
@@ -656,6 +760,14 @@
       "expected": "build passes",
       "result": "PASS",
       "message": "ok (amber: Ideas page)"
+    },
+    {
+      "id": "OK12",
+      "guard": "Control",
+      "test": "Unconfirmed proof-line fact is left out (amber), not shown",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: Proof line, R4 PENDING marker)"
     },
     {
       "id": "CLI",

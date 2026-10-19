@@ -1,4 +1,4 @@
-/* Craft theme v2.0 for the Propulsion master template.
+/* Craft theme v3.0 for the Propulsion master template.
    Tokens (:root) and @font-face rules are prepended at build. Rules for this file (checked by the build):
    every font-size is var(--fs-1…6); every corner is var(--radius); every shadow is var(--shadow);
    colours only through tokens. No third-party CSS, no @import. */
@@ -24,7 +24,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .skip{position:absolute;left:var(--s2);top:-200px;z-index:100;background:var(--dark);color:var(--on-dark);padding:var(--s2) var(--s3);font-size:var(--fs-2);text-decoration:none}
 .skip:focus{top:var(--s2)}
 .preview-banner{background:var(--dark);color:var(--on-dark);text-align:center;font-size:var(--fs-2);padding:var(--s1) var(--s2)}
-.eyebrow{font-family:var(--font-text);font-size:var(--fs-1);font-weight:500;text-transform:uppercase;letter-spacing:var(--track-label);color:var(--muted);margin:0 0 var(--s3)}
+.eyebrow{font-family:var(--font-mono);font-size:var(--fs-1);font-weight:500;text-transform:uppercase;letter-spacing:var(--track-mono);color:var(--muted);margin:0 0 var(--s3)}
 .lede{color:var(--muted)}
 .center{text-align:center;margin-left:auto;margin-right:auto}
 .h-small{font-size:var(--fs-4)}
@@ -81,7 +81,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-media img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .hero-copy{position:relative;padding:var(--s5) 0}
 .hero-copy .tagline{font-family:var(--font-display);font-style:italic;font-size:var(--fs-4);color:var(--accent);margin-bottom:var(--s2)}
-.hero-copy h1{max-width:18ch;margin-bottom:0}
+.hero-copy h1{max-width:18ch;margin-bottom:0;line-height:var(--lh-display);letter-spacing:var(--track-display);text-wrap:balance}
+.hero-copy h1 em{font-style:italic}
+.craft-b .hero-copy h1 em{font-family:var(--font-display);font-weight:var(--display-weight)}
+.hero h1 .w{display:inline-block}
 .hero-copy .intro{margin-top:var(--s3);max-width:46ch}
 .hero-copy .tlink{color:var(--on-dark)}
 .hero-veil{display:none}
@@ -92,8 +95,10 @@ ul,ol{margin:0;padding:0;list-style:none}
   .craft-a .hero.has-photo>*{grid-area:1/1}
   .craft-a .hero-media{overflow:hidden}
   .craft-a .hero-media img{height:100%;aspect-ratio:auto;animation:heroScale 24s var(--ease) forwards}
-  .craft-a .hero-veil{display:block;background:linear-gradient(to top,var(--veil-strong) 0%,var(--veil) 55%,transparent 88%)}
-  .craft-a .hero-copy{align-self:end;padding:var(--s6) 0}
+  /* v3 fix: the veil now travels with the words. In v2 it was a separate layer that (a) sat under the zooming
+     photo whenever motion was on, and (b) faded out above 55% of the hero, so a tall headline could sit on a
+     thin veil. Now every line of text sits on at least VEIL_MIN; only the empty top padding fades. */
+  .craft-a .hero-copy{align-self:end;padding:var(--s6) 0 var(--s5);background:linear-gradient(to top,var(--veil-strong) 0%,var(--veil) calc(100% - var(--s6)),transparent 100%)}
   .craft-b .hero{background:var(--paper);color:var(--ink)}
   .craft-b .hero.has-photo{display:grid;grid-template-columns:5fr 6fr}
   .craft-b .hero-copy{order:-1;align-self:center;padding:var(--s6) var(--s5) var(--s6) var(--edge)}
@@ -176,7 +181,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .pair .eve{position:absolute;inset:0;height:100%;opacity:0}
 .project-note{max-width:56ch;margin:var(--s5) auto 0;text-align:center}
 .project-note p{margin-left:auto;margin-right:auto;color:var(--muted)}
-.project-note .meta{font-size:var(--fs-1);text-transform:uppercase;letter-spacing:var(--track-label)}
+.project-note .meta{font-family:var(--font-mono);font-size:var(--fs-1);text-transform:uppercase;letter-spacing:var(--track-mono)}
 .work[data-mode=evening]{background:var(--dark);color:var(--on-dark)}
 .work[data-mode=evening] .pair .eve{opacity:1}
 .work[data-mode=evening] .pair .day{opacity:0}
@@ -192,8 +197,21 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media (min-width:768px){.process-grid.has-media{grid-template-columns:5fr 7fr;align-items:center}}
 .steps{counter-reset:step;margin-top:var(--s4)}
 .steps li{counter-increment:step;display:grid;grid-template-columns:3.5rem 1fr;gap:var(--s2);padding:var(--s3) 0;border-top:1px solid var(--line)}
-.steps li::before{content:counter(step,decimal-leading-zero);font-family:var(--font-display);font-size:var(--fs-4);line-height:var(--lh-snug);color:var(--muted)}
+.steps li::before{content:counter(step,decimal-leading-zero);font-family:var(--font-mono);font-size:var(--fs-2);letter-spacing:var(--track-mono);line-height:var(--lh-snug);color:var(--muted);padding-top:.35em}
 .steps p{color:var(--muted);margin:0}
+/* v3 process draw: one SVG line down the steps, a diamond per step. Without JS (or with reduced motion)
+   the line is drawn and every marker is filled. site.js only hides them when it can animate them back. */
+.steps-wrap{position:relative;margin-top:var(--s4)}
+.steps-wrap .steps{margin-top:0}
+.steps.has-rail{padding-left:var(--s5)}
+.steps.has-rail li{position:relative}
+.rail{position:absolute;left:calc(var(--s3) - 2px);top:calc(var(--s3) + .9em);bottom:0;width:4px;height:auto;overflow:visible;pointer-events:none}
+.rail path{fill:none;stroke-width:2}
+.rail .rail-base{stroke:var(--line)}
+.rail .rail-line{stroke:var(--accent)}
+.steps .dot{position:absolute;left:calc(var(--s3) - var(--s5) - 5px);top:calc(var(--s3) + .9em - 5px);width:10px;height:10px;border:1px solid var(--accent);background:var(--accent);transform:rotate(45deg);transition:background-color var(--t-base) var(--ease)}
+.steps.draw-on .dot{background:var(--paper)}
+.steps.draw-on li.reached .dot{background:var(--accent)}
 
 /* The person */
 .owner{display:grid;gap:var(--s5);align-items:center}
@@ -302,10 +320,50 @@ ul,ol{margin:0;padding:0;list-style:none}
 .craft-c .hero .eyebrow{color:var(--on-dark-muted)}
 .craft-c .trust-band{background:var(--canvas);border-bottom:1px solid var(--line)}
 
+/* v3 proof line, directly under the hero actions: confirmed facts from client.json only */
+.proof{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin-top:var(--s4);font-family:var(--font-mono);font-size:var(--fs-1);letter-spacing:var(--track-mono);text-transform:uppercase;color:var(--on-dark)}
+.proof li{display:inline-flex;align-items:center;gap:var(--s1)}
+.proof li::before{content:"";flex:none;width:6px;height:6px;background:var(--accent);transform:rotate(45deg);margin-right:var(--s1)}
+.proof .num{font-variant-numeric:tabular-nums;color:var(--accent)}
+.craft-c .proof{color:var(--on-dark-muted)}
+.craft-b .proof{color:var(--muted)}
+.craft-b .proof .num{color:var(--ink)}
+
+/* v3 before/after. No JS: both photos side by side, each labelled. With JS: stacked, the "before" photo
+   clipped with clip-path: inset() up to the handle, which is a keyboard slider (role=slider). */
+.ba-section .sechead{margin-bottom:var(--s4)}
+.ba-item{max-width:960px;margin:0 auto var(--s5)}
+.ba-item:last-child{margin-bottom:0}
+.ba{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.ba-pane{position:relative;margin:0;background:var(--line);overflow:hidden}
+.ba-pane img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.ba-tag{position:absolute;top:var(--s2);left:var(--s2);background:var(--dark);color:var(--on-dark);font-family:var(--font-mono);font-size:var(--fs-1);letter-spacing:var(--track-mono);text-transform:uppercase;padding:var(--s1) var(--s2);pointer-events:none}
+.ba-handle,.ba-rule{display:none}
+.ba.is-live{grid-template-columns:1fr;gap:0;touch-action:pan-y;cursor:ew-resize;-webkit-user-select:none;user-select:none}
+.ba.is-live>.ba-pane{grid-area:1/1}
+.ba.is-live .ba-before{z-index:1;clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
+.ba.is-live .ba-after .ba-tag{left:auto;right:var(--s2)}
+.ba.is-live img{-webkit-user-drag:none;pointer-events:none}
+.ba.is-live .ba-rule{display:block;position:absolute;z-index:2;top:0;bottom:0;left:var(--pos,50%);width:2px;margin-left:-1px;background:var(--accent);pointer-events:none}
+.ba.is-live .ba-handle{display:flex;position:absolute;z-index:3;top:50%;left:var(--pos,50%);width:48px;height:48px;margin:-24px 0 0 -24px;align-items:center;justify-content:center;background:var(--dark);border:1px solid var(--accent);border-radius:var(--radius);cursor:ew-resize}
+.ba-grip{position:relative;width:14px;height:14px;border-left:2px solid var(--accent);border-right:2px solid var(--accent)}
+.ba-handle:focus-visible{outline:2px solid var(--on-dark);outline-offset:3px}
+.ba-item figcaption{margin-top:var(--s2);text-align:center;color:var(--muted);font-size:var(--fs-2)}
+.ba-item figcaption .meta{font-family:var(--font-mono);font-size:var(--fs-1);text-transform:uppercase;letter-spacing:var(--track-mono)}
+.ba-item .demo-note{display:block;margin-top:var(--s1);font-size:var(--fs-1)}
+
 /* Motion: rise into view, only when the visitor hasn't asked for less motion */
 .motion .rise{transform:translateY(var(--rise));transition:transform var(--t-slow) var(--ease)}
 .motion .rise.in{transform:none}
+/* v3 hero word reveal: real H1 text in the HTML, each word rises from a small blur, 90 ms apart, once.
+   Transform and filter only (no opacity), so the H1 is painted on the first frame and LCP is not delayed. */
+@keyframes wordRise{from{transform:translateY(var(--word-rise));filter:blur(var(--word-blur))}to{transform:none;filter:none}}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .w{animation:wordRise var(--t-word) var(--ease-out-cubic) backwards}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .motion .rise{transform:none}
+  .hero h1 .w{transform:none;filter:none}
+  .rail .rail-line{stroke-dashoffset:0!important}
 }

@@ -1,9 +1,9 @@
 {
   "summary": {
     "slug": "test-roofing",
-    "ranAt": "2026-10-19T17:20:19.709Z",
+    "ranAt": "2026-10-19T20:15:37.672Z",
     "pages": 14,
-    "pass": 488,
+    "pass": 544,
     "fail": 0,
     "amber": 2,
     "needsTesting": 28,
@@ -20,12 +20,18 @@
     {
       "viewport": "phone",
       "route": "/",
-      "url": "http://127.0.0.1:37079/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -105,7 +111,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "14363 bytes HTML"
+          "detail": "15182 bytes HTML"
         },
         {
           "gate": "B",
@@ -180,6 +186,24 @@
           "detail": "390px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Roof repairs and new roofs in High Wycombe\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -250,12 +274,18 @@
     {
       "viewport": "phone",
       "route": "/work/",
-      "url": "http://127.0.0.1:37079/work/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/work/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -410,6 +440,24 @@
           "detail": "390px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"DEMO: Roofs we have done\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -480,12 +528,18 @@
     {
       "viewport": "phone",
       "route": "/services/",
-      "url": "http://127.0.0.1:37079/services/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/services/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -640,6 +694,24 @@
           "detail": "390px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Services\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -710,12 +782,18 @@
     {
       "viewport": "phone",
       "route": "/about/",
-      "url": "http://127.0.0.1:37079/about/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/about/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -870,6 +948,24 @@
           "detail": "390px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"About us\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -940,12 +1036,18 @@
     {
       "viewport": "phone",
       "route": "/consultation/",
-      "url": "http://127.0.0.1:37079/consultation/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/consultation/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -1100,6 +1202,24 @@
           "detail": "390px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"DEMO: Tell us about the roof\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -1170,12 +1290,18 @@
     {
       "viewport": "phone",
       "route": "/privacy/",
-      "url": "http://127.0.0.1:37079/privacy/",
-      "summary": "37 checks · 34 pass · 0 FAIL · 1 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/privacy/",
+      "summary": "41 checks · 38 pass · 0 FAIL · 1 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -1330,6 +1456,24 @@
           "detail": "390px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Privacy notice\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -1400,12 +1544,18 @@
     {
       "viewport": "phone",
       "route": "/404.html",
-      "url": "http://127.0.0.1:37079/404.html",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/404.html",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -1558,6 +1708,24 @@
           "check": "No sideways scroll at this width",
           "result": "PASS",
           "detail": "390px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Page not found\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
         },
         {
           "gate": "B",
@@ -1630,12 +1798,18 @@
     {
       "viewport": "desktop",
       "route": "/",
-      "url": "http://127.0.0.1:37079/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -1715,7 +1889,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "14363 bytes HTML"
+          "detail": "15182 bytes HTML"
         },
         {
           "gate": "B",
@@ -1790,6 +1964,24 @@
           "detail": "1280px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Roof repairs and new roofs in High Wycombe\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -1860,12 +2052,18 @@
     {
       "viewport": "desktop",
       "route": "/work/",
-      "url": "http://127.0.0.1:37079/work/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/work/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -2020,6 +2218,24 @@
           "detail": "1280px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"DEMO: Roofs we have done\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -2090,12 +2306,18 @@
     {
       "viewport": "desktop",
       "route": "/services/",
-      "url": "http://127.0.0.1:37079/services/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/services/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -2250,6 +2472,24 @@
           "detail": "1280px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Services\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -2320,12 +2560,18 @@
     {
       "viewport": "desktop",
       "route": "/about/",
-      "url": "http://127.0.0.1:37079/about/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/about/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -2480,6 +2726,24 @@
           "detail": "1280px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"About us\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -2550,12 +2814,18 @@
     {
       "viewport": "desktop",
       "route": "/consultation/",
-      "url": "http://127.0.0.1:37079/consultation/",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/consultation/",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -2710,6 +2980,24 @@
           "detail": "1280px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"DEMO: Tell us about the roof\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -2780,12 +3068,18 @@
     {
       "viewport": "desktop",
       "route": "/privacy/",
-      "url": "http://127.0.0.1:37079/privacy/",
-      "summary": "37 checks · 34 pass · 0 FAIL · 1 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/privacy/",
+      "summary": "41 checks · 38 pass · 0 FAIL · 1 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -2940,6 +3234,24 @@
           "detail": "1280px wide"
         },
         {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Privacy notice\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -3010,12 +3322,18 @@
     {
       "viewport": "desktop",
       "route": "/404.html",
-      "url": "http://127.0.0.1:37079/404.html",
-      "summary": "37 checks · 35 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:44361/404.html",
+      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
           "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
           "result": "PASS",
           "detail": "none"
         },
@@ -3168,6 +3486,24 @@
           "check": "No sideways scroll at this width",
           "result": "PASS",
           "detail": "1280px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Page not found\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
         },
         {
           "gate": "B",

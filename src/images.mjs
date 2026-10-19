@@ -11,6 +11,7 @@ export const SIZES = {
   heroInset: [{ w: 750, h: 938, cap: 200 }, { w: 900, h: 1125, cap: 200 }],  // variant C, framed 4:5 inset
   project: [{ w: 750, h: 1000, cap: 150 }, { w: 1086, h: 1448, cap: 150 }],  // 3:4 day/evening pairs
   projectWide: [{ w: 750, h: 563, cap: 150 }, { w: 1200, h: 900, cap: 150 }], // 4:3 wide pair (one per project)
+  compare: [{ w: 750, h: 563, cap: 120 }, { w: 1086, h: 815, cap: 150 }],  // v3 before/after, 4:3, both photos the same crop
   section: [{ w: 750, h: 938, cap: 120 }, { w: 1200, h: 900, cap: 120 }],    // 4:5 phone, 4:3 desktop
   portrait: [{ w: 600, h: 750, cap: 120 }, { w: 900, h: 1125, cap: 120 }],   // owner, process (4:5)
   thumb: [{ w: 600, h: null, cap: 60 }],                                       // Ideas page supplier images

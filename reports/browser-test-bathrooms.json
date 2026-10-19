@@ -1,7 +1,7 @@
 {
   "slug": "test-bathrooms",
-  "ranAt": "2026-10-19T17:21:00.849Z",
-  "pass": 210,
+  "ranAt": "2026-10-19T20:16:27.498Z",
+  "pass": 227,
   "fail": 0,
   "results": [
     {
@@ -30,7 +30,7 @@
       "route": "/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 20.065px 12px 32.48px 16.105px 28.29px"
+      "detail": "6: 15px 20.065px 12px 34px 16.105px 28.29px"
     },
     {
       "viewport": "phone-390",
@@ -52,6 +52,20 @@
       "check": "Day/evening toggle switches every pair",
       "result": "PASS",
       "detail": "3 pairs switched true, aria-pressed true"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Before/after slider follows pointer and touch",
+      "result": "PASS",
+      "detail": "to 80% → 80, to 20% → 20, clip inset(0px 80% 0px 0px)"
     },
     {
       "viewport": "phone-390",
@@ -94,6 +108,20 @@
       "check": "Day/evening toggle switches every pair",
       "result": "PASS",
       "detail": "4 pairs switched true, aria-pressed true"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "Before/after slider follows pointer and touch",
+      "result": "PASS",
+      "detail": "to 80% → 80, to 20% → 20, clip inset(0px 80% 0px 0px)"
     },
     {
       "viewport": "phone-390",
@@ -331,7 +359,7 @@
       "route": "/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 22.144px 12px 44.576px 16.672px 32.448px"
+      "detail": "6: 15px 22.144px 12px 38.208px 16.672px 32.448px"
     },
     {
       "viewport": "tablet-768",
@@ -346,6 +374,13 @@
       "check": "Phone menu opens, holds focus, closes on Escape",
       "result": "PASS",
       "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
     },
     {
       "viewport": "tablet-768",
@@ -381,6 +416,13 @@
       "check": "Every image loads (lazy included)",
       "result": "PASS",
       "detail": "ok"
+    },
+    {
+      "viewport": "tablet-768",
+      "route": "/work/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
     },
     {
       "viewport": "tablet-768",
@@ -618,7 +660,7 @@
       "route": "/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 22.507px 12px 46.688px 16.771px 33.174px"
+      "detail": "6: 15px 22.507px 12px 40.254px 16.771px 33.174px"
     },
     {
       "viewport": "tablet-834",
@@ -633,6 +675,13 @@
       "check": "Phone menu opens, holds focus, closes on Escape",
       "result": "PASS",
       "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
     },
     {
       "viewport": "tablet-834",
@@ -668,6 +717,13 @@
       "check": "Every image loads (lazy included)",
       "result": "PASS",
       "detail": "ok"
+    },
+    {
+      "viewport": "tablet-834",
+      "route": "/work/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
     },
     {
       "viewport": "tablet-834",
@@ -905,7 +961,7 @@
       "route": "/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 23.552px 12px 52.768px 17px 35.264px"
+      "detail": "6: 15px 23.552px 12px 46.144px 17px 35.264px"
     },
     {
       "viewport": "tablet-1024",
@@ -920,6 +976,13 @@
       "check": "Phone menu opens, holds focus, closes on Escape",
       "result": "PASS",
       "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
     },
     {
       "viewport": "tablet-1024",
@@ -955,6 +1018,13 @@
       "check": "Every image loads (lazy included)",
       "result": "PASS",
       "detail": "ok"
+    },
+    {
+      "viewport": "tablet-1024",
+      "route": "/work/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
     },
     {
       "viewport": "tablet-1024",
@@ -1192,7 +1262,7 @@
       "route": "/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 24.96px 60.96px 17px 12px 38px"
+      "detail": "6: 15px 24.96px 54.08px 17px 12px 38px"
     },
     {
       "viewport": "desktop-1280",
@@ -1200,6 +1270,20 @@
       "check": "Every image loads (lazy included)",
       "result": "PASS",
       "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/",
+      "check": "Before/after slider follows pointer and touch",
+      "result": "PASS",
+      "detail": "to 80% → 80, to 20% → 20, clip inset(0px 80% 0px 0px)"
     },
     {
       "viewport": "desktop-1280",
@@ -1235,6 +1319,20 @@
       "check": "Every image loads (lazy included)",
       "result": "PASS",
       "detail": "ok"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/work/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+    },
+    {
+      "viewport": "desktop-1280",
+      "route": "/work/",
+      "check": "Before/after slider follows pointer and touch",
+      "result": "PASS",
+      "detail": "to 80% → 80, to 20% → 20, clip inset(0px 80% 0px 0px)"
     },
     {
       "viewport": "desktop-1280",
@@ -1445,6 +1543,27 @@
       "check": "Every image loads (lazy included)",
       "result": "PASS",
       "detail": "ok"
+    },
+    {
+      "viewport": "nojs-390",
+      "route": "/",
+      "check": "No JavaScript: H1, content and before/after side by side",
+      "result": "PASS",
+      "detail": "overflow 0px, H1 40 chars, pairs side by side true, slider hidden true"
+    },
+    {
+      "viewport": "nojs-390",
+      "route": "/work/",
+      "check": "No JavaScript: H1, content and before/after side by side",
+      "result": "PASS",
+      "detail": "overflow 0px, H1 25 chars, pairs side by side true, slider hidden true"
+    },
+    {
+      "viewport": "motion-1280",
+      "route": "/",
+      "check": "Motion on: words settle once, line draws, counters land",
+      "result": "PASS",
+      "detail": "words still moving 0, iterations 1, line offsets 0, steps unreached 0, counters off 0"
     },
     {
       "viewport": "all",

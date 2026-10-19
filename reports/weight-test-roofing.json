@@ -1,0 +1,22 @@
+{
+  "slug": "test-roofing",
+  "route": "/",
+  "phone390": {
+    "totalKB": 172,
+    "htmlKB": 14.6,
+    "cssKB": 26,
+    "jsKB": 9.9,
+    "fontKB": 86.1,
+    "imgKB": 35,
+    "otherKB": 0.2
+  },
+  "desktop1280": {
+    "totalKB": 174,
+    "htmlKB": 14.6,
+    "cssKB": 26,
+    "jsKB": 9.9,
+    "fontKB": 86.1,
+    "imgKB": 37.1,
+    "otherKB": 0.2
+  }
+}

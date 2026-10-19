@@ -1,4 +1,4 @@
-// Craft theme tokens (v2.0). Extracted from the Bathrooms Complete site (SiteDrop export, 21 Sep 2026)
+// Craft theme tokens (v3.0). Extracted from the Bathrooms Complete site (SiteDrop export, 21 Sep 2026)
 // and held to the Website Build Standard: six type sizes, one spacing scale, one motion scale,
 // no rounded corners or shadows unless a client token turns them on.
 // Colours come from each client's brand.colors; everything else is fixed here.
@@ -15,8 +15,15 @@ export const TYPE_SCALE = {
   'fs-6': 'clamp(2rem, 1.25rem + 3.2vw, 4rem)',         // H1 (Darren: 31–70px; capped at 64px)
 };
 
-export const LEADING = { tight: '1.18', snug: '1.3', quote: '1.5', body: '1.7' };
-export const TRACKING = { label: '.12em', button: '.08em', heading: '-.01em' };
+// v3: the hero redefines step 6 as large display type on wide screens (teardown: giant display type).
+// Still six named sizes, and the home page uses no other step-6 text, so each page keeps six sizes or fewer.
+export const HERO_DISPLAY = {
+  full: 'clamp(2.125rem, 0.5rem + 4.6vw, 6rem)',   // variant A, words over the full-bleed photo (36px phone → 96px)
+  split: 'clamp(2.125rem, 0.9rem + 3.1vw, 4.5rem)', // variants B and C, words in a half-width column
+};
+
+export const LEADING = { tight: '1.18', snug: '1.3', quote: '1.5', body: '1.7', display: '1.04' };
+export const TRACKING = { label: '.12em', mono: '.06em', button: '.08em', heading: '-.01em', display: '-.025em' };
 
 // Darren's spacing scale, unchanged (8 · 16 · 24 · 40 · 64 · 96 · 120), tightened on phones.
 export const SPACE = { s1: '8px', s2: '16px', s3: '24px', s4: '40px', s5: '64px', s6: '96px', s7: '120px' };
@@ -25,7 +32,10 @@ export const SPACE_PHONE = { s5: '48px', s6: '56px', s7: '72px' };
 export const LAYOUT = { max: '1440px', gutter: '64px', gutterTablet: '32px', gutterPhone: '24px', measure: '68ch', headerH: '72px', tap: '44px' };
 
 // Motion: Darren's three speeds. All of it switches off under prefers-reduced-motion.
-export const MOTION = { fast: '150ms', base: '380ms', slow: '900ms', ease: 'cubic-bezier(.4,0,.2,1)', rise: '24px' };
+// v3 adds the motion-pack curves: ease-out-cubic for the hero word reveal (90 ms stagger, runs once)
+// and ease-out-expo for count-up (site.js). Every motion has a final state that reduced motion jumps to.
+export const MOTION = { fast: '150ms', base: '380ms', slow: '900ms', ease: 'cubic-bezier(.4,0,.2,1)', rise: '24px',
+  easeOutCubic: 'cubic-bezier(.33,1,.68,1)', word: '760ms', stagger: 90, staggerMax: 16, wordRise: '.32em', wordBlur: '6px' };
 
 // Veils over photos. Text never sits on a photo with less than VEIL_MIN of the dark colour under it,
 // so contrast is checked against the worst case: a pure white pixel under the veil.
@@ -57,6 +67,8 @@ export const FONT_FILES = {
 export const FALLBACK = {
   serif: "'Iowan Old Style','Palatino Linotype',Georgia,'Times New Roman',serif",
   sans: "-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif",
+  // v3 micro-labels: the system's own monospace. Nothing is downloaded.
+  mono: "ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono','DejaVu Sans Mono',monospace",
 };
 export const SERIF_FAMILIES = new Set(['Playfair Display', 'Source Serif 4']);
 
@@ -77,12 +89,16 @@ export function tokensCss({ colors, fonts, radius, shadow }) {
     `--max:${LAYOUT.max}`, `--gutter:${LAYOUT.gutter}`, `--measure:${LAYOUT.measure}`, `--header-h:${LAYOUT.headerH}`, `--tap:${LAYOUT.tap}`,
     `--edge:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))`,
     `--t-fast:${MOTION.fast}`, `--t-base:${MOTION.base}`, `--t-slow:${MOTION.slow}`, `--ease:${MOTION.ease}`, `--rise:${MOTION.rise}`,
+    `--ease-out-cubic:${MOTION.easeOutCubic}`, `--t-word:${MOTION.word}`, `--word-rise:${MOTION.wordRise}`, `--word-blur:${MOTION.wordBlur}`,
     `--radius:${radius ?? RESTRAINT.radius}`, `--shadow:${shadow ?? RESTRAINT.shadow}`,
     `--canvas:${c.canvas}`, `--paper:${c.paper}`, `--line:${c.line}`, `--ink:${c.ink}`, `--muted:${c.muted}`, `--accent:${c.accent}`,
     `--dark:${c.dark}`, `--on-dark:${c.onDark}`, `--on-dark-muted:${c.onDarkMuted}`,
     `--veil:${rgba(c.dark, VEIL_MIN)}`, `--veil-strong:${rgba(c.dark, 0.9)}`,
-    `--font-display:${q(fonts.display)},${fb(fonts.display)}`, `--font-text:${q(fonts.text)},${fb(fonts.text)}`,
+    `--font-display:${q(fonts.display)},${fb(fonts.display)}`, `--font-text:${q(fonts.text)},${fb(fonts.text)}`, `--font-mono:${FALLBACK.mono}`,
     `--display-weight:${SERIF_FAMILIES.has(fonts.display) ? 400 : 500}`,
   ];
-  return `:root{${v.join(';')}}\n@media (max-width:1099px){:root{--gutter:${LAYOUT.gutterTablet}}}\n@media (max-width:760px){:root{--gutter:${LAYOUT.gutterPhone};${Object.entries(SPACE_PHONE).map(([k, x]) => `--${k}:${x}`).join(';')}}}\n`;
+  // Hero display size (step 6 redefined inside the hero only) and the word-reveal stagger, one class per word.
+  const hero = `.hero{--fs-6:${HERO_DISPLAY.full}}.craft-b .hero,.craft-c .hero{--fs-6:${HERO_DISPLAY.split}}\n`;
+  const stagger = Array.from({ length: MOTION.staggerMax }, (_, i) => `.hero h1 .d${i}{animation-delay:${i * MOTION.stagger}ms}`).join('');
+  return `:root{${v.join(';')}}\n${hero}${stagger}\n@media (max-width:1099px){:root{--gutter:${LAYOUT.gutterTablet}}}\n@media (max-width:760px){:root{--gutter:${LAYOUT.gutterPhone};${Object.entries(SPACE_PHONE).map(([k, x]) => `--${k}:${x}`).join(';')}}}\n`;
 }

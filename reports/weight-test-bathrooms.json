@@ -1,0 +1,22 @@
+{
+  "slug": "test-bathrooms",
+  "route": "/",
+  "phone390": {
+    "totalKB": 218,
+    "htmlKB": 19.6,
+    "cssKB": 26,
+    "jsKB": 9.9,
+    "fontKB": 75.9,
+    "imgKB": 86.1,
+    "otherKB": 0.2
+  },
+  "desktop1280": {
+    "totalKB": 237,
+    "htmlKB": 19.6,
+    "cssKB": 26,
+    "jsKB": 9.9,
+    "fontKB": 75.9,
+    "imgKB": 105,
+    "otherKB": 0.2
+  }
+}

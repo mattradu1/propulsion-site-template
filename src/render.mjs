@@ -1,7 +1,7 @@
-// Craft theme components and pages (v2). No client fact or sentence is written here:
+// Craft theme components and pages (v3). No client fact or sentence is written here:
 // visible words come from client.json or from src/lines.mjs (approved lines). Missing → section left out.
 import { h, raw, safeUrl } from './html.mjs';
-import { isPending, has, ideasShown, heroKind } from './config.mjs';
+import { isPending, has, ideasShown, heroKind, proofShown, baShown, isNum, fmtNum } from './config.mjs';
 import { line, neutral, LINES } from './lines.mjs';
 import { homeOrder } from './brief.mjs';
 
@@ -60,16 +60,45 @@ function srcsetImg(set, { alt, lazy, cls, sizes, extra = '', img }) {
 }
 const altOf = (im) => (im.decorative ? '' : im.alt);
 
+// v3 H1: the client's words, in the HTML, one span per word (for the reveal) and an optional <em> run
+// (hero.emphasis, an exact run of words in hero.h1). Nothing is added or reordered.
+export function emphasisRange(h1, emphasis) {
+  const words = String(h1).split(/\s+/).filter(Boolean);
+  if (typeof emphasis !== 'string' || !emphasis.trim()) return { words, start: -1, end: -1 };
+  const ew = emphasis.trim().split(/\s+/);
+  for (let i = 0; i + ew.length <= words.length; i++) if (words.slice(i, i + ew.length).join(' ') === ew.join(' ')) return { words, start: i, end: i + ew.length - 1 };
+  return { words, start: -1, end: -1, missing: true };
+}
+function heroH1(H) {
+  const { words, start, end } = emphasisRange(H.h1, H.emphasis);
+  let out = '';
+  words.forEach((w, i) => {
+    if (i) out += ' ';
+    if (i === start) out += '<em>';
+    out += h`<span class="w d${Math.min(i, 15)}">${w}</span>`.s;
+    if (i === end) out += '</em>';
+  });
+  return raw(out);
+}
+function proofLine(cfg) {
+  const items = proofShown(cfg);
+  if (!items.length) return '';
+  return h`<ul class="proof">${items.map((x) => (isNum(x.value)
+    ? h`<li><span class="num"${raw(x.countUp === false ? '' : ` data-count="${x.value}"`)}>${fmtNum(x.value)}</span> <span>${x.label}</span></li>`
+    : h`<li><span>${x.text}</span></li>`))}</ul>`;
+}
+
 function hero(cfg, imgs) {
   const H = cfg.hero;
   const img = H.image && imgs[`${H.image.src}|${heroKind(cfg)}`];
   const dark = cfg.variant !== 'B';
   const copy = h`<div class="hero-copy"><div class="wrap">
       ${has(H.tagline) ? h`<p class="tagline">${t(cfg, H.tagline)}</p>` : ''}
-      <h1 id="hero-h">${H.h1}</h1>
+      <h1 id="hero-h">${heroH1(H)}</h1>
       <span class="rule" aria-hidden="true"></span>
       ${has(H.intro) ? h`<p class="intro">${t(cfg, H.intro)}</p>` : ''}
       <div class="actions">${cta(cfg, 'hero')}${callLink(cfg)}</div>
+      ${proofLine(cfg)}
     </div></div>`;
   if ((H.kind === 'photo' || H.kind === 'vanTeam') && img)
     return h`<section class="hero has-photo${raw(dark ? ' on-dark' : '')}" aria-labelledby="hero-h">
@@ -137,6 +166,34 @@ function workSection(cfg, imgs, projects, { id = 'work', link = false } = {}) {
   </div></section>`;
 }
 
+// v3 before/after: no JS = both photos side by side; site.js turns each into a clip-path slider.
+function beforeAfterSection(cfg, imgs) {
+  const list = baShown(cfg);
+  if (!list.length) return '';
+  const B = cfg.beforeAfter;
+  const sizes = '(min-width: 1100px) 960px, 92vw';
+  return h`<section class="section ba-section" aria-labelledby="ba-h"><div class="wrap">
+    <div class="sechead rise">
+      ${eyebrow(cfg, B.eyebrow)}
+      <h2 id="ba-h">${has(B.heading) ? t(cfg, B.heading) : L(cfg, 'baHeading')}</h2>
+      ${has(B.note) ? h`<p class="note">${t(cfg, B.note)}</p>` : ''}
+    </div>
+    ${list.map((p) => {
+      const bi = imgs[`${p.before.src}|compare`], ai = imgs[`${p.after.src}|compare`];
+      if (!bi || !ai) return '';
+      return h`<figure class="ba-item">
+      <div class="ba" data-ba>
+        <div class="ba-pane ba-before">${srcsetImg(bi, { alt: p.before.alt, lazy: true, sizes, img: p.before })}<span class="ba-tag">${L(cfg, 'before')}</span></div>
+        <div class="ba-pane ba-after">${srcsetImg(ai, { alt: p.after.alt, lazy: true, sizes, img: p.after })}<span class="ba-tag">${L(cfg, 'after')}</span></div>
+        <span class="ba-rule" aria-hidden="true"></span>
+        <span class="ba-handle" role="slider" tabindex="0" aria-label="${plain(cfg, line(cfg, 'baSlider'))}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" hidden><span class="ba-grip" aria-hidden="true"></span></span>
+      </div>
+      ${has(p.title) || has(p.town) || p.demoImages === true ? h`<figcaption>${has(p.title) ? h`<span>${t(cfg, p.title)}</span>` : ''}${has(p.title) && has(p.town) ? ' · ' : ''}${has(p.town) ? h`<span class="meta">${t(cfg, p.town)}</span>` : ''}${p.demoImages === true ? h`<span class="demo-note">${p.demoNote}</span>` : ''}</figcaption>` : ''}
+    </figure>`;
+    })}
+  </div></section>`;
+}
+
 function processSection(cfg, imgs) {
   const P = cfg.process;
   const im = P.image && imgs[`${P.image.src}|portrait`];
@@ -145,7 +202,8 @@ function processSection(cfg, imgs) {
     <div class="rise">
       ${eyebrow(cfg, P.eyebrow)}
       <h2 id="process-h">${has(P.heading) ? t(cfg, P.heading) : L(cfg, 'processHeading')}</h2>
-      <ol class="steps">${P.steps.map((s) => h`<li><div><h3>${t(cfg, s.title)}</h3><p>${t(cfg, s.text)}</p></div></li>`)}</ol>
+      <div class="steps-wrap"><svg class="rail" aria-hidden="true" focusable="false" viewBox="0 0 4 1000" preserveAspectRatio="none"><path class="rail-base" d="M2 0V1000"/><path class="rail-line" d="M2 0V1000"/></svg>
+      <ol class="steps has-rail" data-draw>${P.steps.map((s) => h`<li><span class="dot" aria-hidden="true"></span><div><h3>${t(cfg, s.title)}</h3><p>${t(cfg, s.text)}</p></div></li>`)}</ol></div>
     </div>
   </div></div></section>`;
 }
@@ -335,6 +393,7 @@ export function renderPages(cfg, imgs, ctx) {
   const SECTIONS = {
     intro: () => intro(cfg),
     work: () => workSection(cfg, imgs, featured.length ? featured : cfg.projects.slice(0, 1), { link: true }),
+    beforeAfter: () => beforeAfterSection(cfg, imgs),
     process: () => processSection(cfg, imgs),
     owner: () => ownerSection(cfg, imgs),
     services: () => servicesSection(cfg),
@@ -352,7 +411,7 @@ export function renderPages(cfg, imgs, ctx) {
     const pc = pageCopy(cfg, 'work');
     pages['work/index.html'] = page('/work/', titleFor(cfg, 'work', `Work | ${cfg.businessName}`),
       descFor(cfg, 'work', `${cfg.trade} by ${cfg.businessName} in ${cfg.areasServed.slice(0, 3).join(', ')}.`),
-      h`${pagehead(cfg, imgs, 'work', 'navWork')}${workSection(cfg, imgs, cfg.projects, { id: 'projects' })}${reviewsSection(cfg, pickReviews(cfg, pc.reviewIds), { single: (pc.reviewIds || []).length === 1 })}${ctaBand(cfg, imgs, 'work')}`,
+      h`${pagehead(cfg, imgs, 'work', 'navWork')}${workSection(cfg, imgs, cfg.projects, { id: 'projects' })}${beforeAfterSection(cfg, imgs)}${reviewsSection(cfg, pickReviews(cfg, pc.reviewIds), { single: (pc.reviewIds || []).length === 1 })}${ctaBand(cfg, imgs, 'work')}`,
       preloadFor(cfg, imgs, pc.image));
   }
 

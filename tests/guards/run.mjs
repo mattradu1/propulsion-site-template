@@ -94,7 +94,7 @@ const CASES = [
   ['DT1', 'Design tokens', 'A colour literal painted outside the tokens', () => tamper('DT1', {}, (d) => fs.appendFileSync(css(d), '.hero{background:#ff0000}'))],
   ['H1a', 'H1 what/where', 'H1 says neither trade nor area ("Beautifully Considered. Expertly Installed.")', () => B('H1a', (c) => { c.hero.h1 = 'Beautifully Considered. Expertly Installed.'; c.copyPhrases = []; })],
   ['H1b', 'H1 what/where', 'H1 names the trade but no area', () => B('H1b', (c) => { c.hero.h1 = 'Roof repairs and new roofs'; c.copyPhrases = []; })],
-  ['H1c', 'H1 what/where', 'Rendered H1 tampered after build', () => tamper('H1c', {}, (d) => edit(path.join(d, 'index.html'), 'Roof repairs and new roofs in High Wycombe</h1>', 'Quality you can trust</h1>'))],
+  ['H1c', 'H1 what/where', 'Rendered H1 tampered after build', () => tamper('H1c', {}, (d) => edit(path.join(d, 'index.html'), /<h1 id="hero-h">[\s\S]*?<\/h1>/, '<h1 id="hero-h">Quality you can trust</h1>'))],
   ['CP1', 'Copy phrases', 'Copy-phrase list holds a line that is not in the client copy', () => B('CP1', (c) => { c.copyPhrases.push('Unrivalled craftsmanship'); })],
   ['CP2', 'Copy phrases', 'Approved line drifted on the built page', () => tamper('CP2', {}, (d) => edit(path.join(d, 'ideas/index.html'), 'DEMO: These are supplier images, not my own projects.', 'DEMO: Images from our suppliers.'), 'bath')],
   ['TR1', 'Copy traceability', 'Invented sentence in the output ("Reliable, tidy, family-run.")', () => tamper('TR1', {}, (d) => edit(path.join(d, 'about/index.html'), '</main>', '<p>Reliable, tidy, family-run.</p></main>'))],
@@ -118,6 +118,20 @@ const CASES = [
   ['SO1', 'Supplier as own work', 'A supplier image used as a story photo', () => B('SO1', (c) => { c.stories[0].image.src = 'sup-2.jpg'; }, {}, 'bath')],
   ['SO2', 'Supplier as own work', "Darren's 21 Sep hero: a resized supplier photo passed off as his own room", null],
   ['PI1', 'Process image', 'Process image shows a finished room, not planning', () => B('PI1', (c) => { c.process.image.shows = 'finished'; }, {}, 'bath')],
+  // v3 additions
+  ['HE1', 'Hero emphasis', 'Italic emphasis phrase that is not in the H1 ("brand new roofs")', () => B('HE1', (c) => { c.hero.emphasis = 'brand new roofs'; })],
+  ['HS1', 'H1 server text', 'H1 words reordered in the HTML (not the approved line word for word)', () => tamper('HS1', {}, (d) => edit(path.join(d, 'index.html'), /<h1 id="hero-h">[\s\S]*?<\/h1>/, '<h1 id="hero-h">New roofs and roof repairs in High Wycombe</h1>'))],
+  ['PL1', 'Proof line', 'Years trading written as a string ("17+") instead of the figure as given', () => B('PL1', (c) => { c.proofLine.items[0].value = '17+'; })],
+  ['PL2', 'Proof line', 'Accreditation in the proof line with no proof on file', () => B('PL2', (c) => { delete c.proofLine.items[1].proof; })],
+  ['PL3', 'Proof line', 'Proof-line fact with no source note', () => B('PL3', (c) => { delete c.proofLine.items[0].source; })],
+  ['CU1', 'Count-up', 'Counter tampered to count to a number not in client.json (250)', () => tamper('CU1', {}, (d) => edit(path.join(d, 'index.html'), 'data-count="17">17<', 'data-count="250">250<'))],
+  ['CU2', 'Count-up', 'Counter starts at 0 in the HTML (final figure only written by JavaScript)', () => tamper('CU2', {}, (d) => edit(path.join(d, 'index.html'), 'data-count="17">17<', 'data-count="17">0<'))],
+  ['BA1', 'Before/after', 'Before/after pair not marked as the same job, with no source', () => B('BA1', (c) => { delete c.beforeAfter.pairs[0].demoImages; }, {}, 'bath')],
+  ['BA2', 'Before/after', 'Demo images on a client that is not a DEMO client', () => B('BA2', (c) => { c.demo = false; }, {}, 'bath')],
+  ['BA3', 'Before/after', 'Same photo used for before and after', () => B('BA3', (c) => { c.beforeAfter.pairs[0].after.src = c.beforeAfter.pairs[0].before.src; }, {}, 'bath')],
+  ['BS1', 'Before/after slider', 'Slider loses its keyboard focus and value (tabindex, aria-valuenow removed)', () => tamper('BS1', {}, (d) => edit(path.join(d, 'index.html'), ' tabindex="0" aria-label="Before and after: move to compare" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"', ' aria-label="Before and after: move to compare"'), 'bath')],
+  ['RM1', 'Reduced motion', 'Reduced-motion block removed from the CSS', () => tamper('RM1', {}, (d) => edit(css(d), /@media \(prefers-reduced-motion:reduce\)\{\*,\*::before,\*::after\{animation:none!important;transition:none!important\}/, '@media (min-width:1px){*{}'))],
+  ['RM2', 'Reduced motion', 'Smooth-scroll behaviour added to the CSS', () => tamper('RM2', {}, (d) => fs.appendFileSync(css(d), 'html{scroll-behavior:smooth}'))],
 ];
 // G7 needs a real oversized image: replace the hero with gaussian noise.
 CASES.find((c) => c[0] === 'G7')[3] = async () => {
@@ -145,6 +159,7 @@ const CONTROLS = [
   ['OK9', 'darren-reference preview build', () => B('OK9', null, { preview: true }, 'darren')],
   ['OK10', 'Buyer fears reorder the home page (process, owner, design story first)', null],
   ['OK11', 'Supplier images left out (not failed) when permission is false', null],
+  ['OK12', 'Unconfirmed proof-line fact is left out (amber), not shown', null],
 ];
 CONTROLS.find((c) => c[0] === 'OK5')[2] = async () => {
   const r = await B('OK5', (c) => { c.services[0].description = 'Tiles & slates <b>bold</b>'; });
@@ -162,6 +177,12 @@ CONTROLS.find((c) => c[0] === 'OK11')[2] = async () => {
   const r = await B('OK11', (c) => { c.supplierImagesPermission = false; c.copyPhrases = c.copyPhrases.filter((p) => !String(p.phrase || p).includes('supplier')); }, {}, 'bath');
   const html = fs.readFileSync(path.join(TMP, 'OK11', 'dist', 'ideas/index.html'), 'utf8');
   if (/class="supplier"/.test(html) || fs.readdirSync(path.join(TMP, 'OK11', 'dist', 'assets/img')).some((f) => /-thumb-/.test(f))) r.ok = false, r.problems.push({ level: 'fail', guard: 'Ideas page', msg: 'supplier images still built' });
+  return r;
+};
+CONTROLS.find((c) => c[0] === 'OK12')[2] = async () => {
+  const r = await B('OK12', (c) => { c.proofLine.items[1].confirmed = false; });
+  const html = fs.readFileSync(path.join(TMP, 'OK12', 'dist', 'index.html'), 'utf8');
+  if (/demo trade body/.test(html) || !r.problems.some((p) => p.guard === 'Proof line' && p.level === 'amber')) r.ok = false, r.problems.push({ level: 'fail', guard: 'Proof line', msg: 'unconfirmed fact still shown or not flagged' });
   return r;
 };
 

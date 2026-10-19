@@ -10,7 +10,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 41
+        "passes": 42
       },
       "phone /work/": {
         "counts": {
@@ -80,7 +80,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 41
+        "passes": 42
       },
       "desktop /work/": {
         "counts": {
@@ -152,7 +152,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 42
+        "passes": 43
       },
       "phone /work/": {
         "counts": {
@@ -222,7 +222,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 42
+        "passes": 43
       },
       "desktop /work/": {
         "counts": {

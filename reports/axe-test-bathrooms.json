@@ -10,7 +10,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 42
+        "passes": 45
       },
       "phone /work/": {
         "counts": {
@@ -20,7 +20,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 42
+        "passes": 45
       },
       "phone /services/": {
         "counts": {
@@ -90,7 +90,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 42
+        "passes": 45
       },
       "desktop /work/": {
         "counts": {
@@ -100,7 +100,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 42
+        "passes": 45
       },
       "desktop /services/": {
         "counts": {
@@ -172,7 +172,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 43
+        "passes": 46
       },
       "phone /work/": {
         "counts": {
@@ -182,7 +182,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 43
+        "passes": 46
       },
       "phone /services/": {
         "counts": {
@@ -252,7 +252,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 43
+        "passes": 46
       },
       "desktop /work/": {
         "counts": {
@@ -262,7 +262,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 43
+        "passes": 46
       },
       "desktop /services/": {
         "counts": {

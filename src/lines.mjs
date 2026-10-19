@@ -1,4 +1,4 @@
-// Approved template lines (v2). The only visible words the template may write itself.
+// Approved template lines (v3; v3 adds the four before/after lines). The only visible words the template may write itself.
 // Everything else on a page comes from client.json. Any key under client.json "copy" overrides
 // the line here; a missing optional section is left out rather than filled with made-up words.
 // The output guard "Copy traceability" fails any visible text that is in neither place.
@@ -17,6 +17,10 @@ export const LINES = {
   evening: 'Evening',
   lightingGroup: 'Lighting',
   workHeading: { we: 'Our work', I: 'My work' },
+  baHeading: 'Before and after',
+  before: 'Before',
+  after: 'After',
+  baSlider: 'Before and after: move to compare',
   seeAllWork: { we: 'See all our work', I: 'See all my work' },
   processHeading: 'How a job runs',
   ownerHeading: "Who you'll be dealing with",

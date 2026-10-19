@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-19T17:18:20.051Z",
+  "ranAt": "2026-10-19T20:14:06.692Z",
   "rows": [
     {
       "id": "BC1",
@@ -27,7 +27,7 @@
       "check": "Six font sizes",
       "test": "A seventh size in use",
       "result": "PASS",
-      "message": "phone-390 /: 7: 15px 20.065px 12px 32.48px 16.105px 13px 28.29px"
+      "message": "phone-390 /: 7: 15px 20.065px 12px 34px 16.105px 13px 28.29px"
     },
     {
       "id": "BC5",
@@ -51,11 +51,32 @@
       "message": "all all: not visible on its page"
     },
     {
+      "id": "BC8",
+      "check": "Reduced motion",
+      "test": "Hero words left mid-animation for visitors who asked for less motion",
+      "result": "PASS",
+      "message": "phone-390 /: words moved 6, process line hidden 0, counters off their figure 0"
+    },
+    {
+      "id": "BC9",
+      "check": "No JavaScript",
+      "test": "Before/after fallback stacks the photos instead of side by side",
+      "result": "PASS",
+      "message": "nojs-390 /: overflow 0px, H1 40 chars, pairs side by side false, slider hidden true"
+    },
+    {
+      "id": "BC10",
+      "check": "Before/after touch",
+      "test": "Slider ignores pointer and touch (drag handler removed)",
+      "result": "PASS",
+      "message": "phone-390 /: to 80% → 50, to 20% → 50, clip inset(0px 50% 0px 0px)"
+    },
+    {
       "id": "OK",
       "check": "Control",
       "test": "Untouched build passes every browser check",
       "result": "PASS",
-      "message": "88 checks ok"
+      "message": "97 checks ok"
     }
   ]
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Propulsion master template build (v2, craft theme).
+// Propulsion master template build (v3, craft theme).
 // Usage: node build.mjs <slug> [--preview] [--strict] [--out <dir>] [--others <dir>] [--client-dir <dir>] [--check-only] [--quiet]
 //   --preview     Preview build: banner, noindex, X-Robots-Tag, form to the test inbox.
 //   --strict      Gate B mode: any PENDING marker fails; internal reference clients are refused.

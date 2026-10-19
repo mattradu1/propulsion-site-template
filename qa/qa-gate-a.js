@@ -1,4 +1,6 @@
-// Propulsion OS-09 Gate A — browser QA script (v1.2, 19 Oct 2026; adapted from v1 for headless Playwright)
+// Propulsion OS-09 Gate A — browser QA script (v1.3, 19 Oct 2026; adapted from v1 for headless Playwright)
+// v1.3 (template v3): before/after slider keyboard + ARIA (and it really moves), reduced-motion CSS present,
+// H1 text is in the server HTML (not injected by JS), no "[" / "]" or {{ }} placeholder tokens anywhere visible.
 // v1.2 (template v2): a PENDING phone is amber, not a fail; claim checks ignore the text of PENDING markers
 // (an open conflict quoted inside a marker is not a claim); CTA wording includes the client's own label.
 // v1.1 changes: axe is injected locally by the runner (no CDN fetch); added rulebook S4/S5 checks:
@@ -18,6 +20,11 @@
   const scan = [text, document.title, ...q('[href],[src],[alt],[content],[placeholder]').flatMap(e => ['href', 'src', 'alt', 'content', 'placeholder'].map(a => e.getAttribute(a) || ''))].join('\n');
   const ph = (scan.match(/\[[A-Z][A-Z _\-—]{2,}[^\]]*\]|TO BE SUPPLIED|lorem ipsum/g) || []);
   add('A', 'No placeholders in page or links', ph.length === 0, [...new Set(ph)].join(', ') || 'none');
+
+  // 1b v1.3: no bracket or brace tokens at all (visible text, title, and every attribute a visitor or crawler reads)
+  const scan2 = [text, document.title, ...q('[href],[src],[alt],[content],[placeholder],[aria-label],[aria-valuetext],[title]').flatMap(e => ['href', 'src', 'alt', 'content', 'placeholder', 'aria-label', 'aria-valuetext', 'title'].map(a => e.getAttribute(a) || ''))].join('\n');
+  const tok = scan2.match(/[^\n]{0,20}(\[|\]|\{\{|\}\})[^\n]{0,20}/g) || [];
+  add('A', 'No [ ] or {{ }} placeholder tokens', tok.length === 0, [...new Set(tok)].slice(0, 5).join(' | ') || 'none');
 
   // 2 Links
   const hrefs = [...new Set(q('a[href]').map(a => a.getAttribute('href')))];
@@ -92,6 +99,35 @@
     add('A', 'axe: 0 serious/critical (WCAG 2.2 AA)', serious.length === 0, serious.map(v => `${v.id}×${v.nodes.length}`).join(', ') || 'none');
   } catch (e) { add('A', 'axe scan', null, 'axe could not load: ' + e); }
   add('A', 'No sideways scroll at this width', document.documentElement.scrollWidth <= innerWidth, innerWidth + 'px wide');
+
+  // 8b v1.3 motion and v3 components
+  const reduce = []; for (const ss of document.styleSheets) { try { for (const r of ss.cssRules) if (r.media && /prefers-reduced-motion:\s*reduce/.test(r.media.mediaText)) reduce.push(r); } catch (e) {} }
+  const animates = [...document.styleSheets].some(ss => { try { return [...ss.cssRules].some(r => r.type === 7 || /animation|transition/.test(r.cssText)); } catch (e) { return false; } });
+  const stops = reduce.some(m => [...m.cssRules].some(r => r.style && r.style.getPropertyValue('animation-name') === 'none' && r.style.getPropertyPriority('animation-name') === 'important' && r.style.getPropertyValue('transition-property') === 'none' && r.style.getPropertyPriority('transition-property') === 'important'));
+  add('A', 'Reduced-motion CSS present (motion jumps to its final state)', !animates || stops, animates ? reduce.length + ' reduced-motion block(s), all motion off ' + stops : 'no motion on this page');
+  const live = document.querySelector('h1');
+  const server = new DOMParser().parseFromString(shell, 'text/html').querySelector('h1');
+  const sq = s => (s || '').replace(/\s+/g, ' ').trim();
+  add('A', 'H1 text is in the server HTML (not injected by JS)', !!live && !!server && sq(server.textContent).length > 0 && sq(server.textContent) === sq(live.textContent), server ? `HTML: "${sq(server.textContent).slice(0, 60)}"` : 'no H1 in the HTML');
+  const sliders = q('[role=slider]');
+  if (!sliders.length) add('A', 'Slider: keyboard + ARIA', true, 'no slider on this page');
+  for (const sl of sliders) {
+    const vis = sl.getClientRects().length > 0;
+    const aria = ['aria-valuemin', 'aria-valuemax', 'aria-valuenow'].every(a => sl.hasAttribute(a)) && !!(sl.getAttribute('aria-label') || sl.getAttribute('aria-labelledby'));
+    const before = +sl.getAttribute('aria-valuenow');
+    sl.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true, cancelable: true }));
+    const up = +sl.getAttribute('aria-valuenow');
+    sl.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home', bubbles: true, cancelable: true }));
+    const home = +sl.getAttribute('aria-valuenow');
+    sl.dispatchEvent(new KeyboardEvent('keydown', { key: 'End', bubbles: true, cancelable: true }));
+    const end = +sl.getAttribute('aria-valuenow');
+    const box = sl.closest('[data-ba]');
+    const moved = box ? getComputedStyle(box).getPropertyValue('--pos').trim() === '100%' : true;
+    sl.dispatchEvent(new KeyboardEvent('keydown', { key: 'PageDown', bubbles: true, cancelable: true }));
+    for (let i = 0; i < 4; i++) sl.dispatchEvent(new KeyboardEvent('keydown', { key: 'PageDown', bubbles: true, cancelable: true }));
+    add('A', 'Slider: keyboard + ARIA', vis && sl.tabIndex === 0 && aria && up > before && home === 0 && end === 100 && moved,
+      `visible ${vis}, tabindex ${sl.tabIndex}, aria ${aria}, ArrowRight ${before}→${up}, Home ${home}, End ${end}, image follows ${moved}`);
+  }
 
   // 9 Privacy
   add('B', 'Privacy link on page', q('a[href]').some(a => /privacy/i.test(a.getAttribute('href') + a.innerText)), '');

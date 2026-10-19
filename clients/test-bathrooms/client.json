@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2.0.0",
+  "templateVersion": "3.0.0",
   "demo": true,
   "demoScene": "bathroom",
   "slug": "test-bathrooms",
@@ -61,6 +61,7 @@
   "hero": {
     "tagline": "DEMO: Drawn first, fitted once.",
     "h1": "Bathroom design and fitting in Guildford",
+    "emphasis": "design and fitting",
     "intro": "DEMO copy: I draw every bathroom to scale before quoting, then fit it myself, start to finish.",
     "kind": "photo",
     "image": { "src": "hero.jpg", "alt": "DEMO placeholder: finished family bathroom with a freestanding bath", "focus": "centre" }
@@ -109,6 +110,17 @@
     { "title": "DEMO: En suite", "town": "Farnham", "description": "DEMO: An en suite fitted into the eaves, with a level-access shower.", "finished": true,
       "pairs": [ { "day": { "src": "p3-day.jpg", "alt": "DEMO placeholder: en suite under the eaves in daylight" } } ] }
   ],
+
+  "beforeAfter": {
+    "eyebrow": "DEMO: Same room, two photos",
+    "pairs": [
+      { "title": "DEMO: Shower room", "town": "Godalming",
+        "demoImages": true,
+        "demoNote": "DEMO images: the evening and day placeholders of one demo room stand in for a real before and after. Not a real job.",
+        "before": { "src": "p2-evening.jpg", "alt": "DEMO placeholder standing in for the before photo: the shower room, darker" },
+        "after": { "src": "p2-day.jpg", "alt": "DEMO placeholder standing in for the after photo: the shower room in daylight" } }
+    ]
+  },
 
   "reviews": [
     { "id": "r1", "text": "DEMO review: He covered every floor from the front door up and kept the house spotless the whole fortnight.", "author": "Helen (DEMO)", "date": "2026-07-09", "source": "https://www.example.com/demo-gbp-test-bathrooms/reviews#r1", "truncated": false },

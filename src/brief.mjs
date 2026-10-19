@@ -1,7 +1,7 @@
 // Brand brief (7 sections, from the 17 Oct Brand, Art Direction & Build Standard):
 // idealClient · buyerFears (in review words) · onliness · archetype · voice (use/avoid) · proofOnFile · conflicts.
 // The brief never writes copy. It orders the home page and feeds two guards (fear quotes, avoid words).
-import { isPending } from './config.mjs';
+import { isPending, baShown } from './config.mjs';
 
 export const ARCHETYPES = ['Innocent', 'Everyman', 'Hero', 'Outlaw', 'Explorer', 'Creator', 'Ruler', 'Magician', 'Lover', 'Caregiver', 'Jester', 'Sage', 'Craftsman'];
 
@@ -11,6 +11,7 @@ export function sectionKeys(cfg) {
   if (cfg.intro) keys.push('intro');
   for (const s of cfg.stories || []) keys.push(`story:${s.id}`);
   if ((cfg.projects || []).some((p) => p.pairs?.length)) keys.push('work');
+  if (baShown(cfg).length) keys.push('beforeAfter');
   if (cfg.process?.steps?.length) keys.push('process');
   if (cfg.owner?.name) keys.push('owner');
   if ((cfg.services || []).length) keys.push('services');

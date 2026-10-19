@@ -1,9 +1,9 @@
-// Checks on the built /dist folder (v2). Same problem shape as guards-config.
+// Checks on the built /dist folder (v3). Same problem shape as guards-config.
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { approvedSet, findClaims } from './claims.mjs';
-import { normalize, walk, isPending, ideasShown, IDEAS_MAX } from './config.mjs';
+import { normalize, walk, isPending, ideasShown, IDEAS_MAX, proofShown, isNum, fmtNum } from './config.mjs';
 import { approvedStrings, LINES } from './lines.mjs';
 import { h1Problems, PREVIEW_HOSTS } from './guards-config.mjs';
 import { avoidHits } from './brief.mjs';
@@ -42,7 +42,10 @@ export function exifScan(dir) {
 export function untraceable(html, cfg, page) {
   const allowed = new Set([...approvedStrings()].map(squash));
   walk(cfg, (s, p, pending) => { if (!pending) allowed.add(squash(s)); else if (cfg.internalReference === true) allowed.add(squash('PENDING: ' + s.pending)); });
+  for (const x of proofShown(cfg)) if (isNum(x.value)) allowed.add(fmtNum(x.value)); // v3: a proof-line number as written in client.json
   let body = html.replace(/<head[\s\S]*?<\/head>/i, ' ').replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ');
+  // v3: the hero H1 is split into one span per word for the reveal; trace it as the one line it is.
+  body = body.replace(/<h1\b([^>]*)>([\s\S]*?)<\/h1>/gi, (m, a, inner) => `<h1${a}>${inner.replace(/<[^>]+>/g, '')}</h1>`);
   if (page === 'privacy/index.html') body = body.replace(/<!--approved:privacy-v2-->[\s\S]*?<!--\/approved-->/g, ' ');
   body = body.replace(/<!--[\s\S]*?-->/g, ' ');
   const bad = [];
@@ -68,7 +71,14 @@ export function cssProblems(css) {
   if (scale.size !== 6 || [...scale].some((n) => +n < 1 || +n > 6)) out.push(['Type scale', `The type scale defines ${scale.size} sizes (--fs-${[...scale].join(', --fs-')}). It must be exactly six: --fs-1 to --fs-6.`]);
   for (const m of rest.matchAll(/(?:^|[;{\s])font-size\s*:\s*([^;}]+)/g)) if (!/^\s*(var\(--fs-[1-6]\)|inherit)\s*(!important)?\s*$/.test(m[1])) out.push(['Type scale', `site.css sets font-size: ${m[1].trim()}. Every size must be one of the six tokens var(--fs-1) … var(--fs-6).`]);
   for (const m of rest.matchAll(/(?:^|[;{\s])font\s*:\s*([^;}]+)/g)) if (!/^\s*inherit\s*$/.test(m[1])) out.push(['Type scale', `site.css uses the font shorthand (font: ${m[1].trim()}), which bypasses the type scale.`]);
-  for (const m of rest.matchAll(/(?:^|[;{\s])font-family\s*:\s*([^;}]+)/g)) if (!/^\s*(var\(--font-(display|text)\)|inherit)\s*$/.test(m[1])) out.push(['G9 Third-party assets', `site.css sets font-family: ${m[1].trim()} directly. Use var(--font-display) or var(--font-text).`]);
+  for (const m of rest.matchAll(/(?:^|[;{\s])font-family\s*:\s*([^;}]+)/g)) if (!/^\s*(var\(--font-(display|text|mono)\)|inherit)\s*$/.test(m[1])) out.push(['G9 Third-party assets', `site.css sets font-family: ${m[1].trim()} directly. Use var(--font-display), var(--font-text) or var(--font-mono) (the system monospace, never downloaded).`]);
+  // v3 motion: anything that animates must have a reduced-motion block that switches it off.
+  if (/(animation|transition)\s*:|@keyframes/.test(rest)) {
+    const rm = rest.match(/@media\s*\(prefers-reduced-motion:\s*reduce\)\s*{([\s\S]*?})\s*}/);
+    if (!rm || !/animation:none!important/.test(rm[1].replace(/\s+/g, '')) || !/transition:none!important/.test(rm[1].replace(/\s+/g, '')))
+      out.push(['Reduced motion', 'site.css animates but has no @media (prefers-reduced-motion: reduce) block that sets animation and transition to none. Every motion must jump to its final state when the visitor asks for less motion.']);
+  }
+  if (/\b(lenis|locomotive|smooth-scroll|scroll-behavior\s*:\s*smooth)\b/i.test(rest)) out.push(['Reduced motion', 'site.css turns on smooth scrolling. Scrolling stays native (no smooth-scroll libraries or scroll-jacking).']);
   for (const m of rest.matchAll(/border(?:-[a-z]+)*-radius\s*:\s*([^;}]+)/g)) if (!/^\s*var\(--radius\)\s*$/.test(m[1])) out.push(['Restraint tokens', `site.css rounds corners with border-radius: ${m[1].trim()}. Corners only through var(--radius) (0 unless the brand turns it on).`]);
   for (const m of rest.matchAll(/(box-shadow|text-shadow)\s*:\s*([^;}]+)/g)) if (!/^\s*(var\(--shadow\)|none)\s*$/.test(m[2])) out.push(['Restraint tokens', `site.css adds a shadow (${m[1]}: ${m[2].trim()}). Shadows only through var(--shadow) (none unless the brand turns it on).`]);
   if (/drop-shadow\(/.test(rest)) out.push(['Restraint tokens', 'site.css uses filter: drop-shadow(). Shadows only through var(--shadow).']);
@@ -146,6 +156,25 @@ export function checkOutput(outDir, rawCfg, { strict, preview, others = [], self
       if (!/\swidth="\d+"/.test(m[0]) || !/\sheight="\d+"/.test(m[0])) fail('Images', `${page}: an image is missing width/height (${m[0].slice(0, 80)}…).`);
       if (!/fetchpriority="high"/.test(m[0]) && !/loading="lazy"/.test(m[0]) && m.index > html.indexOf('</header>')) amber('Images', `${page}: an image below the header is not lazy-loaded (${m[0].slice(0, 60)}…).`);
     }
+
+    // v3 before/after slider: keyboard-operable and labelled, and two described photos per pair
+    for (const m of html.matchAll(/<[a-z]+\b[^>]*\brole="slider"[^>]*>/gi)) {
+      const tag = m[0];
+      const miss = ['tabindex="0"', 'aria-valuemin="', 'aria-valuemax="', 'aria-valuenow="', 'aria-label="'].filter((a) => !tag.includes(a));
+      if (miss.length) fail('Before/after slider', `${page}: a slider is missing ${miss.join(', ')}. It must work from the keyboard and say what it does.`);
+    }
+    for (const m of html.matchAll(/<div class="ba[^"]*" data-ba>([\s\S]*?)<\/figure>/g)) {
+      const ims = [...m[1].matchAll(/<img\b[^>]*>/g)].map((x) => x[0]);
+      if (ims.length !== 2 || ims.some((x) => /alt=""/.test(x))) fail('Before/after slider', `${page}: a before/after pair needs exactly two photos, each with alt text (found ${ims.length}).`);
+      if (!/role="slider"/.test(m[1])) fail('Before/after slider', `${page}: a before/after pair has no keyboard slider.`);
+    }
+    // v3 count-up: only numbers from client.json, with the final figure already in the HTML
+    const nums = new Set(proofShown(cfg).filter((x) => isNum(x.value)).map((x) => x.value));
+    for (const m of html.matchAll(/<span class="num" data-count="([^"]*)">([^<]*)<\/span>/g)) {
+      if (!nums.has(Number(m[1]))) fail('Count-up', `${page}: counts up to ${m[1]}, which is not a confirmed number in client.json.`);
+      if (decode(m[2]) !== fmtNum(Number(m[1]))) fail('Count-up', `${page}: the counter shows "${m[2]}" in the HTML instead of its final figure ${m[1]}. The real number must be there without JavaScript.`);
+    }
+    if ((html.match(/data-count="/g) || []).length !== (html.match(/<span class="num" data-count="/g) || []).length) fail('Count-up', `${page}: a data-count counter is outside the proof line.`);
 
     // G9 third-party CSS / fonts / Tailwind CDN
     if (/cdn\.tailwindcss\.com|tailwindcss\.com\/play|unpkg\.com\/tailwind/i.test(html)) fail('G9 Third-party assets', `${page}: loads the Tailwind CDN. CSS must be compiled at build time.`);
@@ -264,6 +293,8 @@ export function checkOutput(outDir, rawCfg, { strict, preview, others = [], self
     const h1 = m ? squash(decode(m[1].replace(/<[^>]+>/g, ' '))) : '';
     const p = h1Problems(cfg, h1);
     if (p.length) fail('H1 what/where', `index.html: the H1 "${h1}" ${p.join(' and ')}.`);
+    // v3: the H1 words are in the server HTML exactly as approved (the reveal never writes or reorders text)
+    else if (typeof cfg.hero?.h1 === 'string' && h1 !== squash(cfg.hero.h1)) fail('H1 server text', `index.html: the H1 in the HTML reads "${h1}", not the approved "${squash(cfg.hero.h1)}". The H1 text must be in the HTML itself, word for word.`);
   }
   // Copy-phrase integrity: each approved line must still be on its page, word for word
   for (const cp of phrases) {
