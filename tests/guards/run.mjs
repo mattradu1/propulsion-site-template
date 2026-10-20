@@ -33,8 +33,8 @@ function others(id, list) {
 }
 const B = (id, mutate, opts = {}, base = 'roof') => build({ clientDir: client(id, mutate, base), outDir: path.join(TMP, id, 'dist'), root: ROOT, ...opts });
 // Build a good site, tamper with the output, then re-run only the output guards.
-async function tamper(id, opts, fn, base = 'roof') {
-  const clientDir = client(id, null, base);
+async function tamper(id, opts, fn, base = 'roof', mutate = null) {
+  const clientDir = client(id, mutate, base);
   const outDir = path.join(TMP, id, 'dist');
   const first = await build({ clientDir, outDir, root: ROOT, ...opts });
   if (!first.ok) return first;
@@ -124,15 +124,34 @@ const CASES = [
   ['PL1', 'Proof line', 'Years trading written as a string ("17+") instead of the figure as given', () => B('PL1', (c) => { c.proofLine.items[0].value = '17+'; })],
   ['PL2', 'Proof line', 'Accreditation in the proof line with no proof on file', () => B('PL2', (c) => { delete c.proofLine.items[1].proof; })],
   ['PL3', 'Proof line', 'Proof-line fact with no source note', () => B('PL3', (c) => { delete c.proofLine.items[0].source; })],
-  ['CU1', 'Count-up', 'Counter tampered to count to a number not in client.json (250)', () => tamper('CU1', {}, (d) => edit(path.join(d, 'index.html'), 'data-count="17">17<', 'data-count="250">250<'))],
-  ['CU2', 'Count-up', 'Counter starts at 0 in the HTML (final figure only written by JavaScript)', () => tamper('CU2', {}, (d) => edit(path.join(d, 'index.html'), 'data-count="17">17<', 'data-count="17">0<'))],
+  ['CU1', 'Count-up', 'Counter tampered to count to a number not in client.json (250)', () => tamper('CU1', {}, (d) => edit(path.join(d, 'index.html'), 'data-count="17">17<', 'data-count="250">250<'), 'roof', countOn)],
+  ['CU2', 'Count-up', 'Counter starts at 0 in the HTML (final figure only written by JavaScript)', () => tamper('CU2', {}, (d) => edit(path.join(d, 'index.html'), 'data-count="17">17<', 'data-count="17">0<'), 'roof', countOn)],
   ['BA1', 'Before/after', 'Before/after pair not marked as the same job, with no source', () => B('BA1', (c) => { delete c.beforeAfter.pairs[0].demoImages; }, {}, 'bath')],
   ['BA2', 'Before/after', 'Demo images on a client that is not a DEMO client', () => B('BA2', (c) => { c.demo = false; }, {}, 'bath')],
   ['BA3', 'Before/after', 'Same photo used for before and after', () => B('BA3', (c) => { c.beforeAfter.pairs[0].after.src = c.beforeAfter.pairs[0].before.src; }, {}, 'bath')],
   ['BS1', 'Before/after slider', 'Slider loses its keyboard focus and value (tabindex, aria-valuenow removed)', () => tamper('BS1', {}, (d) => edit(path.join(d, 'index.html'), ' tabindex="0" aria-label="Before and after: move to compare" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"', ' aria-label="Before and after: move to compare"'), 'bath')],
   ['RM1', 'Reduced motion', 'Reduced-motion block removed from the CSS', () => tamper('RM1', {}, (d) => edit(css(d), /@media \(prefers-reduced-motion:reduce\)\{\*,\*::before,\*::after\{animation:none!important;transition:none!important\}/, '@media (min-width:1px){*{}'))],
   ['RM2', 'Reduced motion', 'Smooth-scroll behaviour added to the CSS', () => tamper('RM2', {}, (d) => fs.appendFileSync(css(d), 'html{scroll-behavior:smooth}'))],
+  // v4 additions
+  ['AB1', 'Action bar', 'WhatsApp in the action bar without the client confirming the number', () => B('AB1', (c) => { delete c.actionBar.whatsapp.confirmed; })],
+  ['AB2', 'Action bar', 'WhatsApp link with no privacy-page line (UK GDPR: every channel named)', () => B('AB2', (c) => { delete c.privacy.whatsapp; })],
+  ['AB3', 'Action bar', "Action bar's Call button tampered to ring another number", () => tamper('AB3', {}, (d) => edit(path.join(d, 'index.html'), /(<nav class="actionbar"[\s\S]*?href="tel:)\+441632960123/, '$1+441632960999'))],
+  ['AB4', 'Action bar', 'Action bar shown without JavaScript (hidden attribute removed)', () => tamper('AB4', {}, (d) => edit(path.join(d, 'index.html'), 'data-actionbar hidden>', 'data-actionbar>'))],
+  ['DM1', 'Demo mode', 'Sales demo mode on a real (non-DEMO) client: darren-reference', () => B('DM1', null, { demoMode: true }, 'darren')],
+  ['DM2', 'Demo mode', 'Demo mode combined with a Gate B (--strict) build', () => B('DM2', (c) => { c.privacy.icoNumber = 'not registered (DEMO)'; }, { demoMode: true, strict: true })],
+  ['DM3', 'Demo mode', 'Demo ribbon pasted into a real client build (darren-reference preview)', () => tamper('DM3', { preview: true }, (d) => edit(path.join(d, 'index.html'), '<a class="skip" href="#main">Skip to content</a>', '<a class="skip" href="#main">Skip to content</a><div class="demo-ribbon" data-demo-ribbon><p><strong>DEMO — example site</strong></p></div>'), 'darren')],
+  ['VT1', 'View transitions', '@view-transition switched on for everyone (outside the no-preference block)', () => tamper('VT1', {}, (d) => fs.appendFileSync(css(d), '@view-transition{navigation:auto}'))],
+  ['SR1', 'Scroll reveal', 'Scroll-driven animation put on the hero photo (the LCP element)', () => tamper('SR1', {}, (d) => fs.appendFileSync(css(d), '@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){.sig .hero-media img{animation:riseIn linear both;animation-timeline:view()}}}'))],
+  ['SR2', 'Scroll reveal', 'Scroll reveal on every section, not one signature moment', () => tamper('SR2', {}, (d) => fs.appendFileSync(css(d), '@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){.rise{animation:riseIn linear both;animation-timeline:view()}}}'))],
+  ['SR3', 'Scroll reveal', 'Scroll-driven animation with no @supports / reduced-motion guard', () => tamper('SR3', {}, (d) => fs.appendFileSync(css(d), '.sig .rise{animation-timeline:view()}'))],
+  ['FM1', 'Form', 'Enquiry form marked novalidate in the HTML (no-JS visitors lose the checks)', () => tamper('FM1', {}, (d) => edit(path.join(d, 'consultation/index.html'), '<form method="post"', '<form novalidate method="post"'))],
+  ['FM2', 'Form', 'Email field type changed to text (wrong phone keyboard, no autofill)', () => tamper('FM2', {}, (d) => edit(path.join(d, 'consultation/index.html'), 'name="email" type="email"', 'name="email" type="text"'))],
+  ['FM3', 'Form', 'form.nextStep is an empty string (no invented "we\'ll be in touch")', () => B('FM3', (c) => { c.form.nextStep = ' '; })],
+  ['FM4', 'Form', 'Success panel in the HTML without inlineSuccess confirmed', () => tamper('FM4', {}, (d) => edit(path.join(d, 'consultation/index.html'), '</form>', '</form><div class="sent" hidden><h3>Thank you. Your enquiry has been sent.</h3></div>'))],
+  ['RR1', 'Review rating', 'Review rating written as an average (4.8)', () => B('RR1', (c) => { c.reviews[0].rating = 4.8; }, {}, 'bath')],
+  ['SG1', 'Signature', 'Signature set to a section that cannot be the one moving moment ("hero")', () => B('SG1', (c) => { c.signature = 'hero'; })],
 ];
+const countOn = (c) => { c.proofLine.items[0].countUp = true; };
 // G7 needs a real oversized image: replace the hero with gaussian noise.
 CASES.find((c) => c[0] === 'G7')[3] = async () => {
   const dir = client('G7');
@@ -160,6 +179,9 @@ const CONTROLS = [
   ['OK10', 'Buyer fears reorder the home page (process, owner, design story first)', null],
   ['OK11', 'Supplier images left out (not failed) when permission is false', null],
   ['OK12', 'Unconfirmed proof-line fact is left out (amber), not shown', null],
+  ['OK13', 'Test Roofing in sales demo mode (ribbon, switcher, noindex)', null],
+  ['OK14', 'Quiet defaults: no italic emphasis, no word split, no count-up unless switched on', null],
+  ['OK15', 'One signature section per page (Test Bathrooms: the before/after)', null],
 ];
 CONTROLS.find((c) => c[0] === 'OK5')[2] = async () => {
   const r = await B('OK5', (c) => { c.services[0].description = 'Tiles & slates <b>bold</b>'; });
@@ -186,6 +208,26 @@ CONTROLS.find((c) => c[0] === 'OK12')[2] = async () => {
   return r;
 };
 
+CONTROLS.find((c) => c[0] === 'OK13')[2] = async () => {
+  const r = await B('OK13', null, { demoMode: true });
+  const html = fs.readFileSync(path.join(TMP, 'OK13', 'dist', 'index.html'), 'utf8');
+  if (!/data-demo-mode="on"/.test(html) || !html.includes('DEMO — example site') || !/noindex/.test(html) || !html.includes('href="http://localhost:4202/"')) r.ok = false, r.problems.push({ level: 'fail', guard: 'Demo mode', msg: 'ribbon, switcher or noindex missing' });
+  return r;
+};
+CONTROLS.find((c) => c[0] === 'OK14')[2] = async () => {
+  const r = await B('OK14');
+  const html = fs.readFileSync(path.join(TMP, 'OK14', 'dist', 'index.html'), 'utf8');
+  const h1 = html.match(/<h1 id="hero-h">([\s\S]*?)<\/h1>/)[1];
+  if (/<em>|class="w /.test(h1) || /data-count=/.test(html) || /labels-quiet/.test(html) === false) r.ok = false, r.problems.push({ level: 'fail', guard: 'Defaults', msg: `h1 ${h1.slice(0, 80)}; count ${/data-count=/.test(html)}` });
+  return r;
+};
+CONTROLS.find((c) => c[0] === 'OK15')[2] = async () => {
+  const r = await B('OK15', null, {}, 'bath');
+  const html = fs.readFileSync(path.join(TMP, 'OK15', 'dist', 'index.html'), 'utf8');
+  const sigs = html.match(/class="section [^"]*\bsig\b/g) || [];
+  if (sigs.length !== 1 || !/ba-section sig/.test(html) || /data-draw/.test(html)) r.ok = false, r.problems.push({ level: 'fail', guard: 'Signature', msg: `${sigs.length} signature sections` });
+  return r;
+};
 const rows = [];
 for (const [id, guard, desc, run] of CASES) {
   let r;

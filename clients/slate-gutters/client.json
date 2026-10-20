@@ -1,5 +1,5 @@
 {
-  "templateVersion": "2.0.0",
+  "templateVersion": "4.0.0",
   "demo": true,
   "slug": "slate-gutters",
   "businessName": "Slate & Gutter Co (DEMO)",
@@ -56,7 +56,8 @@
     "fonts": {
       "display": "Inter",
       "text": "Inter"
-    }
+    },
+    "motif": "course"
   },
   "pages": {
     "work": true,
@@ -153,5 +154,6 @@
       "use": [],
       "avoid": []
     }
-  }
+  },
+  "actionBar": true
 }

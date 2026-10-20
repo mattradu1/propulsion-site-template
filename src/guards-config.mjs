@@ -1,11 +1,12 @@
-// Checks on client.json before anything is rendered (v3).
+// Checks on client.json before anything is rendered (v4).
 // Each problem: { guard, level: 'fail' | 'amber', msg } with a plain-English message.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { pairsFor } from './contrast.mjs';
 import { approvedSet, findClaims } from './claims.mjs';
-import { isPending, has, walk, normalize, imageRefs, IDEAS_MAX, isNum } from './config.mjs';
+import { isPending, has, walk, normalize, imageRefs, IDEAS_MAX, isNum, E164, LABEL_STYLES, MOTIFS } from './config.mjs';
+import { DEMO_URL } from './render.mjs';
 import { emphasisRange } from './render.mjs';
 import { checkBrief } from './brief.mjs';
 import { COLOR_KEYS, FONT_FILES } from '../themes/craft/tokens.mjs';
@@ -48,7 +49,7 @@ export function h1Problems(cfg, h1) {
   return out;
 }
 
-export function checkConfig(raw, { clientDir, strict, preview, others = [] }) {
+export function checkConfig(raw, { clientDir, strict, preview, others = [], demoMode = false, demoReel = [] }) {
   const out = [];
   const fail = (guard, msg) => out.push({ guard, level: 'fail', msg });
   const amber = (guard, msg) => out.push({ guard, level: 'amber', msg });
@@ -115,6 +116,43 @@ export function checkConfig(raw, { clientDir, strict, preview, others = [] }) {
     });
   }
 
+  // v4 sales demo mode: DEMO clients only, never a Gate B build, reel entries real demo clients on safe URLs
+  if (demoMode) {
+    if (cfg.demo !== true) fail('Demo mode', `--demo-mode is on for ${cfg.businessName}, which is not a DEMO client. The demo ribbon and trade switcher are for fictional demo sites on sales calls only, never a real client's site.`);
+    if (strict) fail('Demo mode', '--demo-mode cannot be combined with --strict (Gate B). A demo build is never deployed.');
+    for (const c of demoReel) {
+      if (!c.demo) fail('Demo mode', `demo-reel.json lists "${c.slug}", which is not a DEMO client (or has no client.json).`);
+      if (!DEMO_URL.test(c.url || '')) fail('Demo mode', `demo-reel.json url for "${c.slug}" ("${c.url}") must be https://… or http://localhost:<port>/.`);
+    }
+  }
+
+  // v4 phone action bar
+  if (cfg.actionBar != null) {
+    const a = cfg.actionBar;
+    if (a !== true && a !== false && (typeof a !== 'object' || Array.isArray(a))) fail('Action bar', 'actionBar must be true, false, or an object { call, enquire, whatsapp, primary }.');
+    else if (a && typeof a === 'object') {
+      if (a.primary != null && !['call', 'enquire'].includes(a.primary)) fail('Action bar', 'actionBar.primary must be "call" or "enquire".');
+      const w = a.whatsapp;
+      if (w != null) {
+        if (typeof w !== 'object' || typeof w.number !== 'string' || !E164.test(w.number)) fail('Action bar', 'actionBar.whatsapp.number must be the WhatsApp number in +44 form (e.g. +447700900123).');
+        if (w?.confirmed !== true || !(typeof w?.source === 'string' && w.source.trim())) fail('Action bar', 'actionBar.whatsapp needs "confirmed": true and a "source" note: the client must confirm in writing that this number takes WhatsApp messages.');
+        if (!(typeof cfg.privacy?.whatsapp === 'string' && cfg.privacy.whatsapp.trim())) fail('Action bar', 'A WhatsApp link needs privacy.whatsapp: one approved sentence for the privacy page saying messages sent on WhatsApp are handled by WhatsApp (Meta). UK GDPR: the notice must name every channel.');
+      }
+    }
+    if (isPending(cfg.phone) && a && a.enquire === false && !a.whatsapp) amber('Action bar', 'actionBar is on but the phone is pending and enquire is off, so the bar has nothing to show and is left out.');
+  }
+
+  // v4 form: what happens next (client words only) and inline success (processor must be confirmed)
+  if (cfg.form?.nextStep != null && !(typeof cfg.form.nextStep === 'string' && cfg.form.nextStep.trim()) && !isPending(cfg.form.nextStep)) fail('Form', 'form.nextStep must be one sentence in the client\'s words saying what happens after an enquiry (who replies and by when), or left out.');
+  if (cfg.form?.inlineSuccess != null && typeof cfg.form.inlineSuccess !== 'boolean') fail('Form', 'form.inlineSuccess must be true or false.');
+  if (cfg.form?.inlineSuccess === true) amber('Form', 'form.inlineSuccess is on: the script posts the enquiry itself. Needs testing with the real form processor (CORS preflight allowed) before Gate B; until then visitors fall back to a normal post.');
+
+  // v4 restraint switches
+  if (cfg.signature != null && !['beforeAfter', 'work', 'process', 'none'].includes(cfg.signature)) fail('Signature', `signature "${cfg.signature}" must be "beforeAfter", "work", "process" or "none" (the one section that moves on its own).`);
+  if (cfg.brand?.labels != null && !LABEL_STYLES.includes(cfg.brand.labels)) fail('Config', `brand.labels must be one of ${LABEL_STYLES.join(', ')}.`);
+  if (cfg.brand?.motif != null && !MOTIFS.includes(cfg.brand.motif)) fail('Config', `brand.motif must be one of ${MOTIFS.join(', ')}.`);
+  if (cfg.hero?.reveal != null && typeof cfg.hero.reveal !== 'boolean') fail('Config', 'hero.reveal must be true or false.');
+
   // G2 alt text
   for (const r of imageRefs(cfg)) {
     if (r.decorative === true) continue;
@@ -169,6 +207,9 @@ export function checkConfig(raw, { clientDir, strict, preview, others = [] }) {
     if (r.truncated !== true && txt.endsWith('…')) fail('G10 Review cuts', `Review ${i + 1} by ${r.author} ends in "…" but is not marked "truncated": true.`);
     if (isPending(r.source)) { /* R4 */ } else if (!r.source || !/^https:\/\//.test(r.source)) fail('G10 Review cuts', `Review ${i + 1} by ${r.author} has no https source URL. Every review links to where it came from.`);
     if (!r.text || !r.author) fail('G10 Review cuts', `Review ${i + 1} needs both "text" (word for word) and "author".`);
+    // v4: a rating only as the reviewer gave it (a whole number 1–5), never an average or a made-up count
+    if (r.rating != null && !(Number.isInteger(r.rating) && r.rating >= 1 && r.rating <= 5)) fail('Review rating', `Review ${i + 1} by ${r.author} has rating ${JSON.stringify(r.rating)}. A rating is the reviewer's own whole-number score from 1 to 5, exactly as shown at the source, or left out.`);
+    if (r.platform != null && !(typeof r.platform === 'string' && r.platform.trim())) fail('Review rating', `Review ${i + 1} has an empty "platform".`);
   });
   const ids = cfg.reviews.map((r) => r.id);
   if (new Set(ids).size !== ids.length) fail('G10 Review cuts', 'Two reviews share the same "id".');

@@ -1,13 +1,30 @@
-# Propulsion master website template (v3.0.0, craft theme)
+# Propulsion master website template (v4.0.0, craft theme)
 
 One `clients/<slug>/client.json` → one complete static site in `dist/<slug>/`, checked on every build.
 Plain Node build (no framework), sharp for images, two self-hosted font families at most (plus the system's own
 monospace for micro-labels, never downloaded), CSS compiled from `themes/craft/` at build. Every word works without
-JavaScript; the one deferred script (about 11 KB) adds the progress line, the phone menu, the day/evening toggle,
-rise-into-view, and in v3 the before/after slider, the process draw and count-up.
+JavaScript; the one deferred script adds the progress line, the phone menu, the day/evening toggle, the before/after
+slider (spring-settled in v4), the process draw, count-up, and in v4 the phone action bar and the enquiry form's
+messages. Scroll reveals and page transitions are pure CSS in v4.
 
 v2 takes its look from the Bathrooms Complete site (Darren, SiteDrop export 21 Sep 2026) and keeps every v1
-guard. v1 stays on the `master` branch (commit 1392483); v2 on `v2`. v3 adds motion and proof components (REPORT-v3.md).
+guard. v1 stays on the `master` branch (commit 1392483); v2 on `v2`; v3 on `v3` (motion and proof components, REPORT-v3.md).
+v4 adds craft and conversion components and quieter defaults, mobile first (REPORT-v4: the file write was blocked in the build session, so its text was delivered in the agent reply; save it as REPORT-v4.md).
+
+## v4 components and switches (all from client.json; missing data = not rendered, never placeholder text)
+| Component | client.json | Rendered only when |
+|---|---|---|
+| Phone action bar (Call · WhatsApp · Enquire) | `actionBar: true` or `{ primary: "call" or "enquire", call, enquire, whatsapp: { number, confirmed: true, source } }`, plus `privacy.whatsapp` for WhatsApp | Phones only (<768px). site.js shows it after the opening section and hides it near the form, closing band and footer; inert when hidden. Call needs a confirmed phone; WhatsApp a confirmed +44 number, a source and a privacy line. No JS = never shown. |
+| Form messages | none (always) | Approved lines already in the HTML, shown under the field by site.js; no JS = the browser's own checks. |
+| What happens next | `form.nextStep` (client's words) | Under the Send button, and in the success panel. |
+| Inline success panel | `form.inlineSuccess: true` | Only once the processor is confirmed to accept a script post (CORS preflight). Otherwise the browser posts as before. |
+| Review rating, platform, lead quote | `reviews[].rating` (1–5 as given), `reviews[].platform` | Rating as motif shapes + screen-reader text; the first of two or more quotes is set larger. |
+| One signature moment | `signature`: `beforeAfter`, `work`, `process` or `none` (default: the first that exists) | Only that section moves on its own (scroll-driven settle, the slider's one glide, or the process line). |
+| Label style | `brand.labels`: `quiet`, `tracked` or `mono` | Default per variant: A tracked (Darren's capitals), B and C quiet sentence case. Mono only on request. |
+| Trade motif | `brand.motif`: `diamond`, `ridge` or `course` | The marker shape (tile on point, roof ridge, bricks in bond). |
+| Italic emphasis, word reveal, count-up | `hero.emphasis`, `hero.reveal: true`, proof item `countUp: true` | Off by default in v4 (opt-in). |
+| View Transitions | none | Cross-page fade with the header held still; CSS only; off under reduced motion. |
+| Sales demo mode | build flag `--demo-mode` + `demo-reel.json` | DEMO clients only (build and Gate A fail otherwise), noindex, `dist/<slug>--demo`. `npm run demo` serves the reel on ports 4201–4203. |
 
 ## v3 components (all opt-in from client.json; missing or unproven data = not rendered, never placeholder text)
 | Component | client.json | Rendered only when |
@@ -38,6 +55,9 @@ guard. v1 stays on the `master` branch (commit 1392483); v2 on `v2`. v3 adds mot
 | `node build.mjs <slug>` | Live build to `dist/<slug>/` |
 | `node build.mjs <slug> --preview` | Preview: banner, noindex + X-Robots-Tag, form to the test inbox |
 | `node build.mjs <slug> --strict` | Gate B: pending markers fail; `internalReference` clients refused |
+| `node build.mjs <slug> --demo-mode` | v4 sales demo build (DEMO clients only): ribbon + trade switcher, noindex, `dist/<slug>--demo` |
+| `npm run demo` | Builds and serves every demo-reel client on its own local port for screen-sharing |
+| `npm run qa:gate-a-tests` | v4: deliberate-failure tests for the Gate A v1.4 checks |
 | `npm run build:all` | Live + preview builds for every client |
 | `npm run test:guards` | 84 deliberate-failure tests (one broken config or output per guard) + 13 controls |
 | `npm run test:browser` | 10 deliberate-failure tests for the real-browser checks + control |
@@ -55,10 +75,13 @@ v1: G1 placeholders · G2 alt text · G3 contrast · G4 privacy · G5 funnel + U
 v2: R8 internal reference never deployed · type scale (six sizes) · restraint tokens (corners, shadows) · design tokens (no colour literals) · H1 trade + area · copy phrases · copy traceability (no invented sentences) · voice avoid words · headings in order · G13 routing (every link and route resolves, no JS shell, redirects land) · canonical = final domain + own path · brief (fear quotes word for word) · Ideas page (12, labelled, lazy, permission) · supplier image passed off as own work (perceptual hash) · process image shows planning.
 v3: Hero emphasis (exact H1 words) · H1 server text (word for word in the HTML) · Proof line (source, confirmed, accreditation proof, numbers as JSON numbers) · Count-up (only client numbers, final figure in HTML) · Before/after (same job + source, or labelled DEMO on a demo client) · Before/after slider (tabindex, aria-valuemin/max/now, label, two described photos) · Reduced motion (animating CSS must switch off; no smooth scroll).
 Browser: 390px overflow · 44px tap targets at tablet widths · computed self-hosted fonts · ≤6 sizes in use · images load · copy phrases visible · phone menu · day/evening toggle · v3: reduced motion = final state · slider follows pointer and touch · no-JS fallback · motion runs once and lands.
+v4: Action bar (WhatsApp confirmed + privacy line; Call = agreed number; hidden without JS) · Demo mode (DEMO only, never with --strict, noindex) · Form (no novalidate in HTML, every message present, right types + autocomplete, success panel only when confirmed) · Review rating (1–5 as given) · Signature · View transitions (only without reduced motion) · Scroll reveal (behind @supports + no-preference, never hero/H1, only inside the signature).
+Browser v4: phones at 360/390/414 first · mobile type (16px+ body and fields, right keyboards) · action bar follows its rule at every half-screen · form messages, no shift, focus, success panel · View Transitions on/off · spring glides then lands.
+Gate A v1.4 adds: four widths (360, 390, 414, 1280) · action bar never over form/band/footer, 44px targets in thumb reach, safe-area inset · demo mode FAILS on a non-DEMO client · VT/scroll-reveal rules · 16px fields with the right keyboard.
 Gate A v1.3 adds: no `[ ]` / `{{ }}` tokens anywhere visible · reduced-motion CSS present · H1 text in the server HTML · slider keyboard + ARIA (and the photo follows).
 
 ## Layout
-`build.mjs` · `themes/craft/` (tokens.mjs, theme.css, site.js) · `src/` (config, render, lines, brief, guards, images, contrast, claims) · `clients/` · `qa/qa-gate-a.js` (Gate A v1.2) · `scripts/` · `tests/` · `reports/`.
+`build.mjs` · `themes/craft/` (tokens.mjs, theme.css, site.js) · `src/` (config, render, lines, brief, guards, images, contrast, claims) · `clients/` · `demo-reel.json` · `qa/qa-gate-a.js` (Gate A v1.4) · `scripts/` · `tests/` · `reports/`.
 
 `clients/darren-reference` is INTERNAL ONLY: Darren's real copy and photos, noindex, footer marker, refused by `--strict`. Never deploy it.
 

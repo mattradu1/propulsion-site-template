@@ -1,9 +1,9 @@
-// Checks on the built /dist folder (v3). Same problem shape as guards-config.
+// Checks on the built /dist folder (v4). Same problem shape as guards-config.
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { approvedSet, findClaims } from './claims.mjs';
-import { normalize, walk, isPending, ideasShown, IDEAS_MAX, proofShown, isNum, fmtNum } from './config.mjs';
+import { normalize, walk, isPending, ideasShown, IDEAS_MAX, proofShown, isNum, fmtNum, whatsappShown, actionBarShown, ratingOf, inlineSuccess } from './config.mjs';
 import { approvedStrings, LINES } from './lines.mjs';
 import { h1Problems, PREVIEW_HOSTS } from './guards-config.mjs';
 import { avoidHits } from './brief.mjs';
@@ -39,10 +39,12 @@ export function exifScan(dir) {
 // Copy traceability (engine rulebook S5 r7): every visible text node must be a client.json string,
 // an approved template line, or a derived value (year, review date). Approved legal text is fenced
 // with <!--approved:…--> and only allowed on the privacy page.
-export function untraceable(html, cfg, page) {
+export function untraceable(html, cfg, page, extra = []) {
   const allowed = new Set([...approvedStrings()].map(squash));
   walk(cfg, (s, p, pending) => { if (!pending) allowed.add(squash(s)); else if (cfg.internalReference === true) allowed.add(squash('PENDING: ' + s.pending)); });
   for (const x of proofShown(cfg)) if (isNum(x.value)) allowed.add(fmtNum(x.value)); // v3: a proof-line number as written in client.json
+  for (const r of cfg.reviews || []) if (ratingOf(r)) allowed.add(`Rated ${ratingOf(r)} out of 5`); // v4: the review's own rating
+  for (const x of extra) allowed.add(squash(x)); // v4: demo-mode trade names from demo-reel.json
   let body = html.replace(/<head[\s\S]*?<\/head>/i, ' ').replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ');
   // v3: the hero H1 is split into one span per word for the reveal; trace it as the one line it is.
   body = body.replace(/<h1\b([^>]*)>([\s\S]*?)<\/h1>/gi, (m, a, inner) => `<h1${a}>${inner.replace(/<[^>]+>/g, '')}</h1>`);
@@ -60,6 +62,27 @@ export function untraceable(html, cfg, page) {
   return bad;
 }
 
+// Flatten CSS into rules with their @-rule context (for the v4 motion guards).
+export function cssBlocks(css) {
+  const out = [];
+  const walk2 = (src, ctx) => {
+    let i = 0;
+    while (i < src.length) {
+      const open = src.indexOf('{', i);
+      if (open < 0) break;
+      const sel = src.slice(i, open).trim();
+      let depth = 1, j = open + 1;
+      while (j < src.length && depth) { if (src[j] === '{') depth++; else if (src[j] === '}') depth--; j++; }
+      const body = src.slice(open + 1, j - 1);
+      if (sel.startsWith('@') && /^@(media|supports|layer|container)/.test(sel)) walk2(body, [...ctx, sel]);
+      else out.push({ sel, css: sel.startsWith('@') ? sel + '{' + body + '}' : body, ctx });
+      i = j;
+    }
+  };
+  walk2(css.replace(/\/\*[\s\S]*?\*\//g, ''), []);
+  return out;
+}
+
 // Six-size type scale, restraint tokens, token-only colours and fonts, in the compiled CSS.
 export function cssProblems(css) {
   const out = [];
@@ -71,12 +94,27 @@ export function cssProblems(css) {
   if (scale.size !== 6 || [...scale].some((n) => +n < 1 || +n > 6)) out.push(['Type scale', `The type scale defines ${scale.size} sizes (--fs-${[...scale].join(', --fs-')}). It must be exactly six: --fs-1 to --fs-6.`]);
   for (const m of rest.matchAll(/(?:^|[;{\s])font-size\s*:\s*([^;}]+)/g)) if (!/^\s*(var\(--fs-[1-6]\)|inherit)\s*(!important)?\s*$/.test(m[1])) out.push(['Type scale', `site.css sets font-size: ${m[1].trim()}. Every size must be one of the six tokens var(--fs-1) … var(--fs-6).`]);
   for (const m of rest.matchAll(/(?:^|[;{\s])font\s*:\s*([^;}]+)/g)) if (!/^\s*inherit\s*$/.test(m[1])) out.push(['Type scale', `site.css uses the font shorthand (font: ${m[1].trim()}), which bypasses the type scale.`]);
-  for (const m of rest.matchAll(/(?:^|[;{\s])font-family\s*:\s*([^;}]+)/g)) if (!/^\s*(var\(--font-(display|text|mono)\)|inherit)\s*$/.test(m[1])) out.push(['G9 Third-party assets', `site.css sets font-family: ${m[1].trim()} directly. Use var(--font-display), var(--font-text) or var(--font-mono) (the system monospace, never downloaded).`]);
+  for (const m of rest.matchAll(/(?:^|[;{\s])font-family\s*:\s*([^;}]+)/g)) if (!/^\s*(var\(--(font-(display|text|mono)|label-font)\)|inherit)\s*$/.test(m[1])) out.push(['G9 Third-party assets', `site.css sets font-family: ${m[1].trim()} directly. Use var(--font-display), var(--font-text) or var(--font-mono) (the system monospace, never downloaded).`]);
   // v3 motion: anything that animates must have a reduced-motion block that switches it off.
   if (/(animation|transition)\s*:|@keyframes/.test(rest)) {
     const rm = rest.match(/@media\s*\(prefers-reduced-motion:\s*reduce\)\s*{([\s\S]*?})\s*}/);
     if (!rm || !/animation:none!important/.test(rm[1].replace(/\s+/g, '')) || !/transition:none!important/.test(rm[1].replace(/\s+/g, '')))
       out.push(['Reduced motion', 'site.css animates but has no @media (prefers-reduced-motion: reduce) block that sets animation and transition to none. Every motion must jump to its final state when the visitor asks for less motion.']);
+  }
+  // v4 View Transitions and scroll-driven reveals: only for visitors who have not asked for less motion,
+  // scroll-driven only behind @supports, and never on the hero, a page head or an H1 (the LCP element).
+  {
+    const blocks = cssBlocks(rest);
+    for (const b of blocks) {
+      if (/@view-transition/.test(b.css) && !b.ctx.some((c) => /prefers-reduced-motion:\s*no-preference/.test(c)))
+        out.push(['View transitions', 'site.css turns on @view-transition outside @media (prefers-reduced-motion: no-preference). Page changes must be instant for visitors who asked for less motion.']);
+      if (/animation-timeline\s*:/.test(b.css)) {
+        if (!b.ctx.some((c) => /@supports\s*\(animation-timeline/.test(c)) || !b.ctx.some((c) => /prefers-reduced-motion:\s*no-preference/.test(c)))
+          out.push(['Scroll reveal', `site.css uses animation-timeline on "${b.sel}" outside @supports (animation-timeline: view()) + @media (prefers-reduced-motion: no-preference). Unsupported browsers and reduced motion must get the content in its final place.`]);
+        if (/\.hero|\.pagehead|\bh1\b|\.plainhead/.test(b.sel)) out.push(['Scroll reveal', `site.css puts a scroll-driven animation on "${b.sel}". Never on the hero, page head or H1: it is the LCP element and must paint in place.`]);
+        if (!/\.sig\b/.test(b.sel)) out.push(['Scroll reveal', `site.css scroll-animates "${b.sel}", which is not inside the signature section (.sig). One orchestrated moment per site, not every section.`]);
+      }
+    }
   }
   if (/\b(lenis|locomotive|smooth-scroll|scroll-behavior\s*:\s*smooth)\b/i.test(rest)) out.push(['Reduced motion', 'site.css turns on smooth scrolling. Scrolling stays native (no smooth-scroll libraries or scroll-jacking).']);
   for (const m of rest.matchAll(/border(?:-[a-z]+)*-radius\s*:\s*([^;}]+)/g)) if (!/^\s*var\(--radius\)\s*$/.test(m[1])) out.push(['Restraint tokens', `site.css rounds corners with border-radius: ${m[1].trim()}. Corners only through var(--radius) (0 unless the brand turns it on).`]);
@@ -89,7 +127,7 @@ export function cssProblems(css) {
   return out;
 }
 
-export function checkOutput(outDir, rawCfg, { strict, preview, others = [], selfHashes = new Set() }) {
+export function checkOutput(outDir, rawCfg, { strict, preview, demoMode = false, demoReel = [], others = [], selfHashes = new Set() }) {
   const cfg = normalize(rawCfg);
   const out = [];
   const fail = (guard, msg) => out.push({ guard, level: 'fail', msg });
@@ -101,7 +139,7 @@ export function checkOutput(outDir, rawCfg, { strict, preview, others = [], self
   const funnel = typeof cfg.funnelUrl === 'string' ? cfg.funnelUrl : null;
   const internal = cfg.internalReference === true;
   const strs = (...xs) => xs.filter((x) => typeof x === 'string');
-  const allowHosts = new Set([domain, ...strs(cfg.funnelUrl, cfg.gbpUrl, cfg.reviewUrl, cfg.form?.action, cfg.preview?.testFormAction), 'https://ico.org.uk', ...cfg.reviews.map((r) => r.source).filter((s) => typeof s === 'string'), ...(cfg.allowHosts || [])]
+  const allowHosts = new Set([domain, ...strs(cfg.funnelUrl, cfg.gbpUrl, cfg.reviewUrl, cfg.form?.action, cfg.preview?.testFormAction), 'https://ico.org.uk', ...cfg.reviews.map((r) => r.source).filter((s) => typeof s === 'string'), ...(cfg.allowHosts || []), ...(whatsappShown(cfg) ? ['https://wa.me'] : []), ...(demoMode ? demoReel.map((c) => c.url).filter(Boolean) : [])]
     .map((u) => { try { return new URL(u).host; } catch { return null; } }).filter(Boolean));
   const approved = approvedSet(cfg);
   const reviewText = cfg.reviews.map((r) => r.text).join(' ');
@@ -147,7 +185,7 @@ export function checkOutput(outDir, rawCfg, { strict, preview, others = [], self
     if (pend.length && strict) fail('R4 PENDING marker', `${page}: still shows a neutral line for pending items (${[...new Set(pend)].join('; ')}). Resolve them before Gate B.`);
 
     // Copy traceability
-    const bad = untraceable(html, cfg, page);
+    const bad = untraceable(html, cfg, page, demoMode ? demoReel.map((c) => c.trade).filter((x) => typeof x === 'string') : []);
     for (const b of bad.slice(0, 5)) fail('Copy traceability', `${page}: "${b}" is on the page but is not in client.json or the approved template lines. No invented copy.`);
 
     // G2 alt + sizes on every image
@@ -197,7 +235,7 @@ export function checkOutput(outDir, rawCfg, { strict, preview, others = [], self
     for (const a of attrs.filter((x) => ['href', 'src', 'action'].includes(x.name) && /^https?:/i.test(x.v))) {
       let host; try { host = new URL(a.v).host; } catch { host = a.v; }
       if (!allowHosts.has(host)) fail('R1 Unsafe content', `${page}: link to ${host}, which is not on this client's allow list (domain, funnel, Google profile, review sources, form host, ICO).`);
-      if (a.v.startsWith('http:')) fail('R1 Unsafe content', `${page}: insecure http:// link ${a.v}.`);
+      if (a.v.startsWith('http:') && !(demoMode && /^http:\/\/localhost:\d+\//.test(a.v))) fail('R1 Unsafe content', `${page}: insecure http:// link ${a.v}.`);
     }
     if (!/<meta http-equiv="Content-Security-Policy" content="[^"]*script-src (&#39;|')self(&#39;|')/.test(html)) fail('R1 Unsafe content', `${page}: Content-Security-Policy meta is missing.`);
 
@@ -221,6 +259,32 @@ export function checkOutput(outDir, rawCfg, { strict, preview, others = [], self
     for (const r of cfg.reviews) ownText = ownText.split(squash(r.text)).join(' ');
     for (const w of avoidHits(cfg, ownText)) fail('Voice', `${page}: uses "${w}", which the brand brief lists under voice.avoid.`);
 
+    // v4 sales demo mode: never on a real client, never in a Gate B build
+    const ribbon = /data-demo-ribbon|data-demo-mode=/.test(html);
+    if (ribbon && cfg.demo !== true) fail('Demo mode', `${page}: the sales-demo ribbon or switcher is in a build for ${cfg.businessName}, which is not a DEMO client. Demo mode never reaches a real client's site.`);
+    if (ribbon && strict) fail('Demo mode', `${page}: a Gate B (--strict) build contains the sales-demo ribbon.`);
+    if (demoMode && cfg.demo === true && !html.includes(LINES.demoRibbon)) fail('Demo mode', `${page}: demo mode is on but the "${LINES.demoRibbon}" ribbon is missing.`);
+    if (ribbon && !/<meta name="robots" content="noindex/.test(html)) fail('Demo mode', `${page}: a demo-mode page is not marked noindex.`);
+
+    // v4 action bar: no-JS never shows it; every link is real; Call rings the agreed number
+    const bar = html.match(/<nav class="actionbar"[^>]*>[\s\S]*?<\/nav>/);
+    if (bar) {
+      if (!actionBarShown(cfg)) fail('Action bar', `${page}: an action bar is on the page but actionBar is not switched on in client.json.`);
+      if (!/^<nav class="actionbar" aria-label="[^"]+" data-actionbar hidden>/.test(bar[0])) fail('Action bar', `${page}: the action bar must start hidden (shown by site.js only) and carry an aria-label.`);
+      for (const m of bar[0].matchAll(/href="tel:([^"]*)"/g)) if (typeof cfg.phoneE164 !== 'string' || m[1] !== cfg.phoneE164) fail('Action bar', `${page}: the action bar's Call button dials ${m[1]}, not the agreed number ${cfg.phoneE164}.`);
+      if (!/<a class="ab/.test(bar[0])) fail('Action bar', `${page}: the action bar has no actions.`);
+    }
+    // v4 form: the browser's own validation stays for visitors without JS; every message is in the HTML
+    for (const f of html.matchAll(/<form\b[^>]*data-enquiry[^>]*>([\s\S]*?)<\/form>/g)) {
+      if (/novalidate/i.test(f[0].slice(0, 300))) fail('Form', `${page}: the enquiry form is novalidate in the HTML. Only site.js may switch the browser's own checks off, so visitors without JavaScript keep them.`);
+      for (const id of ['f-name-err', 'f-email-err', 'f-email-bad', 'f-consent-err']) if (!f[1].includes(`id="${id}"`)) fail('Form', `${page}: the enquiry form is missing its "${id}" message.`);
+      for (const [fid, type, ac] of [['f-name', 'text', 'name'], ['f-phone', 'tel', 'tel'], ['f-email', 'email', 'email']]) {
+        const inp = f[1].match(new RegExp(`<input id="${fid}"[^>]*>`));
+        if (!inp || !inp[0].includes(`type="${type}"`) || !inp[0].includes(`autocomplete="${ac}"`)) fail('Form', `${page}: #${fid} must be type="${type}" with autocomplete="${ac}" (the right phone keyboard and autofill).`);
+      }
+    }
+    if (/class="sent"/.test(html) && !inlineSuccess(cfg)) fail('Form', `${page}: a success panel is on the page but form.inlineSuccess is not confirmed in client.json.`);
+
     // R5 preview / R8 internal reference
     const banner = /Preview – not live/.test(text);
     const noindex = /<meta name="robots" content="noindex/.test(html);
@@ -231,7 +295,7 @@ export function checkOutput(outDir, rawCfg, { strict, preview, others = [], self
       for (const a of actions) if (a !== cfg.preview.testFormAction) fail('R5 Preview mode', `${page}: preview form posts to ${a}, not the test inbox.`);
     } else {
       if (banner) fail('R5 Preview mode', `${page}: live build still shows the preview banner.`);
-      if (noindex && !internal && !page.startsWith('404')) fail('R5 Preview mode', `${page}: live build is marked noindex.`);
+      if (noindex && !internal && !demoMode && !page.startsWith('404')) fail('R5 Preview mode', `${page}: live build is marked noindex.`);
     }
     if (internal) {
       if (!noindex) fail('R8 Internal reference', `${page}: INTERNAL REFERENCE page is not marked noindex.`);
@@ -334,7 +398,7 @@ export function checkOutput(outDir, rawCfg, { strict, preview, others = [], self
     const noindexHeader = /X-Robots-Tag[\s\S]*noindex/.test(v);
     if (preview && !noindexHeader) fail('R5 Preview mode', 'vercel.json has no X-Robots-Tag noindex header for this preview build.');
     if (internal && !noindexHeader) fail('R8 Internal reference', 'vercel.json has no X-Robots-Tag noindex header for this INTERNAL REFERENCE build.');
-    if (!preview && !internal && /X-Robots-Tag/.test(v)) fail('R5 Preview mode', 'Live build vercel.json still sends X-Robots-Tag.');
+    if (!preview && !internal && !demoMode && /X-Robots-Tag/.test(v)) fail('R5 Preview mode', 'Live build vercel.json still sends X-Robots-Tag.');
     let vjs = {}; try { vjs = JSON.parse(v); } catch { fail('Host config', 'vercel.json is not valid JSON.'); }
     for (const r of vjs.redirects || []) if (!exists(r.destination)) fail('G13 Routing', `Redirect ${r.source} → ${r.destination} lands on a page that does not exist.`);
   }

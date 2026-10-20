@@ -1,4 +1,4 @@
-// Approved template lines (v3; v3 adds the four before/after lines). The only visible words the template may write itself.
+// Approved template lines (v4; v3 added the four before/after lines, v4 adds the action bar, form, rating and demo lines). The only visible words the template may write itself.
 // Everything else on a page comes from client.json. Any key under client.json "copy" overrides
 // the line here; a missing optional section is left out rather than filled with made-up words.
 // The output guard "Copy traceability" fails any visible text that is in neither place.
@@ -58,6 +58,19 @@ export const LINES = {
   previewStrong: 'Preview – not live.',
   previewText: 'This site is not public yet and is hidden from search engines.',
   demoFlag: 'DEMO: a fictional business built to test the Propulsion template. Not a real company, phone number, address or reviews.',
+  // v4 (need Matt's approval): phone action bar, form validation and success, review rating, sales demo mode.
+  barLabel: 'Quick contact',
+  barEnquire: 'Enquire',
+  whatsapp: 'WhatsApp',
+  formErrName: 'Add your name.',
+  formErrEmail: 'Add an email address to reply to.',
+  formErrEmailBad: 'Check the email address.',
+  formErrPhone: 'Check the phone number.',
+  formErrConsent: { we: 'Tick the box so we can reply.', I: 'Tick the box so I can reply.' },
+  formSent: 'Thank you. Your enquiry has been sent.',
+  rating: 'Rated N out of 5', // N is the review's own rating from client.json (1–5); rendered as screen-reader text
+  demoRibbon: 'DEMO — example site',
+  demoTrades: 'Other example trades',
   internalRef: 'INTERNAL REFERENCE – NOT FOR PUBLICATION',
   internalRefNote: 'Rebuilt through the Propulsion template for comparison only. Items marked as being confirmed are open conflicts, not chosen values.',
 };

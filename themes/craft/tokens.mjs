@@ -1,4 +1,4 @@
-// Craft theme tokens (v3.0). Extracted from the Bathrooms Complete site (SiteDrop export, 21 Sep 2026)
+// Craft theme tokens (v4.0). Extracted from the Bathrooms Complete site (SiteDrop export, 21 Sep 2026)
 // and held to the Website Build Standard: six type sizes, one spacing scale, one motion scale,
 // no rounded corners or shadows unless a client token turns them on.
 // Colours come from each client's brand.colors; everything else is fixed here.
@@ -29,13 +29,19 @@ export const TRACKING = { label: '.12em', mono: '.06em', button: '.08em', headin
 export const SPACE = { s1: '8px', s2: '16px', s3: '24px', s4: '40px', s5: '64px', s6: '96px', s7: '120px' };
 export const SPACE_PHONE = { s5: '48px', s6: '56px', s7: '72px' };
 
-export const LAYOUT = { max: '1440px', gutter: '64px', gutterTablet: '32px', gutterPhone: '24px', measure: '68ch', headerH: '72px', tap: '44px' };
+export const LAYOUT = { max: '1440px', gutter: '64px', gutterTablet: '32px', gutterPhone: '24px', measure: '68ch', headerH: '72px', tap: '44px',
+  bar: '64px', ribbon: '44px' }; // v4: phone action bar height (48px buttons + 2 × 8px) and the demo ribbon
 
 // Motion: Darren's three speeds. All of it switches off under prefers-reduced-motion.
 // v3 adds the motion-pack curves: ease-out-cubic for the hero word reveal (90 ms stagger, runs once)
 // and ease-out-expo for count-up (site.js). Every motion has a final state that reduced motion jumps to.
 export const MOTION = { fast: '150ms', base: '380ms', slow: '900ms', ease: 'cubic-bezier(.4,0,.2,1)', rise: '24px',
-  easeOutCubic: 'cubic-bezier(.33,1,.68,1)', word: '760ms', stagger: 90, staggerMax: 16, wordRise: '.32em', wordBlur: '6px' };
+  easeOutCubic: 'cubic-bezier(.33,1,.68,1)', word: '760ms', stagger: 90, staggerMax: 16, wordRise: '.32em', wordBlur: '6px',
+  // v4 interaction craft (emil skill): press feedback 120 ms, UI enter/exit 160–240 ms, strong ease-out for
+  // anything entering or responding, a settle curve (slight overshoot) for the before/after grip on release,
+  // and a short cross-page fade. Every UI motion stays at or under 300 ms; the slow 900 ms is decorative only.
+  press: '120ms', ui: '200ms', enter: '240ms', exit: '160ms', page: '220ms',
+  easeOutStrong: 'cubic-bezier(.23,1,.32,1)', settle: 'cubic-bezier(.34,1.4,.64,1)', revealRise: '28px' };
 
 // Veils over photos. Text never sits on a photo with less than VEIL_MIN of the dark colour under it,
 // so contrast is checked against the worst case: a pure white pixel under the veil.
@@ -77,7 +83,7 @@ export const rgba = (hex, a) => `rgba(${rgb(hex).join(',')},${a})`;
 // The colour a white pixel becomes under a veil of `hex` at opacity a (worst case for light text).
 export const overWhite = (hex, a) => '#' + rgb(hex).map((c) => Math.round(c * a + 255 * (1 - a)).toString(16).padStart(2, '0')).join('');
 
-export function tokensCss({ colors, fonts, radius, shadow }) {
+export function tokensCss({ colors, fonts, radius, shadow, reveal = false }) {
   const c = colors;
   const q = (f) => `"${String(f).replace(/["\\;{}<>]/g, '')}"`;
   const fb = (f) => (SERIF_FAMILIES.has(f) ? FALLBACK.serif : FALLBACK.sans);
@@ -90,6 +96,9 @@ export function tokensCss({ colors, fonts, radius, shadow }) {
     `--edge:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))`,
     `--t-fast:${MOTION.fast}`, `--t-base:${MOTION.base}`, `--t-slow:${MOTION.slow}`, `--ease:${MOTION.ease}`, `--rise:${MOTION.rise}`,
     `--ease-out-cubic:${MOTION.easeOutCubic}`, `--t-word:${MOTION.word}`, `--word-rise:${MOTION.wordRise}`, `--word-blur:${MOTION.wordBlur}`,
+    `--t-press:${MOTION.press}`, `--t-ui:${MOTION.ui}`, `--t-enter:${MOTION.enter}`, `--t-exit:${MOTION.exit}`, `--t-page:${MOTION.page}`,
+    `--ease-out-strong:${MOTION.easeOutStrong}`, `--ease-settle:${MOTION.settle}`, `--reveal-rise:${MOTION.revealRise}`,
+    `--bar-h:${LAYOUT.bar}`, `--ribbon-h:${LAYOUT.ribbon}`,
     `--radius:${radius ?? RESTRAINT.radius}`, `--shadow:${shadow ?? RESTRAINT.shadow}`,
     `--canvas:${c.canvas}`, `--paper:${c.paper}`, `--line:${c.line}`, `--ink:${c.ink}`, `--muted:${c.muted}`, `--accent:${c.accent}`,
     `--dark:${c.dark}`, `--on-dark:${c.onDark}`, `--on-dark-muted:${c.onDarkMuted}`,
@@ -99,6 +108,6 @@ export function tokensCss({ colors, fonts, radius, shadow }) {
   ];
   // Hero display size (step 6 redefined inside the hero only) and the word-reveal stagger, one class per word.
   const hero = `.hero{--fs-6:${HERO_DISPLAY.full}}.craft-b .hero,.craft-c .hero{--fs-6:${HERO_DISPLAY.split}}\n`;
-  const stagger = Array.from({ length: MOTION.staggerMax }, (_, i) => `.hero h1 .d${i}{animation-delay:${i * MOTION.stagger}ms}`).join('');
+  const stagger = reveal ? Array.from({ length: MOTION.staggerMax }, (_, i) => `.hero h1 .d${i}{animation-delay:${i * MOTION.stagger}ms}`).join('') : ''; // v4: only when hero.reveal is on
   return `:root{${v.join(';')}}\n${hero}${stagger}\n@media (max-width:1099px){:root{--gutter:${LAYOUT.gutterTablet}}}\n@media (max-width:760px){:root{--gutter:${LAYOUT.gutterPhone};${Object.entries(SPACE_PHONE).map(([k, x]) => `--${k}:${x}`).join(';')}}}\n`;
 }

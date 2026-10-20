@@ -1,4 +1,8 @@
-// Propulsion OS-09 Gate A — browser QA script (v1.3, 19 Oct 2026; adapted from v1 for headless Playwright)
+// Propulsion OS-09 Gate A — browser QA script (v1.4, 20 Oct 2026; adapted from v1 for headless Playwright)
+// v1.4 (template v4, mobile first): phone action bar never covers the form or footer, 44px targets, safe-area
+// insets; sales-demo ribbon FAILS on any non-DEMO client; View Transitions and scroll reveals only without reduced
+// motion and never on the hero/H1; phone form usable with the on-screen keyboard (types, autocomplete, 16px+ so
+// iOS never zooms); body text 16px+.
 // v1.3 (template v3): before/after slider keyboard + ARIA (and it really moves), reduced-motion CSS present,
 // H1 text is in the server HTML (not injected by JS), no "[" / "]" or {{ }} placeholder tokens anywhere visible.
 // v1.2 (template v2): a PENDING phone is amber, not a fail; claim checks ignore the text of PENDING markers
@@ -83,7 +87,9 @@
   add('A', 'Images have width + height', imgs.every(i => i.getAttribute('width') && i.getAttribute('height')), imgs.filter(i => !(i.getAttribute('width') && i.getAttribute('height'))).length + ' of ' + imgs.length + ' missing');
   const oversized = imgs.filter(i => i.naturalWidth > 2.2 * Math.max(i.clientWidth, 1) * (devicePixelRatio || 1) / (devicePixelRatio || 1) && i.clientWidth > 0);
   add('A', 'Images not oversized (≤2.2× display width)', oversized.length === 0, oversized.length + ' oversized');
-  const below = imgs.filter(i => i.getBoundingClientRect().top > innerHeight);
+  // v1.4: the hero photo is fetchpriority=high on purpose (LCP on most phones); on a 360px phone with the words
+  // first (variants B/C) it can start just below the fold. It is exempt; every other image must be lazy.
+  const below = imgs.filter(i => i.getBoundingClientRect().top > innerHeight && i.getAttribute('fetchpriority') !== 'high');
   add('A', 'Below-the-fold images lazy-loaded', below.every(i => i.loading === 'lazy'), below.filter(i => i.loading !== 'lazy').length + ' of ' + below.length + ' not lazy');
 
   // 8 Accessibility
@@ -127,6 +133,63 @@
     for (let i = 0; i < 4; i++) sl.dispatchEvent(new KeyboardEvent('keydown', { key: 'PageDown', bubbles: true, cancelable: true }));
     add('A', 'Slider: keyboard + ARIA', vis && sl.tabIndex === 0 && aria && up > before && home === 0 && end === 100 && moved,
       `visible ${vis}, tabindex ${sl.tabIndex}, aria ${aria}, ArrowRight ${before}→${up}, Home ${home}, End ${end}, image follows ${moved}`);
+  }
+
+  // 8c v1.4 mobile first and v4 components
+  const sheets = []; for (const ss of document.styleSheets) { try { sheets.push(...ss.cssRules); } catch (e) {} }
+  const flat = []; const walkR = (rules, ctx) => { for (const r of rules) { if (r.cssRules && (r.media || r.conditionText !== undefined)) walkR(r.cssRules, [...ctx, r.media ? r.media.mediaText : '@supports ' + r.conditionText]); else flat.push({ r, ctx }); } }; walkR(sheets, []);
+  const vt = flat.filter(x => /^@view-transition/.test(x.r.cssText));
+  add('A', 'View transitions only without reduced motion', vt.every(x => x.ctx.some(c => /prefers-reduced-motion:\s*no-preference/.test(c))), vt.length ? vt.length + ' @view-transition rule(s), all inside no-preference ' + vt.every(x => x.ctx.some(c => /no-preference/.test(c))) : 'none');
+  const lcpEls = q('h1, .hero img, .pagehead img');
+  const timed = lcpEls.filter(e => { const t = getComputedStyle(e).animationTimeline; return t && t !== 'auto' && !/^auto(, auto)*$/.test(t); });
+  add('A', 'No scroll-driven animation on the hero/H1 (LCP)', timed.length === 0, timed.map(e => e.tagName.toLowerCase() + '.' + e.className).join(', ') || 'none');
+  const demoOn = !!document.querySelector('[data-demo-ribbon], body[data-demo-mode]');
+  add('A', 'Sales demo mode never on a real client', CFG.demo ? true : !demoOn, demoOn ? (CFG.demo ? 'DEMO client: ribbon allowed' : 'demo ribbon/switcher found on a NON-DEMO client') : 'demo mode off');
+  if (demoOn && CFG.demo) { const rb = document.querySelector('[data-demo-ribbon]'); const b = rb && rb.getBoundingClientRect(); add('A', 'Demo ribbon visible and fixed', !!b && b.top <= 0.5 && b.height >= 32 && getComputedStyle(rb).position === 'fixed', b ? Math.round(b.height) + 'px, ' + getComputedStyle(rb).position : 'missing'); }
+  const px = e => parseFloat(getComputedStyle(e).fontSize);
+  add('A', 'Body text 16px or larger', px(document.body) >= 16, px(document.body) + 'px');
+  const inputs = q('input:not([type=hidden]):not([type=checkbox]), textarea, select');
+  if (inputs.length) {
+    add('A', 'Form fields 16px+ (no iOS zoom on focus)', inputs.every(i => px(i) >= 16), inputs.map(i => (i.name || i.id) + ' ' + px(i) + 'px').join(', '));
+    const want = { email: ['email', 'email'], phone: ['tel', 'tel'], name: ['text', 'name'] };
+    const wrong = inputs.filter(i => want[i.name] && (i.type !== want[i.name][0] || i.getAttribute('autocomplete') !== want[i.name][1])).map(i => i.name);
+    add('A', 'Form fields: right keyboard and autofill', wrong.length === 0, wrong.join(', ') || inputs.length + ' fields ok');
+  }
+  const bar = document.querySelector('[data-actionbar]');
+  if (bar && innerWidth < 768) {
+    const css = flat.filter(x => /\.actionbar\b/.test(x.r.selectorText || '')).map(x => x.r.cssText).join(' ');
+    add('A', 'Action bar: safe-area inset at the bottom', /safe-area-inset-bottom/.test(css), /safe-area-inset-bottom/.test(css) ? 'env(safe-area-inset-bottom) in padding' : 'no safe-area padding');
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    const y0 = scrollY;
+    const shownRect = () => { const r = bar.getBoundingClientRect(); return bar.classList.contains('is-shown') && getComputedStyle(bar).visibility !== 'hidden' && r.top < innerHeight - 1 ? r : null; };
+    const overlap = (a, b) => a && b && a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 0.5;
+    const covers = [];
+    let everShown = false, small = [];
+    for (const sel of ['#enquire', '.cta-band', '.site-footer']) {
+      for (const el of q(sel)) {
+        for (const pos of ['start', 'center', 'end']) {
+          el.scrollIntoView({ block: pos }); await wait(380);
+          const br = shownRect(); const er = el.getBoundingClientRect();
+          const vis = { left: er.left, right: er.right, top: Math.max(er.top, 0), bottom: Math.min(er.bottom, innerHeight) };
+          if (vis.bottom > vis.top && overlap(br, vis)) covers.push(sel + ' @' + pos);
+        }
+      }
+    }
+    // mid-page after the hero: the bar should be there, with full-size targets in thumb reach
+    const hero = document.querySelector('.hero, .pagehead, .plainhead');
+    const stops = [0.35, 0.5, 0.65].map(f => f * (document.documentElement.scrollHeight - innerHeight));
+    for (const y of stops) {
+      scrollTo(0, y); await wait(380);
+      const br = shownRect();
+      if (br && !(hero && hero.getBoundingClientRect().bottom > 0)) {
+        everShown = true;
+        small = q('[data-actionbar] a').map(a => a.getBoundingClientRect()).filter(r => r.height < 44 || r.width < 44 || r.top < innerHeight * 0.75).map(r => Math.round(r.width) + '×' + Math.round(r.height) + '@' + Math.round(r.top));
+        for (const sel of ['#enquire', '.site-footer']) for (const el of q(sel)) { const er = el.getBoundingClientRect(); if (er.top < innerHeight && overlap(br, er)) covers.push(sel + ' mid'); }
+      }
+    }
+    scrollTo(0, y0); await wait(100);
+    add('A', 'Action bar never covers the form, closing band or footer', covers.length === 0, covers.join(', ') || 'clear at start/centre/end of each');
+    add('A', 'Action bar: 44px targets in thumb reach (bottom quarter)', small.length === 0, everShown ? (small.join(', ') || 'ok') : 'bar not shown mid-page on this page (short page)');
   }
 
   // 9 Privacy

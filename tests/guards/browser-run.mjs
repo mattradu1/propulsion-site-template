@@ -21,6 +21,7 @@ async function fresh(id) {
   return outDir;
 }
 const css = (d, rule) => fs.appendFileSync(path.join(d, 'assets/site.css'), rule);
+const js = (d, a, b) => { const f = path.join(d, 'assets/site.js'); const t = fs.readFileSync(f, 'utf8'); if (!t.includes(a)) throw new Error('tamper did not apply: ' + a); fs.writeFileSync(f, t.replace(a, b)); };
 
 const CASES = [
   ['BC1', 'Tap targets', 'Footer links shrunk below 44px at tablet width (the lesson from Darren\'s site)', (d) => css(d, '.f-cols a{min-width:0;min-height:20px}')],
@@ -31,8 +32,14 @@ const CASES = [
   ['BC6', 'Phone menu', 'Menu script broken', (d) => fs.writeFileSync(path.join(d, 'assets/site.js'), '/* broken */')],
   ['BC7', 'Copy phrase visible', 'Approved line hidden with CSS', (d) => css(d, '.hero-copy .tagline{display:none}')],
   // v3
-  ['BC8', 'Reduced motion', 'Hero words left mid-animation for visitors who asked for less motion', (d) => css(d, '.hero h1 .w{transform:translateY(8px)!important}')],
+  ['BC8', 'Reduced motion', 'Signature reveal left part-way for visitors who asked for less motion (v4; hero words are opt-in now)', (d) => css(d, '.sig .rise{transform:translateY(8px)!important}')],
   ['BC9', 'No JavaScript', 'Before/after fallback stacks the photos instead of side by side', (d) => css(d, '.ba{grid-template-columns:1fr}')],
+  // v4
+  ['BC11', 'Action bar', 'Action bar no longer hides near the form, closing band and footer', (d) => js(d, "'#enquire, .cta-band, .site-footer'", "'#no-such-zone'")],
+  ['BC12', 'Form messages', 'Form script stops replacing the browser bubbles with in-place messages', (d) => js(d, 'form.noValidate = true;', '')],
+  ['BC13', 'View Transitions', 'Page transitions switched on for visitors who asked for less motion', (d) => css(d, '@view-transition{navigation:auto}')],
+  ['BC14', 'Mobile type', 'Form fields at 14px (iOS zooms the page on focus)', (d) => css(d, '.enquiry input[type=text],.enquiry input[type=email]{font-size:14px!important}')],
+  ['BC15', 'Before/after spring', 'Spring removed: a tap jumps straight to the point', (d) => js(d, 'if (calm) { set(sp.to); return; }', 'set(sp.to); return;')],
   ['BC10', 'Before/after touch', 'Slider ignores pointer and touch (drag handler removed)', (d) => { const f = path.join(d, 'assets/site.js'); fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("box.addEventListener('pointerdown'", "box.addEventListener('pointerdown-disabled'")); }],
 ];
 const rows = [];

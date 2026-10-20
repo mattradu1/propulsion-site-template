@@ -2,19 +2,19 @@
   "slug": "test-roofing",
   "route": "/",
   "phone390": {
-    "totalKB": 172,
-    "htmlKB": 14.6,
-    "cssKB": 26,
-    "jsKB": 9.9,
+    "totalKB": 174,
+    "htmlKB": 15.1,
+    "cssKB": 28.9,
+    "jsKB": 8.8,
     "fontKB": 86.1,
     "imgKB": 35,
     "otherKB": 0.2
   },
   "desktop1280": {
-    "totalKB": 174,
-    "htmlKB": 14.6,
-    "cssKB": 26,
-    "jsKB": 9.9,
+    "totalKB": 176,
+    "htmlKB": 15.1,
+    "cssKB": 28.9,
+    "jsKB": 8.8,
     "fontKB": 86.1,
     "imgKB": 37.1,
     "otherKB": 0.2

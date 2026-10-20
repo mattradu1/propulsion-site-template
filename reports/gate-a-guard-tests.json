@@ -1,0 +1,68 @@
+{
+  "ranAt": "2026-10-20T07:44:44.495Z",
+  "rows": [
+    {
+      "id": "GA1",
+      "check": "Sales demo mode never on a real client",
+      "test": "Demo ribbon pasted into a real client page (darren-reference)",
+      "result": "PASS",
+      "message": "demo ribbon/switcher found on a NON-DEMO client"
+    },
+    {
+      "id": "GA2",
+      "check": "Action bar never covers",
+      "test": "Action bar no longer hides near the closing band and footer",
+      "result": "PASS",
+      "message": ".site-footer @start, .site-footer @center, .site-footer @end"
+    },
+    {
+      "id": "GA3",
+      "check": "Form fields 16px+",
+      "test": "Form fields set at 14px (iOS zooms on focus)",
+      "result": "PASS",
+      "message": "name 14px, phone 16.105px, email 16.105px, message 16.105px"
+    },
+    {
+      "id": "GA4",
+      "check": "View transitions only without reduced motion",
+      "test": "@view-transition switched on for everyone",
+      "result": "PASS",
+      "message": "2 @view-transition rule(s), all inside no-preference false"
+    },
+    {
+      "id": "GA5",
+      "check": "Action bar: safe-area inset",
+      "test": "Action bar padding loses the safe-area inset (home indicator overlap)",
+      "result": "PASS",
+      "message": "no safe-area padding"
+    },
+    {
+      "id": "GA6",
+      "check": "No scroll-driven animation on the hero",
+      "test": "Scroll-driven animation put on the hero H1",
+      "result": "PASS",
+      "message": "h1."
+    },
+    {
+      "id": "OK",
+      "check": "Control",
+      "test": "Untouched test-bathrooms / at 390px: 0 FAIL",
+      "result": "PASS",
+      "message": "ok"
+    },
+    {
+      "id": "OK",
+      "check": "Control",
+      "test": "Untouched test-bathrooms /consultation/ at 390px: 0 FAIL",
+      "result": "PASS",
+      "message": "ok"
+    },
+    {
+      "id": "OK",
+      "check": "Control",
+      "test": "Untouched test-roofing / at 390px: 0 FAIL",
+      "result": "PASS",
+      "message": "ok"
+    }
+  ]
+}

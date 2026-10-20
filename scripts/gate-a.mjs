@@ -17,9 +17,10 @@ const axePath = path.resolve('node_modules/axe-core/axe.min.js');
 const { server, url } = await serve(dir);
 const browser = await launch();
 const pages = [];
-for (const vp of [{ name: 'phone', width: 390, height: 844 }, { name: 'desktop', width: 1280, height: 900 }]) {
+// v1.4: mobile first. Three phone widths (360 small Android, 390 iPhone, 414 large phone), then desktop.
+for (const vp of [{ name: 'phone-360', width: 360, height: 780 }, { name: 'phone-390', width: 390, height: 844 }, { name: 'phone-414', width: 414, height: 896 }, { name: 'desktop', width: 1280, height: 900 }]) {
   // bypassCSP lets the runner inject axe; the page's own CSP is still verified by the script.
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, bypassCSP: true });
+  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, bypassCSP: true, hasTouch: vp.width < 768, isMobile: vp.width < 768 });
   for (const r of routes) {
     const page = await ctx.newPage();
     await page.goto(url + r, { waitUntil: 'load' });

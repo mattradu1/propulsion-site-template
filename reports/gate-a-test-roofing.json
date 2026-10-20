@@ -1,12 +1,12 @@
 {
   "summary": {
     "slug": "test-roofing",
-    "ranAt": "2026-10-19T20:15:37.672Z",
-    "pages": 14,
-    "pass": 544,
+    "ranAt": "2026-10-20T07:16:17.964Z",
+    "pages": 28,
+    "pass": 1271,
     "fail": 0,
-    "amber": 2,
-    "needsTesting": 28,
+    "amber": 4,
+    "needsTesting": 56,
     "failures": [],
     "ambers": [
       "PENDING markers (amber at Gate A, fail at Gate B): ICO number"
@@ -18,10 +18,10 @@
   },
   "pages": [
     {
-      "viewport": "phone",
+      "viewport": "phone-360",
       "route": "/",
-      "url": "http://127.0.0.1:44361/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -39,7 +39,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "17 links ok"
+          "detail": "19 links ok"
         },
         {
           "gate": "B",
@@ -111,7 +111,2091 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "15182 bytes HTML"
+          "detail": "15710 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 6 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 5 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "360px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Roof repairs and new roofs in High Wycombe\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.06px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "url": "http://127.0.0.1:45945/work/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "3 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Work | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "Roofing by Test Roofing Ltd (DEMO) in High Wycombe, Marlow, Beaconsfield."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "10856 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 8 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 6 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "360px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"DEMO: Roofs we have done\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.06px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/services/",
+      "url": "http://127.0.0.1:45945/services/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "3 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Services | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "Roof repairs, New roofs, Flat roofs, Chimneys and leadwork from Test Roofing Ltd (DEMO)."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "7020 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "360px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Services\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.06px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/about/",
+      "url": "http://127.0.0.1:45945/about/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "18 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "3 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 3 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "About | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "About Test Roofing Ltd (DEMO), roofing in High Wycombe."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "9623 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 1 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 1 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "360px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"About us\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.06px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/consultation/",
+      "url": "http://127.0.0.1:45945/consultation/",
+      "summary": "50 checks · 48 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "4 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Start your enquiry | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "Start your enquiry with Test Roofing Ltd (DEMO)."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "8152 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "360px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"DEMO: Tell us about the roof\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.06px"
+        },
+        {
+          "gate": "A",
+          "check": "Form fields 16px+ (no iOS zoom on focus)",
+          "result": "PASS",
+          "detail": "name 16.06px, phone 16.06px, email 16.06px, message 16.06px"
+        },
+        {
+          "gate": "A",
+          "check": "Form fields: right keyboard and autofill",
+          "result": "PASS",
+          "detail": "4 fields ok"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "https://forms.example.com/f/propulsion-preview-test-inbox"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/privacy/",
+      "url": "http://127.0.0.1:45945/privacy/",
+      "summary": "48 checks · 45 pass · 0 FAIL · 1 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "2 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Privacy notice | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "How Test Roofing Ltd (DEMO) uses the details you send through this website."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "7661 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "360px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Privacy notice\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.06px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "AMBER",
+          "detail": "ICO number"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/404.html",
+      "url": "http://127.0.0.1:45945/404.html",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "3 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Page not found | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "This page could not be found on the Test Roofing Ltd (DEMO) website."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "5985 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "360px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Page not found\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.06px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "url": "http://127.0.0.1:45945/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "19 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "4 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 3 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Roofing in High Wycombe | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "DEMO site. Roof repairs, new roofs, flat roofs and chimneys across High Wycombe, Marlow, Beaconsfield and Amersham."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "15710 bytes HTML"
         },
         {
           "gate": "B",
@@ -204,6 +2288,48 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.105px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -272,10 +2398,10 @@
       ]
     },
     {
-      "viewport": "phone",
+      "viewport": "phone-390",
       "route": "/work/",
-      "url": "http://127.0.0.1:44361/work/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/work/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -293,7 +2419,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -365,7 +2491,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "10282 bytes HTML"
+          "detail": "10856 bytes HTML"
         },
         {
           "gate": "B",
@@ -458,6 +2584,48 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.105px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -526,10 +2694,10 @@
       ]
     },
     {
-      "viewport": "phone",
+      "viewport": "phone-390",
       "route": "/services/",
-      "url": "http://127.0.0.1:44361/services/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/services/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -547,7 +2715,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -619,7 +2787,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "6446 bytes HTML"
+          "detail": "7020 bytes HTML"
         },
         {
           "gate": "B",
@@ -712,6 +2880,48 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.105px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -780,10 +2990,10 @@
       ]
     },
     {
-      "viewport": "phone",
+      "viewport": "phone-390",
       "route": "/about/",
-      "url": "http://127.0.0.1:44361/about/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/about/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -801,7 +3011,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "16 links ok"
+          "detail": "18 links ok"
         },
         {
           "gate": "B",
@@ -873,7 +3083,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "8866 bytes HTML"
+          "detail": "9623 bytes HTML"
         },
         {
           "gate": "B",
@@ -966,6 +3176,48 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.105px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -1034,10 +3286,10 @@
       ]
     },
     {
-      "viewport": "phone",
+      "viewport": "phone-390",
       "route": "/consultation/",
-      "url": "http://127.0.0.1:44361/consultation/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/consultation/",
+      "summary": "50 checks · 48 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -1055,7 +3307,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -1127,7 +3379,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "6886 bytes HTML"
+          "detail": "8152 bytes HTML"
         },
         {
           "gate": "B",
@@ -1220,6 +3472,60 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.105px"
+        },
+        {
+          "gate": "A",
+          "check": "Form fields 16px+ (no iOS zoom on focus)",
+          "result": "PASS",
+          "detail": "name 16.105px, phone 16.105px, email 16.105px, message 16.105px"
+        },
+        {
+          "gate": "A",
+          "check": "Form fields: right keyboard and autofill",
+          "result": "PASS",
+          "detail": "4 fields ok"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -1288,10 +3594,10 @@
       ]
     },
     {
-      "viewport": "phone",
+      "viewport": "phone-390",
       "route": "/privacy/",
-      "url": "http://127.0.0.1:44361/privacy/",
-      "summary": "41 checks · 38 pass · 0 FAIL · 1 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/privacy/",
+      "summary": "48 checks · 45 pass · 0 FAIL · 1 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -1309,7 +3615,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -1381,7 +3687,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "6906 bytes HTML"
+          "detail": "7661 bytes HTML"
         },
         {
           "gate": "B",
@@ -1474,6 +3780,48 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.105px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -1542,10 +3890,10 @@
       ]
     },
     {
-      "viewport": "phone",
+      "viewport": "phone-390",
       "route": "/404.html",
-      "url": "http://127.0.0.1:44361/404.html",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/404.html",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -1563,7 +3911,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -1635,7 +3983,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "5411 bytes HTML"
+          "detail": "5985 bytes HTML"
         },
         {
           "gate": "B",
@@ -1728,6 +4076,48 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.105px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -1796,10 +4186,10 @@
       ]
     },
     {
-      "viewport": "desktop",
+      "viewport": "phone-414",
       "route": "/",
-      "url": "http://127.0.0.1:44361/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -1817,7 +4207,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "17 links ok"
+          "detail": "19 links ok"
         },
         {
           "gate": "B",
@@ -1889,7 +4279,2091 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "15182 bytes HTML"
+          "detail": "15710 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 6 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 5 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "414px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Roof repairs and new roofs in High Wycombe\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.141px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "url": "http://127.0.0.1:45945/work/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "3 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Work | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "Roofing by Test Roofing Ltd (DEMO) in High Wycombe, Marlow, Beaconsfield."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "10856 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 8 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 6 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "414px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"DEMO: Roofs we have done\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.141px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/services/",
+      "url": "http://127.0.0.1:45945/services/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "3 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Services | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "Roof repairs, New roofs, Flat roofs, Chimneys and leadwork from Test Roofing Ltd (DEMO)."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "7020 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "414px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Services\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.141px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/about/",
+      "url": "http://127.0.0.1:45945/about/",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "18 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "3 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 3 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "About | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "About Test Roofing Ltd (DEMO), roofing in High Wycombe."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "9623 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 1 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "414px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"About us\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.141px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/consultation/",
+      "url": "http://127.0.0.1:45945/consultation/",
+      "summary": "50 checks · 48 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "4 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Start your enquiry | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "Start your enquiry with Test Roofing Ltd (DEMO)."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "8152 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "414px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"DEMO: Tell us about the roof\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.141px"
+        },
+        {
+          "gate": "A",
+          "check": "Form fields 16px+ (no iOS zoom on focus)",
+          "result": "PASS",
+          "detail": "name 16.141px, phone 16.141px, email 16.141px, message 16.141px"
+        },
+        {
+          "gate": "A",
+          "check": "Form fields: right keyboard and autofill",
+          "result": "PASS",
+          "detail": "4 fields ok"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "https://forms.example.com/f/propulsion-preview-test-inbox"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/privacy/",
+      "url": "http://127.0.0.1:45945/privacy/",
+      "summary": "48 checks · 45 pass · 0 FAIL · 1 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "2 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Privacy notice | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "How Test Roofing Ltd (DEMO) uses the details you send through this website."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "7661 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "414px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Privacy notice\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.141px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "AMBER",
+          "detail": "ICO number"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/404.html",
+      "url": "http://127.0.0.1:45945/404.html",
+      "summary": "48 checks · 46 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "14 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "3 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 0 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Page not found | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "This page could not be found on the Test Roofing Ltd (DEMO) website."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "5985 bytes HTML"
+        },
+        {
+          "gate": "B",
+          "check": "robots/sitemap point to the live domain",
+          "result": "PASS",
+          "detail": "https://www.test-roofing.example/sitemap.xml"
+        },
+        {
+          "gate": "A",
+          "check": "No render-blocking third-party CSS/JS (incl. Tailwind CDN)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Fonts self-hosted, ≤2 families",
+          "result": "PASS",
+          "detail": "self-hosted"
+        },
+        {
+          "gate": "A",
+          "check": "Images have width + height",
+          "result": "PASS",
+          "detail": "0 of 0 missing"
+        },
+        {
+          "gate": "A",
+          "check": "Images not oversized (≤2.2× display width)",
+          "result": "PASS",
+          "detail": "0 oversized"
+        },
+        {
+          "gate": "A",
+          "check": "Below-the-fold images lazy-loaded",
+          "result": "PASS",
+          "detail": "0 of 0 not lazy"
+        },
+        {
+          "gate": "A",
+          "check": "One H1",
+          "result": "PASS",
+          "detail": "1 H1s"
+        },
+        {
+          "gate": "A",
+          "check": "<main> landmark + skip link",
+          "result": "PASS",
+          "detail": "main true"
+        },
+        {
+          "gate": "A",
+          "check": "Alt on every image",
+          "result": "PASS",
+          "detail": "0 missing alt"
+        },
+        {
+          "gate": "A",
+          "check": "Tap targets ≥24px (WCAG 2.5.8)",
+          "result": "PASS",
+          "detail": "ok"
+        },
+        {
+          "gate": "A",
+          "check": "axe: 0 serious/critical (WCAG 2.2 AA)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No sideways scroll at this width",
+          "result": "PASS",
+          "detail": "414px wide"
+        },
+        {
+          "gate": "A",
+          "check": "Reduced-motion CSS present (motion jumps to its final state)",
+          "result": "PASS",
+          "detail": "1 reduced-motion block(s), all motion off true"
+        },
+        {
+          "gate": "A",
+          "check": "H1 text is in the server HTML (not injected by JS)",
+          "result": "PASS",
+          "detail": "HTML: \"Page not found\""
+        },
+        {
+          "gate": "A",
+          "check": "Slider: keyboard + ARIA",
+          "result": "PASS",
+          "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "16.141px"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: safe-area inset at the bottom",
+          "result": "PASS",
+          "detail": "env(safe-area-inset-bottom) in padding"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar never covers the form, closing band or footer",
+          "result": "PASS",
+          "detail": "clear at start/centre/end of each"
+        },
+        {
+          "gate": "A",
+          "check": "Action bar: 44px targets in thumb reach (bottom quarter)",
+          "result": "PASS",
+          "detail": "bar not shown mid-page on this page (short page)"
+        },
+        {
+          "gate": "B",
+          "check": "Privacy link on page",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "B",
+          "check": "No cookies set on load",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "PageSpeed mobile ≥85, LCP ≤2.5s, CLS ≤0.1",
+          "result": "NEEDS TESTING",
+          "detail": "Run pagespeed.web.dev (mobile) and attach the screenshot"
+        },
+        {
+          "gate": "A",
+          "check": "Preview banner \"Preview – not live\" shown",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview hidden from Google (meta noindex)",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Preview form posts to the test inbox only",
+          "result": "PASS",
+          "detail": "no form"
+        },
+        {
+          "gate": "A",
+          "check": "PENDING markers (amber at Gate A, fail at Gate B)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No script/iframe/on* handler/javascript: link from content",
+          "result": "PASS",
+          "detail": "0 found"
+        },
+        {
+          "gate": "A",
+          "check": "Content-Security-Policy present",
+          "result": "PASS",
+          "detail": ""
+        },
+        {
+          "gate": "A",
+          "check": "Tap-to-call link present and ≥24px tall at this width",
+          "result": "PASS",
+          "detail": "44px"
+        },
+        {
+          "gate": "A",
+          "check": "DEMO label visible",
+          "result": "PASS",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "route": "/",
+      "url": "http://127.0.0.1:45945/",
+      "summary": "45 checks · 43 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "results": [
+        {
+          "gate": "A",
+          "check": "No placeholders in page or links",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "No [ ] or {{ }} placeholder tokens",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "0 broken or empty links (internal)",
+          "result": "PASS",
+          "detail": "19 links ok"
+        },
+        {
+          "gate": "B",
+          "check": "Unknown URL returns 404",
+          "result": "PASS",
+          "detail": "status 404"
+        },
+        {
+          "gate": "A",
+          "check": "Every CTA goes to a real funnel or form",
+          "result": "PASS",
+          "detail": "5 CTAs, 0 broken"
+        },
+        {
+          "gate": "A",
+          "check": "Test enquiry lands within 5 minutes",
+          "result": "NEEDS TESTING",
+          "detail": "Manual: submit a test enquiry and time it"
+        },
+        {
+          "gate": "A",
+          "check": "Phone matches agreed number everywhere",
+          "result": "PASS",
+          "detail": "site: 01632960123 · agreed: 01632 960123"
+        },
+        {
+          "gate": "B",
+          "check": "Site phone matches Google Business Profile",
+          "result": "PASS",
+          "detail": "GBP: 01632 960123 · site: 01632960123"
+        },
+        {
+          "gate": "A",
+          "check": "Copy does not contradict reviews (solo vs team)",
+          "result": "PASS",
+          "detail": "no conflict found"
+        },
+        {
+          "gate": "A",
+          "check": "Review quotes verbatim; cuts marked …",
+          "result": "PASS",
+          "detail": "0 of 3 quotes not verbatim or cut without …"
+        },
+        {
+          "gate": "B",
+          "check": "Own <title> (≤60 chars)",
+          "result": "PASS",
+          "detail": "Roofing in High Wycombe | Test Roofing Ltd (DEMO)"
+        },
+        {
+          "gate": "B",
+          "check": "Meta description (≤155 chars)",
+          "result": "PASS",
+          "detail": "DEMO site. Roof repairs, new roofs, flat roofs and chimneys across High Wycombe, Marlow, Beaconsfield and Amersham."
+        },
+        {
+          "gate": "B",
+          "check": "Canonical + Open Graph + favicon",
+          "result": "PASS",
+          "detail": "canonical true, og 7, icon 2"
+        },
+        {
+          "gate": "B",
+          "check": "LocalBusiness JSON-LD present and valid JSON",
+          "result": "PASS",
+          "detail": "RoofingContractor"
+        },
+        {
+          "gate": "B",
+          "check": "Content in server HTML (not JS-only)",
+          "result": "PASS",
+          "detail": "15710 bytes HTML"
         },
         {
           "gate": "B",
@@ -1982,6 +6456,30 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "17px"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -2052,8 +6550,8 @@
     {
       "viewport": "desktop",
       "route": "/work/",
-      "url": "http://127.0.0.1:44361/work/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/work/",
+      "summary": "45 checks · 43 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -2071,7 +6569,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -2083,7 +6581,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "3 CTAs, 0 broken"
+          "detail": "4 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -2143,7 +6641,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "10282 bytes HTML"
+          "detail": "10856 bytes HTML"
         },
         {
           "gate": "B",
@@ -2236,6 +6734,30 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "17px"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -2306,8 +6828,8 @@
     {
       "viewport": "desktop",
       "route": "/services/",
-      "url": "http://127.0.0.1:44361/services/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/services/",
+      "summary": "45 checks · 43 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -2325,7 +6847,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -2337,7 +6859,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "3 CTAs, 0 broken"
+          "detail": "4 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -2397,7 +6919,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "6446 bytes HTML"
+          "detail": "7020 bytes HTML"
         },
         {
           "gate": "B",
@@ -2490,6 +7012,30 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "17px"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -2560,8 +7106,8 @@
     {
       "viewport": "desktop",
       "route": "/about/",
-      "url": "http://127.0.0.1:44361/about/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/about/",
+      "summary": "45 checks · 43 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -2579,7 +7125,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "16 links ok"
+          "detail": "18 links ok"
         },
         {
           "gate": "B",
@@ -2591,7 +7137,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "3 CTAs, 0 broken"
+          "detail": "4 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -2651,7 +7197,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "8866 bytes HTML"
+          "detail": "9623 bytes HTML"
         },
         {
           "gate": "B",
@@ -2744,6 +7290,30 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "17px"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -2814,8 +7384,8 @@
     {
       "viewport": "desktop",
       "route": "/consultation/",
-      "url": "http://127.0.0.1:44361/consultation/",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/consultation/",
+      "summary": "47 checks · 45 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -2833,7 +7403,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -2845,7 +7415,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "4 CTAs, 0 broken"
+          "detail": "5 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -2905,7 +7475,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "6886 bytes HTML"
+          "detail": "8152 bytes HTML"
         },
         {
           "gate": "B",
@@ -2998,6 +7568,42 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "17px"
+        },
+        {
+          "gate": "A",
+          "check": "Form fields 16px+ (no iOS zoom on focus)",
+          "result": "PASS",
+          "detail": "name 17px, phone 17px, email 17px, message 17px"
+        },
+        {
+          "gate": "A",
+          "check": "Form fields: right keyboard and autofill",
+          "result": "PASS",
+          "detail": "4 fields ok"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -3068,8 +7674,8 @@
     {
       "viewport": "desktop",
       "route": "/privacy/",
-      "url": "http://127.0.0.1:44361/privacy/",
-      "summary": "41 checks · 38 pass · 0 FAIL · 1 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/privacy/",
+      "summary": "45 checks · 42 pass · 0 FAIL · 1 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -3087,7 +7693,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -3099,7 +7705,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "2 CTAs, 0 broken"
+          "detail": "3 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -3159,7 +7765,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "6906 bytes HTML"
+          "detail": "7661 bytes HTML"
         },
         {
           "gate": "B",
@@ -3252,6 +7858,30 @@
           "detail": "no slider on this page"
         },
         {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "17px"
+        },
+        {
           "gate": "B",
           "check": "Privacy link on page",
           "result": "PASS",
@@ -3322,8 +7952,8 @@
     {
       "viewport": "desktop",
       "route": "/404.html",
-      "url": "http://127.0.0.1:44361/404.html",
-      "summary": "41 checks · 39 pass · 0 FAIL · 0 amber · 2 needs testing",
+      "url": "http://127.0.0.1:45945/404.html",
+      "summary": "45 checks · 43 pass · 0 FAIL · 0 amber · 2 needs testing",
       "results": [
         {
           "gate": "A",
@@ -3341,7 +7971,7 @@
           "gate": "A",
           "check": "0 broken or empty links (internal)",
           "result": "PASS",
-          "detail": "12 links ok"
+          "detail": "14 links ok"
         },
         {
           "gate": "B",
@@ -3353,7 +7983,7 @@
           "gate": "A",
           "check": "Every CTA goes to a real funnel or form",
           "result": "PASS",
-          "detail": "3 CTAs, 0 broken"
+          "detail": "4 CTAs, 0 broken"
         },
         {
           "gate": "A",
@@ -3413,7 +8043,7 @@
           "gate": "B",
           "check": "Content in server HTML (not JS-only)",
           "result": "PASS",
-          "detail": "5411 bytes HTML"
+          "detail": "5985 bytes HTML"
         },
         {
           "gate": "B",
@@ -3504,6 +8134,30 @@
           "check": "Slider: keyboard + ARIA",
           "result": "PASS",
           "detail": "no slider on this page"
+        },
+        {
+          "gate": "A",
+          "check": "View transitions only without reduced motion",
+          "result": "PASS",
+          "detail": "1 @view-transition rule(s), all inside no-preference true"
+        },
+        {
+          "gate": "A",
+          "check": "No scroll-driven animation on the hero/H1 (LCP)",
+          "result": "PASS",
+          "detail": "none"
+        },
+        {
+          "gate": "A",
+          "check": "Sales demo mode never on a real client",
+          "result": "PASS",
+          "detail": "demo mode off"
+        },
+        {
+          "gate": "A",
+          "check": "Body text 16px or larger",
+          "result": "PASS",
+          "detail": "17px"
         },
         {
           "gate": "B",

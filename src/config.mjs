@@ -1,4 +1,4 @@
-// Reading client.json (v3): pending markers, the string walker, v1 → v2 shorthands, image slots.
+// Reading client.json (v4): pending markers, the string walker, v1 → v2 shorthands, image slots.
 export const isPending = (v) => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.pending === 'string';
 export const has = (v) => isPending(v) || (typeof v === 'string' && v.trim().length > 0);
 export const str = (v) => (typeof v === 'string' ? v : '');
@@ -93,3 +93,52 @@ export function baShown(cfg) {
     && ((p.sameJob === true && typeof p.source === 'string' && p.source.trim())
       || (p.demoImages === true && cfg.demo === true && typeof p.demoNote === 'string' && /\bDEMO\b/.test(p.demoNote))));
 }
+
+// v4 phone action bar (opt-in: "actionBar": true or { ... }). Each action renders only with real data:
+// Call needs a confirmed phone (not pending); Enquire always has somewhere to go (funnel, else /consultation/);
+// WhatsApp needs a confirmed E.164 number with a source and a privacy line. Nothing is ever a placeholder.
+export const E164 = /^\+44[1-9][0-9]{8,9}$/;
+export function whatsappShown(cfg) {
+  const w = cfg.actionBar && typeof cfg.actionBar === 'object' ? cfg.actionBar.whatsapp : null;
+  if (!w || w.confirmed !== true || typeof w.number !== 'string' || !E164.test(w.number) || !(typeof w.source === 'string' && w.source.trim())) return null;
+  if (!(typeof cfg.privacy?.whatsapp === 'string' && cfg.privacy.whatsapp.trim())) return null;
+  return { number: w.number, href: 'https://wa.me/' + w.number.replace(/\D/g, '') };
+}
+export function actionBarShown(cfg) {
+  const a = cfg.actionBar;
+  if (a !== true && !(a && typeof a === 'object' && a.enabled !== false)) return null;
+  const o = typeof a === 'object' ? a : {};
+  const call = typeof cfg.phone === 'string' && typeof cfg.phoneE164 === 'string' && o.call !== false;
+  const enquire = o.enquire !== false;
+  const whatsapp = whatsappShown(cfg);
+  if (!call && !enquire && !whatsapp) return null;
+  return { call, enquire, whatsapp, primary: o.primary === 'enquire' || !call ? 'enquire' : 'call' };
+}
+
+// v4 enquiry form: what happens next, only in the client's own words (form.nextStep). Inline success only
+// when the form processor is confirmed to accept a script submission (form.inlineSuccess: true); otherwise
+// the browser posts the form as before.
+export const nextStep = (cfg) => (typeof cfg.form?.nextStep === 'string' && cfg.form.nextStep.trim() ? cfg.form.nextStep : null);
+export const inlineSuccess = (cfg) => cfg.form?.inlineSuccess === true;
+
+// v4 review rating: only the review's own star rating, as a whole number 1–5 written in client.json.
+export const ratingOf = (r) => (Number.isInteger(r?.rating) && r.rating >= 1 && r.rating <= 5 ? r.rating : null);
+
+// v4 restraint (frontend-design lens): spend boldness in one place.
+// signature: the one section allowed to move on its own (beforeAfter → work → process by default, or "none").
+export function signatureOf(cfg) {
+  const avail = [];
+  if (baShown(cfg).length) avail.push('beforeAfter');
+  if ((cfg.projects || []).some((p) => (p.pairs || p.day) && (p.pairs ? p.pairs.length : true))) avail.push('work');
+  if (cfg.process?.steps?.length || Array.isArray(cfg.process)) avail.push('process');
+  if (cfg.signature === 'none') return 'none';
+  if (avail.includes(cfg.signature)) return cfg.signature;
+  return avail[0] || 'none';
+}
+// Label style per variant: A keeps Darren's tracked capitals (his own vernacular); B and C use quiet sentence-case
+// labels in the text face; the system monospace is opt-in only (brand.labels: "mono").
+export const LABEL_STYLES = ['quiet', 'tracked', 'mono'];
+export const labelStyle = (cfg) => (LABEL_STYLES.includes(cfg.brand?.labels) ? cfg.brand.labels : cfg.variant === 'A' ? 'tracked' : 'quiet');
+// Marker shape from the trade's own materials: diamond (a tile set on point), ridge (a roof pitch), course (bricks in bond).
+export const MOTIFS = ['diamond', 'ridge', 'course'];
+export const motifOf = (cfg) => (MOTIFS.includes(cfg.brand?.motif) ? cfg.brand.motif : 'diamond');

@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-19T20:14:06.692Z",
+  "ranAt": "2026-10-20T07:43:37.387Z",
   "rows": [
     {
       "id": "BC1",
@@ -53,9 +53,9 @@
     {
       "id": "BC8",
       "check": "Reduced motion",
-      "test": "Hero words left mid-animation for visitors who asked for less motion",
+      "test": "Signature reveal left part-way for visitors who asked for less motion (v4; hero words are opt-in now)",
       "result": "PASS",
-      "message": "phone-390 /: words moved 6, process line hidden 0, counters off their figure 0"
+      "message": "phone-390 /: words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 1"
     },
     {
       "id": "BC9",
@@ -63,6 +63,41 @@
       "test": "Before/after fallback stacks the photos instead of side by side",
       "result": "PASS",
       "message": "nojs-390 /: overflow 0px, H1 40 chars, pairs side by side false, slider hidden true"
+    },
+    {
+      "id": "BC11",
+      "check": "Action bar",
+      "test": "Action bar no longer hides near the form, closing band and footer",
+      "result": "PASS",
+      "message": "phone-390 /: at top hidden, covers .site-footer@start, .site-footer@center, .site-footer@end, shown somewhere true, off-rule at 10128px shown; 10550px shown; 10972px shown; 11394px shown, small none"
+    },
+    {
+      "id": "BC12",
+      "check": "Form messages",
+      "test": "Form script stops replacing the browser bubbles with in-place messages",
+      "result": "PASS",
+      "message": "phone-390 /consultation/: shown none, focus #f-name, aria-invalid 0, height change 0px"
+    },
+    {
+      "id": "BC13",
+      "check": "View Transitions",
+      "test": "Page transitions switched on for visitors who asked for less motion",
+      "result": "PASS",
+      "message": "motion page change: motion yes, reduced yes"
+    },
+    {
+      "id": "BC14",
+      "check": "Mobile type",
+      "test": "Form fields at 14px (iOS zooms the page on focus)",
+      "result": "PASS",
+      "message": "phone-390 /consultation/: body 16.105px; small fields name 14, email 14; wrong keyboard none"
+    },
+    {
+      "id": "BC15",
+      "check": "Before/after spring",
+      "test": "Spring removed: a tap jumps straight to the point",
+      "result": "PASS",
+      "message": "motion-390 /: start 32, after 90 ms 85, settled 85"
     },
     {
       "id": "BC10",
@@ -76,7 +111,7 @@
       "check": "Control",
       "test": "Untouched build passes every browser check",
       "result": "PASS",
-      "message": "97 checks ok"
+      "message": "119 checks ok"
     }
   ]
 }

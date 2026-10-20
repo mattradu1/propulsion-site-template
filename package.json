@@ -1,7 +1,7 @@
 {
   "name": "propulsion-site-template",
-  "version": "3.0.0",
-  "description": "Propulsion master website template v3: craft theme + motion and proof components, one client.json per client, static output.",
+  "version": "4.0.0",
+  "description": "Propulsion master website template v4: craft theme + craft and conversion components (phone action bar, form, view transitions, sales demo mode), one client.json per client, static output.",
   "scripts": {
     "build": "node build.mjs test-bathrooms",
     "build:all": "for c in test-bathrooms darren-reference test-roofing slate-gutters; do node build.mjs $c --quiet && node build.mjs $c --preview --quiet || exit 1; done",
@@ -15,7 +15,9 @@
     "qa:browser": "for c in test-bathrooms darren-reference test-roofing; do node scripts/browser-checks.mjs $c || exit 1; done",
     "qa:routes": "for c in test-bathrooms darren-reference test-roofing; do node scripts/routes.mjs $c || exit 1; done",
     "qa:lighthouse": "for c in test-bathrooms darren-reference test-roofing; do node scripts/lighthouse.mjs $c || exit 1; done",
-    "qa:all": "npm run build:all && npm run qa:jsonld && npm run qa:routes && npm run qa:axe && npm run qa:gate-a && npm run qa:browser && npm run test:guards && npm run test:browser && npm run qa:lighthouse"
+    "qa:all": "npm run build:all && npm run qa:jsonld && npm run qa:routes && npm run qa:axe && npm run qa:gate-a && npm run qa:browser && npm run test:guards && npm run test:browser && npm run qa:gate-a-tests && npm run qa:lighthouse",
+    "demo": "node scripts/demo-serve.mjs",
+    "qa:gate-a-tests": "node tests/guards/gate-a-run.mjs"
   },
   "author": "",
   "license": "ISC",

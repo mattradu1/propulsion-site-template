@@ -5,6 +5,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import zlib from 'node:zlib';
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json', '.xml': 'application/xml', '.txt': 'text/plain; charset=utf-8', '.webp': 'image/webp', '.png': 'image/png', '.woff2': 'font/woff2' };
 
@@ -29,6 +30,13 @@ export function serve(dir, port = 0) {
       if (re.test(url)) for (const h of r.headers) res.setHeader(h.key, h.value);
     }
     res.setHeader('Content-Type', TYPES[path.extname(file)] || 'application/octet-stream');
+    // v4: SERVE_GZIP=1 compresses text like a real static host does (Vercel/Netlify always do). Off by default so
+    // earlier reports stay comparable; the v4 report gives Lighthouse both ways.
+    if (process.env.SERVE_GZIP === '1' && /\.(html|css|js|json|xml|txt)$/.test(file) && /gzip/.test(req.headers['accept-encoding'] || '')) {
+      res.setHeader('Content-Encoding', 'gzip');
+      res.writeHead(status);
+      return res.end(zlib.gzipSync(fs.readFileSync(file), { level: 9 }));
+    }
     res.writeHead(status);
     fs.createReadStream(file).pipe(res);
   });

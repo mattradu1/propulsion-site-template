@@ -1,7 +1,7 @@
-// Craft theme components and pages (v3). No client fact or sentence is written here:
+// Craft theme components and pages (v4). No client fact or sentence is written here:
 // visible words come from client.json or from src/lines.mjs (approved lines). Missing → section left out.
 import { h, raw, safeUrl } from './html.mjs';
-import { isPending, has, ideasShown, heroKind, proofShown, baShown, isNum, fmtNum } from './config.mjs';
+import { isPending, has, ideasShown, heroKind, proofShown, baShown, isNum, fmtNum, actionBarShown, whatsappShown, nextStep, inlineSuccess, ratingOf, signatureOf, labelStyle, motifOf } from './config.mjs';
 import { line, neutral, LINES } from './lines.mjs';
 import { homeOrder } from './brief.mjs';
 
@@ -14,6 +14,8 @@ const L = (cfg, k) => t(cfg, line(cfg, k));
 const opt = (cfg, k) => cfg.copy?.[k];
 const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const base = (cfg) => cfg.domain.replace(/\/$/, '');
+// v4 signature: the one section that moves on its own (signatureOf). Everything else stays still.
+const sig = (cfg, key) => raw(signatureOf(cfg) === key ? ' sig' : '');
 const pendAttr = (img) => (isPending(img?.origin) ? h` data-pending="${img.origin.pending}"` : '');
 
 export function ctaUrl(cfg, content) {
@@ -69,13 +71,16 @@ export function emphasisRange(h1, emphasis) {
   for (let i = 0; i + ew.length <= words.length; i++) if (words.slice(i, i + ew.length).join(' ') === ew.join(' ')) return { words, start: i, end: i + ew.length - 1 };
   return { words, start: -1, end: -1, missing: true };
 }
+// v4: both are opt-in (hero.emphasis, hero.reveal: true). Off by default: a single italic phrase and a
+// word-by-word entrance are generic tells when every site has them.
 function heroH1(H) {
   const { words, start, end } = emphasisRange(H.h1, H.emphasis);
+  const split = H.reveal === true;
   let out = '';
   words.forEach((w, i) => {
     if (i) out += ' ';
     if (i === start) out += '<em>';
-    out += h`<span class="w d${Math.min(i, 15)}">${w}</span>`.s;
+    out += split ? h`<span class="w d${Math.min(i, 15)}">${w}</span>`.s : h`${w}`.s;
     if (i === end) out += '</em>';
   });
   return raw(out);
@@ -84,7 +89,7 @@ function proofLine(cfg) {
   const items = proofShown(cfg);
   if (!items.length) return '';
   return h`<ul class="proof">${items.map((x) => (isNum(x.value)
-    ? h`<li><span class="num"${raw(x.countUp === false ? '' : ` data-count="${x.value}"`)}>${fmtNum(x.value)}</span> <span>${x.label}</span></li>`
+    ? h`<li><span class="num"${raw(x.countUp === true ? ` data-count="${x.value}"` : '')}>${fmtNum(x.value)}</span> <span>${x.label}</span></li>`
     : h`<li><span>${x.text}</span></li>`))}</ul>`;
 }
 
@@ -147,7 +152,7 @@ function workSection(cfg, imgs, projects, { id = 'work', link = false } = {}) {
   const list = projects.filter((p) => p.pairs?.length);
   if (!list.length) return '';
   const anyEve = list.some((p) => p.pairs.some((x) => x.evening));
-  return h`<section class="section work" id="${id}" data-mode="day" aria-labelledby="${id}-h"><div class="wrap">
+  return h`<section class="section work${sig(cfg, 'work')}" id="${id}" data-mode="day" aria-labelledby="${id}-h"><div class="wrap">
     <div class="sechead rise">
       ${eyebrow(cfg, opt(cfg, 'workEyebrow'))}
       <h2 id="${id}-h">${L(cfg, 'workHeading')}</h2>
@@ -172,7 +177,7 @@ function beforeAfterSection(cfg, imgs) {
   if (!list.length) return '';
   const B = cfg.beforeAfter;
   const sizes = '(min-width: 1100px) 960px, 92vw';
-  return h`<section class="section ba-section" aria-labelledby="ba-h"><div class="wrap">
+  return h`<section class="section ba-section${sig(cfg, 'beforeAfter')}" aria-labelledby="ba-h"><div class="wrap">
     <div class="sechead rise">
       ${eyebrow(cfg, B.eyebrow)}
       <h2 id="ba-h">${has(B.heading) ? t(cfg, B.heading) : L(cfg, 'baHeading')}</h2>
@@ -188,7 +193,7 @@ function beforeAfterSection(cfg, imgs) {
         <span class="ba-rule" aria-hidden="true"></span>
         <span class="ba-handle" role="slider" tabindex="0" aria-label="${plain(cfg, line(cfg, 'baSlider'))}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" hidden><span class="ba-grip" aria-hidden="true"></span></span>
       </div>
-      ${has(p.title) || has(p.town) || p.demoImages === true ? h`<figcaption>${has(p.title) ? h`<span>${t(cfg, p.title)}</span>` : ''}${has(p.title) && has(p.town) ? ' · ' : ''}${has(p.town) ? h`<span class="meta">${t(cfg, p.town)}</span>` : ''}${p.demoImages === true ? h`<span class="demo-note">${p.demoNote}</span>` : ''}</figcaption>` : ''}
+      ${has(p.title) || has(p.town) || p.demoImages === true ? h`<figcaption>${has(p.title) ? h`<span>${t(cfg, p.title)}</span>` : ''}${has(p.town) ? h`<span class="meta">${t(cfg, p.town)}</span>` : ''}${p.demoImages === true ? h`<span class="demo-note">${p.demoNote}</span>` : ''}</figcaption>` : ''}
     </figure>`;
     })}
   </div></section>`;
@@ -197,13 +202,13 @@ function beforeAfterSection(cfg, imgs) {
 function processSection(cfg, imgs) {
   const P = cfg.process;
   const im = P.image && imgs[`${P.image.src}|portrait`];
-  return h`<section class="section paper process" aria-labelledby="process-h"><div class="wrap"><div class="process-grid${raw(im ? ' has-media' : '')}">
+  return h`<section class="section paper process${sig(cfg, 'process')}" aria-labelledby="process-h"><div class="wrap"><div class="process-grid${raw(im ? ' has-media' : '')}">
     ${im ? h`<div class="process-media">${srcsetImg(im, { alt: altOf(P.image), lazy: true, img: P.image, sizes: '(min-width: 768px) 40vw, 92vw' })}</div>` : ''}
     <div class="rise">
       ${eyebrow(cfg, P.eyebrow)}
       <h2 id="process-h">${has(P.heading) ? t(cfg, P.heading) : L(cfg, 'processHeading')}</h2>
       <div class="steps-wrap"><svg class="rail" aria-hidden="true" focusable="false" viewBox="0 0 4 1000" preserveAspectRatio="none"><path class="rail-base" d="M2 0V1000"/><path class="rail-line" d="M2 0V1000"/></svg>
-      <ol class="steps has-rail" data-draw>${P.steps.map((s) => h`<li><span class="dot" aria-hidden="true"></span><div><h3>${t(cfg, s.title)}</h3><p>${t(cfg, s.text)}</p></div></li>`)}</ol></div>
+      <ol class="steps has-rail"${raw(signatureOf(cfg) === 'process' ? ' data-draw' : '')}>${P.steps.map((s) => h`<li><span class="dot" aria-hidden="true"></span><div><h3>${t(cfg, s.title)}</h3><p>${t(cfg, s.text)}</p></div></li>`)}</ol></div>
     </div>
   </div></div></section>`;
 }
@@ -227,14 +232,19 @@ function ownerSection(cfg, imgs, { link = true } = {}) {
 
 const fmtDate = (d) => { const x = new Date(d + 'T12:00:00Z'); return isNaN(x) ? d : x.toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }); };
 
+// v4 reviews: word for word, one lead quote set larger when there are two or more, the review's own rating
+// (only when client.json gives it, 1–5, as diamonds with screen-reader text), and where it was posted.
+const ratingHtml = (r) => { const n = ratingOf(r); return n ? h`<p class="rating"><span class="pips" aria-hidden="true">${Array.from({ length: 5 }, (_, i) => raw(`<span class="pip${i < n ? ' on' : ''}"></span>`))}</span><span class="sr">Rated ${String(n)} out of 5</span></p>` : ''; };
 function reviewsSection(cfg, list, { single = false } = {}) {
   if (!list?.length) return ''; // No reviews: no section, nothing invented.
+  const lead = !single && list.length >= 2;
   return h`<section class="section quotes-band"${single ? '' : raw(' aria-labelledby="reviews-h"')}><div class="wrap">
     ${single ? '' : h`<div class="sechead">${eyebrow(cfg, opt(cfg, 'reviewsEyebrow'))}<h2 id="reviews-h">${L(cfg, 'reviewsHeading')}</h2></div>`}
-    <div class="quotes n${Math.min(list.length, 3)}${raw(single ? ' single' : '')}">${list.map((r) => h`<figure class="quote rise">
+    <div class="quotes n${Math.min(list.length, 3)}${raw(single ? ' single' : '')}${raw(lead ? ' has-lead' : '')}">${list.map((r, i) => h`<figure class="quote rise${raw(lead && i === 0 ? ' lead' : '')}">
       <span class="mark" aria-hidden="true"></span>
+      ${ratingHtml(r)}
       <blockquote${typeof r.source === 'string' ? h` cite="${safeUrl(r.source)}"` : ''}><p>${r.text}</p></blockquote>
-      <figcaption><span>${r.author}</span>${r.date ? h` · <time datetime="${r.date}">${fmtDate(r.date)}</time>` : ''} · ${typeof r.source === 'string' ? h`<a href="${safeUrl(r.source)}">${L(cfg, 'reviewSource')}</a>` : t(cfg, r.source)}</figcaption>
+      <figcaption><span class="who">${r.author}</span>${r.date || (typeof r.platform === 'string' && r.platform.trim()) ? h`<span class="when">${r.date ? h`<time datetime="${r.date}">${fmtDate(r.date)}</time>` : ''}${typeof r.platform === 'string' && r.platform.trim() ? h`<span>${r.platform}</span>` : ''}</span>` : ''}${typeof r.source === 'string' ? h`<a href="${safeUrl(r.source)}">${L(cfg, 'reviewSource')}</a>` : h`<span>${t(cfg, r.source)}</span>`}</figcaption>
     </figure>`)}</div>
     ${!single && typeof cfg.gbpUrl === 'string' ? h`<p class="more"><a class="tlink" href="${safeUrl(cfg.gbpUrl)}">${L(cfg, 'allReviews')}</a></p>` : ''}
   </div></section>`;
@@ -263,22 +273,54 @@ function ctaBand(cfg, imgs, where) {
   </section>`;
 }
 
+// v4 enquiry form. No JS: the browser's own validation and a normal post, exactly as v3. With JS: inline
+// messages (approved lines, already in the HTML, shown under the field, no layout shift), focus to the first
+// problem, press feedback, and, only when form.inlineSuccess is confirmed for the processor, a success panel in
+// the form's own space saying what happens next in the client's words (form.nextStep).
+const errP = (cfg, id, key) => h`<p class="err" id="${id}" hidden>${L(cfg, key)}</p>`;
 function enquiryForm(cfg, preview) {
   const action = preview ? cfg.preview?.testFormAction : (typeof cfg.form?.action === 'string' ? cfg.form.action : null);
   if (!action) return '';
+  const next = nextStep(cfg);
   return h`<section class="section paper enquiry" id="enquire" aria-labelledby="enq-h"><div class="wrap">
     <h2 id="enq-h" class="center">${L(cfg, 'formHeading')}</h2>
     ${preview ? h`<p class="form-note"><strong>${LINES.formPreviewStrong}</strong> <span>${LINES.formPreviewNote}</span></p>` : ''}
-    <form method="post" action="${safeUrl(action)}">
+    <div class="enq-stack">
+    <form method="post" action="${safeUrl(action)}" data-enquiry${raw(inlineSuccess(cfg) ? ' data-inline' : '')}>
       ${preview ? h`<input type="hidden" name="test_id" value="${'preview-' + cfg.slug}">` : ''}
-      <div><label for="f-name">${L(cfg, 'formName')}</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-      <div><label for="f-phone">${L(cfg, 'formPhone')}</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-      <div><label for="f-email">${L(cfg, 'formEmail')}</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div><label for="f-msg">${L(cfg, 'formMessage')}</label><textarea id="f-msg" name="message" rows="4"></textarea></div>
-      <div><label class="consent"><input type="checkbox" name="consent" value="yes" required> <span>${t(cfg, cfg.form.consentText)}</span></label> <a href="/privacy/">${L(cfg, 'privacy')}</a></div>
-      <div><button class="btn" type="submit">${L(cfg, 'formSend')}</button></div>
+      <div class="field"><label for="f-name">${L(cfg, 'formName')}</label><input id="f-name" name="name" type="text" autocomplete="name" enterkeyhint="next" required>${errP(cfg, 'f-name-err', 'formErrName')}</div>
+      <div class="field"><label for="f-phone">${L(cfg, 'formPhone')}</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" enterkeyhint="next">${errP(cfg, 'f-phone-err', 'formErrPhone')}</div>
+      <div class="field"><label for="f-email">${L(cfg, 'formEmail')}</label><input id="f-email" name="email" type="email" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="next" required>${errP(cfg, 'f-email-err', 'formErrEmail')}${errP(cfg, 'f-email-bad', 'formErrEmailBad')}</div>
+      <div class="field"><label for="f-msg">${L(cfg, 'formMessage')}</label><textarea id="f-msg" name="message" rows="4"></textarea></div>
+      <div class="field"><label class="consent"><input id="f-consent" type="checkbox" name="consent" value="yes" required> <span>${t(cfg, cfg.form.consentText)}</span></label> <a href="/privacy/">${L(cfg, 'privacy')}</a>${errP(cfg, 'f-consent-err', 'formErrConsent')}</div>
+      <div class="send"><button class="btn" type="submit">${L(cfg, 'formSend')}</button>${next ? h`<p class="next">${next}</p>` : ''}</div>
     </form>
+    ${inlineSuccess(cfg) ? h`<div class="sent" id="enq-sent" role="status" hidden><span class="mark" aria-hidden="true"></span><h3 id="enq-sent-h" tabindex="-1">${L(cfg, 'formSent')}</h3>${next ? h`<p>${next}</p>` : ''}</div>` : ''}
+    </div>
   </div></section>`;
+}
+
+// v4 phone action bar: fixed to the bottom on phones, shown by site.js after the hero and hidden again near the
+// enquiry form, the closing CTA band and the footer. No JS = never shown (the hero and footer carry the same links).
+function actionBar(cfg) {
+  const a = actionBarShown(cfg);
+  if (!a) return '';
+  const cls = (k) => raw(`ab${a.primary === k ? ' ab-primary' : ''}`);
+  return h`<nav class="actionbar" aria-label="${plain(cfg, line(cfg, 'barLabel'))}" data-actionbar hidden><ul>
+    ${a.call ? h`<li><a class="${cls('call')}" href="${safeUrl('tel:' + cfg.phoneE164)}">${L(cfg, 'call')}</a></li>` : ''}
+    ${a.whatsapp ? h`<li><a class="ab" href="${safeUrl(a.whatsapp.href)}">${L(cfg, 'whatsapp')}</a></li>` : ''}
+    ${a.enquire ? h`<li><a class="${cls('enquire')}" href="${safeUrl(ctaHref(cfg, 'actionbar'))}">${L(cfg, 'barEnquire')}</a></li>` : ''}
+  </ul></nav>`;
+}
+
+// v4 sales demo mode (build flag --demo-mode, DEMO clients only): a fixed ribbon that cannot be missed and a
+// switcher between the demo trades listed in demo-reel.json. Never in a real client build (build + Gate A).
+export const DEMO_URL = /^(https:\/\/[a-z0-9.-]+(:\d+)?\/|http:\/\/localhost:\d{2,5}\/)$/i;
+function demoRibbon(cfg, ctx) {
+  if (!ctx.demoMode) return '';
+  // Demo reel URLs come from the repo's demo-reel.json (not client copy): https, or a local demo port only.
+  const reel = (ctx.demoReel || []).filter((c) => c.demo && typeof c.trade === 'string' && DEMO_URL.test(c.url || ''));
+  return h`<div class="demo-ribbon" data-demo-ribbon><p><strong>${LINES.demoRibbon}</strong></p>${reel.length > 1 ? h`<nav aria-label="${LINES.demoTrades}"><ul>${reel.map((c) => h`<li><a href="${c.url}"${raw(c.slug === cfg.slug ? ' aria-current="page"' : '')}>${c.trade}</a></li>`)}</ul></nav>` : ''}</div>`;
 }
 
 function navItems(cfg) {
@@ -300,11 +342,11 @@ function footer(cfg, imgs) {
       <div><a class="brand" href="/">${logoImg(cfg, imgs, true)}<span class="wordmark">${cfg.businessName}</span></a>${has(opt(cfg, 'footerTagline')) ? h`<p class="f-tag">${t(cfg, opt(cfg, 'footerTagline'))}</p>` : ''}</div>
       <div><h2>${L(cfg, 'explore')}</h2><ul>${navItems(cfg).map(([href, key]) => h`<li><a href="${href}">${L(cfg, key)}</a></li>`)}<li><a href="/privacy/">${L(cfg, 'privacy')}</a></li></ul></div>
       <div><h2>${L(cfg, 'whereWeWork')}</h2><ul>${cfg.areasServed.map((a) => h`<li>${a}</li>`)}</ul></div>
-      <div><h2>${L(cfg, 'contact')}</h2><ul><li>${cta(cfg, 'footer', '')}</li><li><a href="${safeUrl('mailto:' + cfg.email)}">${cfg.email}</a></li><li>${tel(cfg)}</li></ul></div>
+      <div><h2>${L(cfg, 'contact')}</h2><ul><li>${cta(cfg, 'footer', '')}</li><li><a href="${safeUrl('mailto:' + cfg.email)}">${cfg.email}</a></li><li>${tel(cfg)}</li>${whatsappShown(cfg) ? h`<li><a href="${safeUrl(whatsappShown(cfg).href)}">${L(cfg, 'whatsapp')}</a></li>` : ''}</ul></div>
     </div>
     <div class="footbar">
       <p><span>© ${new Date().getFullYear()}</span> <span>${cfg.businessName}</span></p>
-      <p><span>${t(cfg, cfg.legalName)}</span> · <span>${LINES.companyNumber}</span> <span>${t(cfg, cfg.companyNumber)}</span> · <span>${LINES.registeredOffice}</span> <span>${t(cfg, cfg.privacy.registeredAddress)}</span></p>
+      <p class="legal"><span>${t(cfg, cfg.legalName)}</span><span><span>${LINES.companyNumber}</span> <span>${t(cfg, cfg.companyNumber)}</span></span><span><span>${LINES.registeredOffice}</span> <span>${t(cfg, cfg.privacy.registeredAddress)}</span></span></p>
     </div>
     ${cfg.demo ? h`<p class="flag">${LINES.demoFlag}</p>` : ''}
     ${cfg.internalReference ? h`<p class="flag">${LINES.internalRef}</p><p>${LINES.internalRefNote}</p>` : ''}
@@ -314,10 +356,12 @@ function footer(cfg, imgs) {
 export function csp(cfg, preview) {
   const action = preview ? cfg.preview?.testFormAction : (typeof cfg.form?.action === 'string' ? cfg.form.action : null);
   const formHost = action ? new URL(action).origin : "'none'";
-  return `default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; form-action ${formHost}; base-uri 'none'; object-src 'none'; frame-src 'none'`;
+  // v4: the script may post the enquiry itself only when inline success is confirmed for this processor.
+  const connect = action && inlineSuccess(cfg) ? `'self' ${formHost}` : "'self'";
+  return `default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src ${connect}; form-action ${formHost}; base-uri 'none'; object-src 'none'; frame-src 'none'`;
 }
 
-export const noindex = (cfg, ctx) => !!(ctx.preview || cfg.internalReference === true);
+export const noindex = (cfg, ctx) => !!(ctx.preview || ctx.demoMode || cfg.internalReference === true);
 
 function shell(cfg, ctx, imgs, { path, title, description, body, preloads = [] }) {
   const canonical = base(cfg) + path;
@@ -325,7 +369,7 @@ function shell(cfg, ctx, imgs, { path, title, description, body, preloads = [] }
   return '<!doctype html>\n' + h`<html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="${csp(cfg, ctx.preview)}">
 <title>${title}</title>
 <meta name="description" content="${description}">
@@ -346,14 +390,16 @@ ${preloads}
 <script src="/assets/site.js" defer></script>
 <script type="application/ld+json">${raw(jsonLd({ ...cfg, ogImage: ogImg }))}</script>
 </head>
-<body class="theme-${cfg.theme} craft-${cfg.variant.toLowerCase()} layout-${cfg.layout.toLowerCase()}${raw(cfg.demo ? ' is-demo' : '')}">
+<body class="theme-${cfg.theme} craft-${cfg.variant.toLowerCase()} layout-${cfg.layout.toLowerCase()}${raw(` labels-${labelStyle(cfg)} motif-${motifOf(cfg)}`)}${raw(cfg.demo ? ' is-demo' : '')}${raw(actionBarShown(cfg) ? ' has-actionbar' : '')}${raw(ctx.demoMode ? ' demo-mode" data-demo-mode="on' : '')}">
 <a class="skip" href="#main">${LINES.skip}</a>
+${demoRibbon(cfg, ctx)}
 ${ctx.preview ? h`<aside class="preview-banner" aria-label="Preview notice"><strong>${LINES.previewStrong}</strong> <span>${LINES.previewText}</span></aside>` : ''}
 ${header(cfg, imgs, path)}
 <main id="main">
 ${body}
 </main>
 ${footer(cfg, imgs)}
+${actionBar(cfg)}
 </body>
 </html>
 `.s;
@@ -445,7 +491,7 @@ export function renderPages(cfg, imgs, ctx) {
       </div></section>
       ${shown.length ? h`<section class="section"><div class="masonry">${shown.map((im) => {
         const set = imgs[`${im.src}|thumb`];
-        return set ? h`<figure class="supplier">${srcsetImg(set, { alt: im.alt, lazy: true, sizes: '(min-width: 1000px) 33vw, (min-width: 600px) 50vw, 100vw' })}<figcaption><span>${LINES.supplierImage}</span>${typeof im.supplier === 'string' ? h` · <span>${im.supplier}</span>` : ''}</figcaption></figure>` : '';
+        return set ? h`<figure class="supplier">${srcsetImg(set, { alt: im.alt, lazy: true, sizes: '(min-width: 1000px) 33vw, (min-width: 600px) 50vw, 100vw' })}<figcaption><span>${LINES.supplierImage}</span>${typeof im.supplier === 'string' ? h`<span>${im.supplier}</span>` : ''}</figcaption></figure>` : '';
       })}</div></section>` : ''}
       ${ctaBand(cfg, imgs, 'ideas')}`);
   }
@@ -483,7 +529,7 @@ export function renderPages(cfg, imgs, ctx) {
       <h2>Your rights</h2>
       <p>You can ask ${Us} for a copy of the details ${W} hold about you, or ask ${Us} to correct or delete them, by contacting ${Our} business using the details above. If you are unhappy with how your details are handled you can complain to the Information Commissioner's Office.</p>
       <p><a href="https://ico.org.uk/make-a-complaint/">ico.org.uk/make-a-complaint</a></p>
-    <!--/approved--></div></section>`);
+    <!--/approved-->${whatsappShown(cfg) ? h`<h2>${L(cfg, 'whatsapp')}</h2><p>${cfg.privacy.whatsapp}</p>` : ''}</div></section>`);
 
   pages['404.html'] = page('/404.html', `Page not found | ${cfg.businessName}`, `This page could not be found on the ${cfg.businessName} website.`,
     h`<section class="section"><div class="wrap prose"><h1>${LINES.notFoundH1}</h1><p>${LINES.notFoundText}</p><div class="actions"><a class="tlink" href="/">${LINES.goHome}</a>${cta(cfg, '404')}</div></div></section>`);

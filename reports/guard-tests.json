@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-19T20:08:47.891Z",
+  "ranAt": "2026-10-20T07:25:42.972Z",
   "rows": [
     {
       "id": "G1a",
@@ -674,6 +674,142 @@
       "message": "assets/site.css: site.css turns on smooth scrolling. Scrolling stays native (no smooth-scroll libraries or scroll-jacking)."
     },
     {
+      "id": "AB1",
+      "guard": "Action bar",
+      "test": "WhatsApp in the action bar without the client confirming the number",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "actionBar.whatsapp needs \"confirmed\": true and a \"source\" note: the client must confirm in writing that this number takes WhatsApp messages."
+    },
+    {
+      "id": "AB2",
+      "guard": "Action bar",
+      "test": "WhatsApp link with no privacy-page line (UK GDPR: every channel named)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "A WhatsApp link needs privacy.whatsapp: one approved sentence for the privacy page saying messages sent on WhatsApp are handled by WhatsApp (Meta). UK GDPR: the notice must name every channel."
+    },
+    {
+      "id": "AB3",
+      "guard": "Action bar",
+      "test": "Action bar's Call button tampered to ring another number",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: the action bar's Call button dials +441632960999, not the agreed number +441632960123."
+    },
+    {
+      "id": "AB4",
+      "guard": "Action bar",
+      "test": "Action bar shown without JavaScript (hidden attribute removed)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: the action bar must start hidden (shown by site.js only) and carry an aria-label."
+    },
+    {
+      "id": "DM1",
+      "guard": "Demo mode",
+      "test": "Sales demo mode on a real (non-DEMO) client: darren-reference",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "--demo-mode is on for Bathrooms Complete, which is not a DEMO client. The demo ribbon and trade switcher are for fictional demo sites on sales calls only, never a real client's site."
+    },
+    {
+      "id": "DM2",
+      "guard": "Demo mode",
+      "test": "Demo mode combined with a Gate B (--strict) build",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "--demo-mode cannot be combined with --strict (Gate B). A demo build is never deployed."
+    },
+    {
+      "id": "DM3",
+      "guard": "Demo mode",
+      "test": "Demo ribbon pasted into a real client build (darren-reference preview)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "index.html: the sales-demo ribbon or switcher is in a build for Bathrooms Complete, which is not a DEMO client. Demo mode never reaches a real client's site."
+    },
+    {
+      "id": "VT1",
+      "guard": "View transitions",
+      "test": "@view-transition switched on for everyone (outside the no-preference block)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css turns on @view-transition outside @media (prefers-reduced-motion: no-preference). Page changes must be instant for visitors who asked for less motion."
+    },
+    {
+      "id": "SR1",
+      "guard": "Scroll reveal",
+      "test": "Scroll-driven animation put on the hero photo (the LCP element)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css puts a scroll-driven animation on \".sig .hero-media img\". Never on the hero, page head or H1: it is the LCP element and must paint in place."
+    },
+    {
+      "id": "SR2",
+      "guard": "Scroll reveal",
+      "test": "Scroll reveal on every section, not one signature moment",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css scroll-animates \".rise\", which is not inside the signature section (.sig). One orchestrated moment per site, not every section."
+    },
+    {
+      "id": "SR3",
+      "guard": "Scroll reveal",
+      "test": "Scroll-driven animation with no @supports / reduced-motion guard",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "assets/site.css: site.css uses animation-timeline on \".sig .rise\" outside @supports (animation-timeline: view()) + @media (prefers-reduced-motion: no-preference). Unsupported browsers and reduced motion must get the content in its final place."
+    },
+    {
+      "id": "FM1",
+      "guard": "Form",
+      "test": "Enquiry form marked novalidate in the HTML (no-JS visitors lose the checks)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "consultation/index.html: the enquiry form is novalidate in the HTML. Only site.js may switch the browser's own checks off, so visitors without JavaScript keep them."
+    },
+    {
+      "id": "FM2",
+      "guard": "Form",
+      "test": "Email field type changed to text (wrong phone keyboard, no autofill)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "consultation/index.html: #f-email must be type=\"email\" with autocomplete=\"email\" (the right phone keyboard and autofill)."
+    },
+    {
+      "id": "FM3",
+      "guard": "Form",
+      "test": "form.nextStep is an empty string (no invented \"we'll be in touch\")",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "form.nextStep must be one sentence in the client's words saying what happens after an enquiry (who replies and by when), or left out."
+    },
+    {
+      "id": "FM4",
+      "guard": "Form",
+      "test": "Success panel in the HTML without inlineSuccess confirmed",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "consultation/index.html: a success panel is on the page but form.inlineSuccess is not confirmed in client.json."
+    },
+    {
+      "id": "RR1",
+      "guard": "Review rating",
+      "test": "Review rating written as an average (4.8)",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "Review 1 by Helen (DEMO) has rating 4.8. A rating is the reviewer's own whole-number score from 1 to 5, exactly as shown at the source, or left out."
+    },
+    {
+      "id": "SG1",
+      "guard": "Signature",
+      "test": "Signature set to a section that cannot be the one moving moment (\"hero\")",
+      "expected": "build fails",
+      "result": "PASS",
+      "message": "signature \"hero\" must be \"beforeAfter\", \"work\", \"process\" or \"none\" (the one section that moves on its own)."
+    },
+    {
       "id": "OK1",
       "guard": "Control",
       "test": "Test Roofing, live build (pending ICO = amber only)",
@@ -727,7 +863,7 @@
       "test": "Test Bathrooms (craft C, standard, brief-ordered) live build",
       "expected": "build passes",
       "result": "PASS",
-      "message": "ok"
+      "message": "ok (amber: Form)"
     },
     {
       "id": "OK8",
@@ -751,7 +887,7 @@
       "test": "Buyer fears reorder the home page (process, owner, design story first)",
       "expected": "build passes",
       "result": "PASS",
-      "message": "ok"
+      "message": "ok (amber: Form)"
     },
     {
       "id": "OK11",
@@ -759,7 +895,7 @@
       "test": "Supplier images left out (not failed) when permission is false",
       "expected": "build passes",
       "result": "PASS",
-      "message": "ok (amber: Ideas page)"
+      "message": "ok (amber: Form, Ideas page)"
     },
     {
       "id": "OK12",
@@ -768,6 +904,30 @@
       "expected": "build passes",
       "result": "PASS",
       "message": "ok (amber: Proof line, R4 PENDING marker)"
+    },
+    {
+      "id": "OK13",
+      "guard": "Control",
+      "test": "Test Roofing in sales demo mode (ribbon, switcher, noindex)",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK14",
+      "guard": "Control",
+      "test": "Quiet defaults: no italic emphasis, no word split, no count-up unless switched on",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: R4 PENDING marker)"
+    },
+    {
+      "id": "OK15",
+      "guard": "Control",
+      "test": "One signature section per page (Test Bathrooms: the before/after)",
+      "expected": "build passes",
+      "result": "PASS",
+      "message": "ok (amber: Form)"
     },
     {
       "id": "CLI",

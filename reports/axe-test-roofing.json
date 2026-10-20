@@ -10,7 +10,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 42
+        "passes": 41
       },
       "phone /work/": {
         "counts": {
@@ -40,7 +40,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 40
+        "passes": 39
       },
       "phone /consultation/": {
         "counts": {
@@ -80,7 +80,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 42
+        "passes": 41
       },
       "desktop /work/": {
         "counts": {
@@ -110,7 +110,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 37
+        "passes": 36
       },
       "desktop /consultation/": {
         "counts": {
@@ -152,7 +152,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 43
+        "passes": 42
       },
       "phone /work/": {
         "counts": {
@@ -182,7 +182,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 41
+        "passes": 40
       },
       "phone /consultation/": {
         "counts": {
@@ -222,7 +222,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 43
+        "passes": 42
       },
       "desktop /work/": {
         "counts": {
@@ -252,7 +252,7 @@
           "minor": 0
         },
         "violations": [],
-        "passes": 38
+        "passes": 37
       },
       "desktop /consultation/": {
         "counts": {

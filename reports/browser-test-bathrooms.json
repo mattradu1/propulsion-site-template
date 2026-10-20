@@ -1,9 +1,422 @@
 {
   "slug": "test-bathrooms",
-  "ranAt": "2026-10-19T20:16:27.498Z",
-  "pass": 227,
+  "ranAt": "2026-10-20T07:19:00.328Z",
+  "pass": 367,
   "fail": 0,
   "results": [
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20px 12px 34px 16.06px 28px"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.06px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "Phone menu opens, holds focus, closes on Escape",
+      "result": "PASS",
+      "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20px 12px 32px 16.06px 28px"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.06px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/work/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/services/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/services/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/services/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/services/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20px 12px 32px 28px 16.06px"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/services/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/services/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.06px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/services/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/about/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/about/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/about/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/about/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20px 12px 32px 16.06px 28px"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/about/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/about/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.06px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/about/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/ideas/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/ideas/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/ideas/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/ideas/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20px 12px 32px 16.06px 28px"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/ideas/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/ideas/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.06px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/ideas/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/consultation/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/consultation/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/consultation/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/consultation/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20px 12px 32px 16.06px 28px"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/consultation/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/consultation/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.06px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/consultation/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/privacy/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/privacy/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/privacy/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/privacy/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20px 12px 32px 16.06px 28px"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/privacy/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/privacy/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.06px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/privacy/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/404.html",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/404.html",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/404.html",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/404.html",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "5: 15px 20px 12px 32px 16.06px"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/404.html",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/404.html",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.06px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-360",
+      "route": "/404.html",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
     {
       "viewport": "phone-390",
       "route": "/",
@@ -42,6 +455,20 @@
     {
       "viewport": "phone-390",
       "route": "/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.105px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/",
       "check": "Phone menu opens, holds focus, closes on Escape",
       "result": "PASS",
       "detail": "opens true, closes on Escape with focus back true"
@@ -58,7 +485,7 @@
       "route": "/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "phone-390",
@@ -105,6 +532,20 @@
     {
       "viewport": "phone-390",
       "route": "/work/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.105px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/work/",
       "check": "Day/evening toggle switches every pair",
       "result": "PASS",
       "detail": "4 pairs switched true, aria-pressed true"
@@ -114,7 +555,7 @@
       "route": "/work/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "phone-390",
@@ -160,6 +601,20 @@
     },
     {
       "viewport": "phone-390",
+      "route": "/services/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.105px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/services/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-390",
       "route": "/about/",
       "check": "No sideways scroll",
       "result": "PASS",
@@ -195,6 +650,20 @@
     },
     {
       "viewport": "phone-390",
+      "route": "/about/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.105px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/about/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-390",
       "route": "/ideas/",
       "check": "No sideways scroll",
       "result": "PASS",
@@ -230,6 +699,20 @@
     },
     {
       "viewport": "phone-390",
+      "route": "/ideas/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.105px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/ideas/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-390",
       "route": "/consultation/",
       "check": "No sideways scroll",
       "result": "PASS",
@@ -265,6 +748,20 @@
     },
     {
       "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.105px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-390",
       "route": "/privacy/",
       "check": "No sideways scroll",
       "result": "PASS",
@@ -297,6 +794,20 @@
       "check": "Every image loads (lazy included)",
       "result": "PASS",
       "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/privacy/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.105px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/privacy/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
     },
     {
       "viewport": "phone-390",
@@ -332,6 +843,433 @@
       "check": "Every image loads (lazy included)",
       "result": "PASS",
       "detail": "ok"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/404.html",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.105px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/404.html",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.197px 12px 34px 16.141px 28.554px"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.141px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "Phone menu opens, holds focus, closes on Escape",
+      "result": "PASS",
+      "detail": "opens true, closes on Escape with focus back true"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.197px 12px 33.248px 16.141px 28.554px"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.141px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/work/",
+      "check": "Reduced motion shows the final state",
+      "result": "PASS",
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/services/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/services/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/services/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/services/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.197px 12px 33.248px 28.554px 16.141px"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/services/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/services/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.141px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/services/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/about/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/about/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/about/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/about/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.197px 12px 33.248px 16.141px 28.554px"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/about/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/about/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.141px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/about/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/ideas/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/ideas/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/ideas/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/ideas/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.197px 12px 33.248px 16.141px 28.554px"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/ideas/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/ideas/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.141px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/ideas/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere true, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/consultation/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/consultation/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/consultation/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/consultation/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.197px 12px 33.248px 16.141px 28.554px"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/consultation/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/consultation/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.141px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/consultation/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/privacy/",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/privacy/",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/privacy/",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/privacy/",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "6: 15px 20.197px 12px 33.248px 16.141px 28.554px"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/privacy/",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/privacy/",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.141px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/privacy/",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/404.html",
+      "check": "No sideways scroll",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/404.html",
+      "check": "Tap targets 44px (inline text links 24px)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/404.html",
+      "check": "Computed fonts are the self-hosted families",
+      "result": "PASS",
+      "detail": "body Montserrat, h1 Source Serif 4, loaded: Montserrat, Source Serif 4"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/404.html",
+      "check": "Six font sizes at most",
+      "result": "PASS",
+      "detail": "5: 15px 20.197px 12px 33.248px 16.141px"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/404.html",
+      "check": "Every image loads (lazy included)",
+      "result": "PASS",
+      "detail": "ok"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/404.html",
+      "check": "Mobile type: body and form fields 16px+, right keyboards",
+      "result": "PASS",
+      "detail": "body 16.141px; small fields none; wrong keyboard none"
+    },
+    {
+      "viewport": "phone-414",
+      "route": "/404.html",
+      "check": "Action bar: hidden over the opening, never over form/band/footer, shown in between, 44px",
+      "result": "PASS",
+      "detail": "at top hidden, covers nothing, shown somewhere false, off-rule at no step, small none"
     },
     {
       "viewport": "tablet-768",
@@ -380,7 +1318,7 @@
       "route": "/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "tablet-768",
@@ -422,7 +1360,7 @@
       "route": "/work/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "tablet-768",
@@ -681,7 +1619,7 @@
       "route": "/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "tablet-834",
@@ -723,7 +1661,7 @@
       "route": "/work/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "tablet-834",
@@ -982,7 +1920,7 @@
       "route": "/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "tablet-1024",
@@ -1024,7 +1962,7 @@
       "route": "/work/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "tablet-1024",
@@ -1262,7 +2200,7 @@
       "route": "/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 24.96px 54.08px 17px 12px 38px"
+      "detail": "6: 15px 24.96px 54.08px 17px 38px 12px"
     },
     {
       "viewport": "desktop-1280",
@@ -1276,14 +2214,14 @@
       "route": "/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "desktop-1280",
       "route": "/",
       "check": "Before/after slider follows pointer and touch",
       "result": "PASS",
-      "detail": "to 80% → 80, to 20% → 20, clip inset(0px 80% 0px 0px)"
+      "detail": "to 80% → 80, to 20% → 20, clip inset(0px 92% 0px 0px)"
     },
     {
       "viewport": "desktop-1280",
@@ -1311,7 +2249,7 @@
       "route": "/work/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 24.96px 60.96px 17px 12px 38px"
+      "detail": "6: 15px 24.96px 60.96px 17px 38px 12px"
     },
     {
       "viewport": "desktop-1280",
@@ -1325,14 +2263,14 @@
       "route": "/work/",
       "check": "Reduced motion shows the final state",
       "result": "PASS",
-      "detail": "words moved 0, process line hidden 0, counters off their figure 0"
+      "detail": "words moved 0, process line hidden 0, counters off their figure 0, reveals not in place 0"
     },
     {
       "viewport": "desktop-1280",
       "route": "/work/",
       "check": "Before/after slider follows pointer and touch",
       "result": "PASS",
-      "detail": "to 80% → 80, to 20% → 20, clip inset(0px 80% 0px 0px)"
+      "detail": "to 80% → 80, to 20% → 20, clip inset(0px 92% 0px 0px)"
     },
     {
       "viewport": "desktop-1280",
@@ -1430,7 +2368,7 @@
       "route": "/ideas/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 24.96px 12px 60.96px 17px 38px"
+      "detail": "6: 15px 24.96px 60.96px 17px 12px 38px"
     },
     {
       "viewport": "desktop-1280",
@@ -1465,7 +2403,7 @@
       "route": "/consultation/",
       "check": "Six font sizes at most",
       "result": "PASS",
-      "detail": "6: 15px 24.96px 12px 60.96px 17px 38px"
+      "detail": "6: 15px 24.96px 60.96px 17px 38px 12px"
     },
     {
       "viewport": "desktop-1280",
@@ -1559,11 +2497,53 @@
       "detail": "overflow 0px, H1 25 chars, pairs side by side true, slider hidden true"
     },
     {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Form: messages under each field, focus to the first, no layout shift",
+      "result": "PASS",
+      "detail": "shown f-name-err,f-email-err,f-consent-err, focus #f-name, aria-invalid 3, height change 0px"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Form: a bad email is flagged, fixing it clears the message",
+      "result": "PASS",
+      "detail": "bad email flagged true, still invalid after fixing 0"
+    },
+    {
+      "viewport": "phone-390",
+      "route": "/consultation/",
+      "check": "Form: success panel in place with the client's next step",
+      "result": "PASS",
+      "detail": "panel true, still on /consultation/, focus #enq-sent-h, next step true, height change 0px"
+    },
+    {
+      "viewport": "motion",
+      "route": "page change",
+      "check": "View Transitions: on with motion, off under reduced motion",
+      "result": "PASS",
+      "detail": "motion yes, reduced no"
+    },
+    {
+      "viewport": "motion-390",
+      "route": "/",
+      "check": "Before/after spring: tap glides, then lands on the point",
+      "result": "PASS",
+      "detail": "start 50, after 90 ms 71, settled 85"
+    },
+    {
+      "viewport": "motion-390",
+      "route": "/work/",
+      "check": "Before/after spring: tap glides, then lands on the point",
+      "result": "PASS",
+      "detail": "start 50, after 90 ms 68, settled 85"
+    },
+    {
       "viewport": "motion-1280",
       "route": "/",
-      "check": "Motion on: words settle once, line draws, counters land",
+      "check": "Motion on: words settle once, line draws, counters land, one signature only",
       "result": "PASS",
-      "detail": "words still moving 0, iterations 1, line offsets 0, steps unreached 0, counters off 0"
+      "detail": "words still moving 0, iterations n/a, line offsets 0, steps unreached 0, counters off 0, signature not landed 0, moving outside the signature 0"
     },
     {
       "viewport": "all",

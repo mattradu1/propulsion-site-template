@@ -1,0 +1,8 @@
+{
+  "note": "Sales demo mode (node build.mjs <slug> --demo-mode). DEMO clients only. node scripts/demo-serve.mjs builds each and serves it on its own local port so Matt can switch trades while screen-sharing. Never deployed.",
+  "clients": [
+    { "slug": "test-roofing", "url": "http://localhost:4201/" },
+    { "slug": "test-bathrooms", "url": "http://localhost:4202/" },
+    { "slug": "slate-gutters", "url": "http://localhost:4203/" }
+  ]
+}
